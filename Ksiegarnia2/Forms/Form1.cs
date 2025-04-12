@@ -1,4 +1,5 @@
 ﻿using Ksiegarnia;
+using Ksiegarnia.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,41 @@ namespace Ksiegarnia2
         {
             Zasoby zasoby = new Zasoby();
             zasoby.Show();
+        }
+
+        private void btnPracownicy_Click(object sender, EventArgs e)
+        {
+            Pracownicy pracownicy = new Pracownicy();
+            pracownicy.Show();
+        }
+
+        private void btnZakupy_Click(object sender, EventArgs e)
+        {
+            Zakupy zakupy = new Zakupy();
+            zakupy.Show();
+        }
+
+        private void btnCennik_Click(object sender, EventArgs e)
+        {
+            Cennik cennik = new Cennik();
+            cennik.Show();
+        }
+
+        private void btnHistoriaZakupow_Click(object sender, EventArgs e)
+        {
+            HistoriaZakupow historiaZakupow = new HistoriaZakupow();
+            historiaZakupow.Show();
+        }
+
+        private void btnRaporty_Click(object sender, EventArgs e)
+        {
+            Raporty raporty = new Raporty();
+            raporty.Show();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -45,6 +45,7 @@
             this.btnRaporty.TabIndex = 20;
             this.btnRaporty.Text = "Raporty";
             this.btnRaporty.UseVisualStyleBackColor = true;
+            this.btnRaporty.Click += new System.EventHandler(this.btnRaporty_Click);
             // 
             // btnClose
             // 
@@ -54,6 +55,7 @@
             this.btnClose.TabIndex = 19;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnHistoriaZakupow
             // 
@@ -63,6 +65,7 @@
             this.btnHistoriaZakupow.TabIndex = 18;
             this.btnHistoriaZakupow.Text = "HistoriaZakupów";
             this.btnHistoriaZakupow.UseVisualStyleBackColor = true;
+            this.btnHistoriaZakupow.Click += new System.EventHandler(this.btnHistoriaZakupow_Click);
             // 
             // btnCennik
             // 
@@ -72,6 +75,7 @@
             this.btnCennik.TabIndex = 17;
             this.btnCennik.Text = "Cennik";
             this.btnCennik.UseVisualStyleBackColor = true;
+            this.btnCennik.Click += new System.EventHandler(this.btnCennik_Click);
             // 
             // btnZakupy
             // 
@@ -81,6 +85,7 @@
             this.btnZakupy.TabIndex = 16;
             this.btnZakupy.Text = "Zakupy";
             this.btnZakupy.UseVisualStyleBackColor = true;
+            this.btnZakupy.Click += new System.EventHandler(this.btnZakupy_Click);
             // 
             // btnPracownicy
             // 
@@ -90,6 +95,7 @@
             this.btnPracownicy.TabIndex = 15;
             this.btnPracownicy.Text = "Pracownicy";
             this.btnPracownicy.UseVisualStyleBackColor = true;
+            this.btnPracownicy.Click += new System.EventHandler(this.btnPracownicy_Click);
             // 
             // btnZasoby
             // 
