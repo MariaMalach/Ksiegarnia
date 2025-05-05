@@ -103,10 +103,55 @@
     <Compile Include="Forms\Zasoby.Designer.cs">
       <DependentUpon>Zasoby.cs</DependentUpon>
     </Compile>
+    <Compile Include="KsiegarniaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KsiegarniaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="KsiegarniaDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KsiegarniaDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="KsiegarniaDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KsiegarniaDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="KsiegarniaDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KsiegarniaDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="KsiegarniaDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KsiegarniaDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="KsiegarniaDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KsiegarniaDataSet5.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Cennik.resx">
+      <DependentUpon>Cennik.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HistoriaZakupow.resx">
+      <DependentUpon>HistoriaZakupow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Pracownicy.resx">
+      <DependentUpon>Pracownicy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Raporty.resx">
+      <DependentUpon>Raporty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Zakupy.resx">
+      <DependentUpon>Zakupy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Zasoby.resx">
       <DependentUpon>Zasoby.cs</DependentUpon>
@@ -120,6 +165,72 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="KsiegarniaDataSet.xsc">
+      <DependentUpon>KsiegarniaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="KsiegarniaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KsiegarniaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KsiegarniaDataSet.xss">
+      <DependentUpon>KsiegarniaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="KsiegarniaDataSet1.xsc">
+      <DependentUpon>KsiegarniaDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="KsiegarniaDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KsiegarniaDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KsiegarniaDataSet1.xss">
+      <DependentUpon>KsiegarniaDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="KsiegarniaDataSet2.xsc">
+      <DependentUpon>KsiegarniaDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="KsiegarniaDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KsiegarniaDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KsiegarniaDataSet2.xss">
+      <DependentUpon>KsiegarniaDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="KsiegarniaDataSet3.xsc">
+      <DependentUpon>KsiegarniaDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="KsiegarniaDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KsiegarniaDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KsiegarniaDataSet3.xss">
+      <DependentUpon>KsiegarniaDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="KsiegarniaDataSet4.xsc">
+      <DependentUpon>KsiegarniaDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="KsiegarniaDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KsiegarniaDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KsiegarniaDataSet4.xss">
+      <DependentUpon>KsiegarniaDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="KsiegarniaDataSet5.xsc">
+      <DependentUpon>KsiegarniaDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="KsiegarniaDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KsiegarniaDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KsiegarniaDataSet5.xss">
+      <DependentUpon>KsiegarniaDataSet5.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

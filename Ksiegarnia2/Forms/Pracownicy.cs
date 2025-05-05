@@ -16,5 +16,12 @@ namespace Ksiegarnia.Forms
         {
             InitializeComponent();
         }
+
+        private void Pracownicy_Load(object sender, EventArgs e)
+        {
+            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet1.Pracownicy' . Możesz go przenieść lub usunąć.
+            this.pracownicyTableAdapter.Fill(this.ksiegarniaDataSet1.Pracownicy);
+
+        }
     }
 }
