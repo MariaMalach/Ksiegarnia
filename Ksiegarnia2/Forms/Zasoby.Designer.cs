@@ -34,10 +34,6 @@
             this.ksiegarniaDataSet5 = new Ksiegarnia2.KsiegarniaDataSet5();
             this.ksiegarniaDataSet = new Ksiegarnia2.KsiegarniaDataSet();
             this.zasobyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.zasobyTableAdapter = new Ksiegarnia2.KsiegarniaDataSetTableAdapters.ZasobyTableAdapter();
-            this.zasobyBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.zasoby_AutorzyTableAdapter = new Ksiegarnia2.KsiegarniaDataSetTableAdapters.Zasoby_AutorzyTableAdapter();
-            this.vwZasobyPelneBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vw_Zasoby_PelneTableAdapter = new Ksiegarnia2.KsiegarniaDataSet5TableAdapters.vw_Zasoby_PelneTableAdapter();
             this.dgvZasoby = new System.Windows.Forms.DataGridView();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
@@ -63,12 +59,13 @@
             this.autorzyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataUtworzeniaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSzukaj = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zasobyBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zasobyBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vwZasobyPelneBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZasoby)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
@@ -95,24 +92,6 @@
             // 
             this.zasobyBindingSource.DataMember = "Zasoby";
             this.zasobyBindingSource.DataSource = this.bindingSource1;
-            // 
-            // zasobyTableAdapter
-            // 
-            this.zasobyTableAdapter.ClearBeforeFill = true;
-            // 
-            // zasobyBindingSource1
-            // 
-            this.zasobyBindingSource1.DataMember = "Zasoby";
-            this.zasobyBindingSource1.DataSource = this.bindingSource1;
-            // 
-            // zasoby_AutorzyTableAdapter
-            // 
-            this.zasoby_AutorzyTableAdapter.ClearBeforeFill = true;
-            // 
-            // vwZasobyPelneBindingSource
-            // 
-            this.vwZasobyPelneBindingSource.DataMember = "vw_Zasoby_Pelne";
-            this.vwZasobyPelneBindingSource.DataSource = this.bindingSource1;
             // 
             // vw_Zasoby_PelneTableAdapter
             // 
@@ -141,7 +120,7 @@
             // bindingNavigator1
             // 
             this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.bindingNavigator1.BindingSource = this.vwZasobyPelneBindingSource;
+            this.bindingNavigator1.BindingSource = this.vwZasobyPelneBindingSource1;
             this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
             this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
             this.bindingNavigator1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -265,7 +244,7 @@
             // cmbKategorie
             // 
             this.cmbKategorie.FormattingEnabled = true;
-            this.cmbKategorie.Location = new System.Drawing.Point(796, 64);
+            this.cmbKategorie.Location = new System.Drawing.Point(725, 66);
             this.cmbKategorie.Name = "cmbKategorie";
             this.cmbKategorie.Size = new System.Drawing.Size(121, 28);
             this.cmbKategorie.TabIndex = 3;
@@ -333,7 +312,7 @@
             // 
             // btnSzukaj
             // 
-            this.btnSzukaj.Location = new System.Drawing.Point(1002, 53);
+            this.btnSzukaj.Location = new System.Drawing.Point(868, 60);
             this.btnSzukaj.Name = "btnSzukaj";
             this.btnSzukaj.Size = new System.Drawing.Size(129, 38);
             this.btnSzukaj.TabIndex = 4;
@@ -341,11 +320,45 @@
             this.btnSzukaj.UseVisualStyleBackColor = true;
             this.btnSzukaj.Click += new System.EventHandler(this.btnSzukaj_Click);
             // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(1202, -1);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(67, 48);
+            this.btnClose.TabIndex = 20;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1067, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(129, 38);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "Powrót";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1015, 60);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(164, 51);
+            this.button2.TabIndex = 22;
+            this.button2.Text = "wyszysc wyszukiwanie";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Zasoby
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1269, 571);
+            this.ControlBox = false;
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSzukaj);
             this.Controls.Add(this.cmbKategorie);
             this.Controls.Add(this.txbWyszukiwarka);
@@ -358,8 +371,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zasobyBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zasobyBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vwZasobyPelneBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZasoby)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
@@ -374,11 +385,7 @@
         private System.Windows.Forms.BindingSource bindingSource1;
         private Ksiegarnia2.KsiegarniaDataSet ksiegarniaDataSet;
         private System.Windows.Forms.BindingSource zasobyBindingSource;
-        private Ksiegarnia2.KsiegarniaDataSetTableAdapters.ZasobyTableAdapter zasobyTableAdapter;
-        private System.Windows.Forms.BindingSource zasobyBindingSource1;
-        private Ksiegarnia2.KsiegarniaDataSetTableAdapters.Zasoby_AutorzyTableAdapter zasoby_AutorzyTableAdapter;
         private Ksiegarnia2.KsiegarniaDataSet5 ksiegarniaDataSet5;
-        private System.Windows.Forms.BindingSource vwZasobyPelneBindingSource;
         private Ksiegarnia2.KsiegarniaDataSet5TableAdapters.vw_Zasoby_PelneTableAdapter vw_Zasoby_PelneTableAdapter;
         private System.Windows.Forms.DataGridView dgvZasoby;
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
@@ -404,5 +411,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn autorzyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataUtworzeniaDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btnSzukaj;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

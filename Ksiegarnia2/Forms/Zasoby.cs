@@ -9,18 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data.OleDb;
+using Ksiegarnia2;
 
 namespace Ksiegarnia
 {
     public partial class Zasoby : Form
     {
         SqlDataAdapter adapter;
-        DataSet ds;
+        
         public Zasoby()
         {
             InitializeComponent();
             SchemaDataLoad();
-            ZaładujDane();
+            DataSet ds = ZaładujDane();
+            dgvZasoby.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
 
 
         }
@@ -32,50 +35,75 @@ namespace Ksiegarnia
 
             // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet5.vw_Zasoby_Pelne' . Możesz go przenieść lub usunąć.
             this.vw_Zasoby_PelneTableAdapter.Fill(this.ksiegarniaDataSet5.vw_Zasoby_Pelne);
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet.Zasoby_Autorzy' . Możesz go przenieść lub usunąć.
-            this.zasoby_AutorzyTableAdapter.Fill(this.ksiegarniaDataSet.Zasoby_Autorzy);
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet.Zasoby' . Możesz go przenieść lub usunąć.
-            this.zasobyTableAdapter.Fill(this.ksiegarniaDataSet.Zasoby);
+            
+      
 
         }
         private void SchemaDataLoad()
         {
             cmbKategorie.Items.Clear();
-            cmbKategorie.Items.Add("Wszystkie"); // Dodaj opcję "Wszystkie" na początku
+            
 
-            // Zakładam, że masz kolumnę NazwaKategorii w widoku
             foreach (DataGridViewColumn column in dgvZasoby.Columns)
             {
-                if (column.Visible) // Jeśli chcesz tylko widoczne kolumny
+                if (column.Visible) // tylko widoczne kolumny
                 {
-                    cmbKategorie.Items.Add(column.HeaderText); // Dodaj nazwę kolumny do ComboBox
+                    cmbKategorie.Items.Add(column.HeaderText); // Uzupełnianie nazwami kolumn ComboBoxa
                 }
             }
-
-            if (cmbKategorie.Items.Count > 0)
-                cmbKategorie.SelectedIndex = 0; // Ustaw "Wszystkie" na domyślną kategorię
         }
 
 
-      
+
         private void FiltrujDane()
         {
+            if (cmbKategorie.SelectedItem == null || string.IsNullOrWhiteSpace(txbWyszukiwarka.Text))
+            {
+                vwZasobyPelneBindingSource1.RemoveFilter();
+                return;
+            }
+
+            string selectedColumn = cmbKategorie.SelectedItem.ToString();
+            string searchText = txbWyszukiwarka.Text.Trim().Replace("'", "''");
+
+            // Pobierz typ kolumny
+            var columnType = ((DataView)vwZasobyPelneBindingSource1.List).Table.Columns[selectedColumn].DataType;
+
             string filtr = "";
 
-            // Filtr po tytule
-            if (!string.IsNullOrWhiteSpace(txbWyszukiwarka.Text))
+            if (columnType == typeof(string))
             {
-                filtr += $"Tytul LIKE '%{txbWyszukiwarka.Text.Replace("'", "''")}%'"; // Escape apostrofów
+                filtr = $"{selectedColumn} LIKE '%{searchText}%'";
+            }
+            else if (columnType == typeof(int) || columnType == typeof(long) || columnType == typeof(short))
+            {
+                if (int.TryParse(searchText, out int liczba))
+                {
+                    filtr = $"{selectedColumn} = {liczba}";
+                }
+                else
+                {
+                    MessageBox.Show("Wprowadź poprawną liczbę.", "Błąd");
+                    return;
+                }
+            }
+            else if (columnType == typeof(DateTime))
+            {
+                if (DateTime.TryParse(searchText, out DateTime data))
+                {
+                    filtr = $"{selectedColumn} = '#{data:yyyy-MM-dd}#'";
+                }
+                else
+                {
+                    MessageBox.Show("Wprowadź poprawną datę.", "Błąd");
+                    return;
+                }
+            }
+            else
+            {
+                filtr = $"{selectedColumn} = '{searchText}'"; // fallback
             }
 
-            // Filtr po kategorii (jeśli wybrano coś innego niż "Wszystkie")
-            if (cmbKategorie.SelectedItem != null && cmbKategorie.SelectedItem.ToString() != "Wszystkie")
-            {
-                if (!string.IsNullOrEmpty(filtr)) filtr += " AND ";
-                filtr += $"NazwaKategorii = '{cmbKategorie.SelectedItem.ToString().Replace("'", "''")}'";
-            }
-
-            // Ustawienie filtra w BindingSource
             vwZasobyPelneBindingSource1.Filter = filtr;
         }
 
@@ -84,28 +112,25 @@ namespace Ksiegarnia
 
 
 
-        private void ZaładujDane()
+
+
+        private DataSet ZaładujDane()
         {
             using (SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=Ksiegarnia;Integrated Security=True"))
             {
                 // Używamy widoku vw_Zasoby_Rozszerzone
                 string sql = @"SELECT z.Tytul, z.RokWydania, z.Ilosc,
-                              k.NazwaKategorii, w.Nazwa AS Wydawnictwo,
-                              a.Imie + ' ' + a.Nazwisko AS Autor,
+                              z.NazwaKategorii, z.NazwaWydawnictwa,
+                              z.Autorzy,
                               z.DataUtworzenia
-                       FROM vw_Zasoby_Rozszerzone z
-                       LEFT JOIN Kategoria k ON z.IDKategoria = k.IDKategoria
-                       LEFT JOIN Wydawnictwo w ON z.IDWydawnictwo = w.IDWydawnictwo
-                       LEFT JOIN Zasoby_Autorzy za ON z.Id = za.IdZasobu
-                       LEFT JOIN Autorzy a ON za.IdAutora = a.Id";
+                       FROM vw_Zasoby_Pelne z";
 
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds, "Zasoby");
 
-                // Przypisujemy dane z DataSet do BindingSource
-                vwZasobyPelneBindingSource1.DataSource = ds.Tables["Zasoby"];
-                dgvZasoby.DataSource = vwZasobyPelneBindingSource1; // Powiązanie z DataGridView
+                return ds;
+                
             }
         }
 
@@ -118,7 +143,24 @@ namespace Ksiegarnia
 
         }
 
-       
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            vwZasobyPelneBindingSource1.RemoveFilter();
+            txbWyszukiwarka.Clear();
+        }
     }
 }
 

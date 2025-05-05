@@ -23,6 +23,8 @@ namespace Ksiegarnia2
         {
             Zasoby zasoby = new Zasoby();
             zasoby.Show();
+            this.Hide();
+
         }
 
         private void btnPracownicy_Click(object sender, EventArgs e)
