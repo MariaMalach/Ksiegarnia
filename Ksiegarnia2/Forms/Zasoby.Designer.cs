@@ -31,36 +31,48 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Zasoby));
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.ksiegarniaDataSet5 = new Ksiegarnia2.KsiegarniaDataSet5();
             this.ksiegarniaDataSet = new Ksiegarnia2.KsiegarniaDataSet();
             this.zasobyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.zasobyTableAdapter = new Ksiegarnia2.KsiegarniaDataSetTableAdapters.ZasobyTableAdapter();
             this.zasobyBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.zasoby_AutorzyTableAdapter = new Ksiegarnia2.KsiegarniaDataSetTableAdapters.Zasoby_AutorzyTableAdapter();
-            this.ksiegarniaDataSet5 = new Ksiegarnia2.KsiegarniaDataSet5();
             this.vwZasobyPelneBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vw_Zasoby_PelneTableAdapter = new Ksiegarnia2.KsiegarniaDataSet5TableAdapters.vw_Zasoby_PelneTableAdapter();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvZasoby = new System.Windows.Forms.DataGridView();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
+            this.txbWyszukiwarka = new System.Windows.Forms.TextBox();
+            this.cmbKategorie = new System.Windows.Forms.ComboBox();
+            this.vwZasobyPelneBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.tytulDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rokWydaniaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iloscDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nazwaKategoriiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nazwaWydawnictwaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.autorzyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataUtworzeniaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSzukaj = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zasobyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zasobyBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwZasobyPelneBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvZasoby)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vwZasobyPelneBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // bindingSource1
@@ -68,6 +80,11 @@
             this.bindingSource1.AllowNew = false;
             this.bindingSource1.DataSource = this.ksiegarniaDataSet5;
             this.bindingSource1.Position = 0;
+            // 
+            // ksiegarniaDataSet5
+            // 
+            this.ksiegarniaDataSet5.DataSetName = "KsiegarniaDataSet5";
+            this.ksiegarniaDataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // ksiegarniaDataSet
             // 
@@ -92,11 +109,6 @@
             // 
             this.zasoby_AutorzyTableAdapter.ClearBeforeFill = true;
             // 
-            // ksiegarniaDataSet5
-            // 
-            this.ksiegarniaDataSet5.DataSetName = "KsiegarniaDataSet5";
-            this.ksiegarniaDataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // vwZasobyPelneBindingSource
             // 
             this.vwZasobyPelneBindingSource.DataMember = "vw_Zasoby_Pelne";
@@ -106,15 +118,25 @@
             // 
             this.vw_Zasoby_PelneTableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridView1
+            // dgvZasoby
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 133);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1245, 389);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvZasoby.AutoGenerateColumns = false;
+            this.dgvZasoby.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvZasoby.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tytulDataGridViewTextBoxColumn,
+            this.rokWydaniaDataGridViewTextBoxColumn,
+            this.iloscDataGridViewTextBoxColumn,
+            this.nazwaKategoriiDataGridViewTextBoxColumn,
+            this.nazwaWydawnictwaDataGridViewTextBoxColumn,
+            this.autorzyDataGridViewTextBoxColumn,
+            this.dataUtworzeniaDataGridViewTextBoxColumn});
+            this.dgvZasoby.DataSource = this.vwZasobyPelneBindingSource1;
+            this.dgvZasoby.Location = new System.Drawing.Point(0, 133);
+            this.dgvZasoby.Name = "dgvZasoby";
+            this.dgvZasoby.RowHeadersWidth = 62;
+            this.dgvZasoby.RowTemplate.Height = 28;
+            this.dgvZasoby.Size = new System.Drawing.Size(1245, 389);
+            this.dgvZasoby.TabIndex = 0;
             // 
             // bindingNavigator1
             // 
@@ -146,6 +168,31 @@
             this.bindingNavigator1.Size = new System.Drawing.Size(1269, 33);
             this.bindingNavigator1.TabIndex = 1;
             this.bindingNavigator1.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(34, 28);
+            this.bindingNavigatorAddNewItem.Text = "Dodaj nowy";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 28);
+            this.bindingNavigatorCountItem.Text = "z {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Suma elementów";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(34, 28);
+            this.bindingNavigatorDeleteItem.Text = "Usuń";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -180,16 +227,9 @@
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Bieżąca pozycja";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 28);
-            this.bindingNavigatorCountItem.Text = "z {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Suma elementów";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 33);
             // 
             // bindingNavigatorMoveNextItem
@@ -212,47 +252,119 @@
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 33);
             // 
-            // bindingNavigatorAddNewItem
+            // txbWyszukiwarka
             // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(34, 28);
-            this.bindingNavigatorAddNewItem.Text = "Dodaj nowy";
+            this.txbWyszukiwarka.Location = new System.Drawing.Point(104, 66);
+            this.txbWyszukiwarka.Name = "txbWyszukiwarka";
+            this.txbWyszukiwarka.Size = new System.Drawing.Size(599, 26);
+            this.txbWyszukiwarka.TabIndex = 2;
             // 
-            // bindingNavigatorDeleteItem
+            // cmbKategorie
             // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(34, 28);
-            this.bindingNavigatorDeleteItem.Text = "Usuń";
+            this.cmbKategorie.FormattingEnabled = true;
+            this.cmbKategorie.Location = new System.Drawing.Point(796, 64);
+            this.cmbKategorie.Name = "cmbKategorie";
+            this.cmbKategorie.Size = new System.Drawing.Size(121, 28);
+            this.cmbKategorie.TabIndex = 3;
+            // 
+            // vwZasobyPelneBindingSource1
+            // 
+            this.vwZasobyPelneBindingSource1.DataMember = "vw_Zasoby_Pelne";
+            this.vwZasobyPelneBindingSource1.DataSource = this.bindingSource1;
+            // 
+            // tytulDataGridViewTextBoxColumn
+            // 
+            this.tytulDataGridViewTextBoxColumn.DataPropertyName = "Tytul";
+            this.tytulDataGridViewTextBoxColumn.HeaderText = "Tytul";
+            this.tytulDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.tytulDataGridViewTextBoxColumn.Name = "tytulDataGridViewTextBoxColumn";
+            this.tytulDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // rokWydaniaDataGridViewTextBoxColumn
+            // 
+            this.rokWydaniaDataGridViewTextBoxColumn.DataPropertyName = "RokWydania";
+            this.rokWydaniaDataGridViewTextBoxColumn.HeaderText = "RokWydania";
+            this.rokWydaniaDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.rokWydaniaDataGridViewTextBoxColumn.Name = "rokWydaniaDataGridViewTextBoxColumn";
+            this.rokWydaniaDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // iloscDataGridViewTextBoxColumn
+            // 
+            this.iloscDataGridViewTextBoxColumn.DataPropertyName = "Ilosc";
+            this.iloscDataGridViewTextBoxColumn.HeaderText = "Ilosc";
+            this.iloscDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.iloscDataGridViewTextBoxColumn.Name = "iloscDataGridViewTextBoxColumn";
+            this.iloscDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // nazwaKategoriiDataGridViewTextBoxColumn
+            // 
+            this.nazwaKategoriiDataGridViewTextBoxColumn.DataPropertyName = "NazwaKategorii";
+            this.nazwaKategoriiDataGridViewTextBoxColumn.HeaderText = "NazwaKategorii";
+            this.nazwaKategoriiDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.nazwaKategoriiDataGridViewTextBoxColumn.Name = "nazwaKategoriiDataGridViewTextBoxColumn";
+            this.nazwaKategoriiDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // nazwaWydawnictwaDataGridViewTextBoxColumn
+            // 
+            this.nazwaWydawnictwaDataGridViewTextBoxColumn.DataPropertyName = "NazwaWydawnictwa";
+            this.nazwaWydawnictwaDataGridViewTextBoxColumn.HeaderText = "NazwaWydawnictwa";
+            this.nazwaWydawnictwaDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.nazwaWydawnictwaDataGridViewTextBoxColumn.Name = "nazwaWydawnictwaDataGridViewTextBoxColumn";
+            this.nazwaWydawnictwaDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // autorzyDataGridViewTextBoxColumn
+            // 
+            this.autorzyDataGridViewTextBoxColumn.DataPropertyName = "Autorzy";
+            this.autorzyDataGridViewTextBoxColumn.HeaderText = "Autorzy";
+            this.autorzyDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.autorzyDataGridViewTextBoxColumn.Name = "autorzyDataGridViewTextBoxColumn";
+            this.autorzyDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // dataUtworzeniaDataGridViewTextBoxColumn
+            // 
+            this.dataUtworzeniaDataGridViewTextBoxColumn.DataPropertyName = "DataUtworzenia";
+            this.dataUtworzeniaDataGridViewTextBoxColumn.HeaderText = "DataUtworzenia";
+            this.dataUtworzeniaDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.dataUtworzeniaDataGridViewTextBoxColumn.Name = "dataUtworzeniaDataGridViewTextBoxColumn";
+            this.dataUtworzeniaDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // btnSzukaj
+            // 
+            this.btnSzukaj.Location = new System.Drawing.Point(1002, 53);
+            this.btnSzukaj.Name = "btnSzukaj";
+            this.btnSzukaj.Size = new System.Drawing.Size(129, 38);
+            this.btnSzukaj.TabIndex = 4;
+            this.btnSzukaj.Text = "Szukaj";
+            this.btnSzukaj.UseVisualStyleBackColor = true;
+            this.btnSzukaj.Click += new System.EventHandler(this.btnSzukaj_Click);
             // 
             // Zasoby
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1269, 571);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.btnSzukaj);
+            this.Controls.Add(this.cmbKategorie);
+            this.Controls.Add(this.txbWyszukiwarka);
+            this.Controls.Add(this.dgvZasoby);
             this.Controls.Add(this.bindingNavigator1);
             this.Name = "Zasoby";
             this.Text = "Zasoby";
             this.Load += new System.EventHandler(this.Zasoby_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zasobyBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zasobyBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwZasobyPelneBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvZasoby)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vwZasobyPelneBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -268,7 +380,7 @@
         private Ksiegarnia2.KsiegarniaDataSet5 ksiegarniaDataSet5;
         private System.Windows.Forms.BindingSource vwZasobyPelneBindingSource;
         private Ksiegarnia2.KsiegarniaDataSet5TableAdapters.vw_Zasoby_PelneTableAdapter vw_Zasoby_PelneTableAdapter;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvZasoby;
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -281,5 +393,16 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
+        private System.Windows.Forms.TextBox txbWyszukiwarka;
+        private System.Windows.Forms.ComboBox cmbKategorie;
+        private System.Windows.Forms.BindingSource vwZasobyPelneBindingSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tytulDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rokWydaniaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iloscDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nazwaKategoriiDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nazwaWydawnictwaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn autorzyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataUtworzeniaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnSzukaj;
     }
 }

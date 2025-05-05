@@ -19,12 +19,16 @@ namespace Ksiegarnia
         public Zasoby()
         {
             InitializeComponent();
+            SchemaDataLoad();
+
+
         }
 
         private void Zasoby_Load(object sender, EventArgs e)
         {
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet5.vw_Zasoby_Rozszerzone' . Możesz go przenieść lub usunąć.
-            this.vw_Zasoby_RozszerzoneTableAdapter.Fill(this.ksiegarniaDataSet5.vw_Zasoby_Rozszerzone);
+
+
+
             // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet5.vw_Zasoby_Pelne' . Możesz go przenieść lub usunąć.
             this.vw_Zasoby_PelneTableAdapter.Fill(this.ksiegarniaDataSet5.vw_Zasoby_Pelne);
             // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet.Zasoby_Autorzy' . Możesz go przenieść lub usunąć.
@@ -33,5 +37,36 @@ namespace Ksiegarnia
             this.zasobyTableAdapter.Fill(this.ksiegarniaDataSet.Zasoby);
 
         }
+        private void SchemaDataLoad()
+        {
+
+            cmbKategorie.Items.Clear();
+
+            foreach (DataGridViewColumn column in dgvZasoby.Columns)
+            {
+                if (column.Visible) // jeśli chcesz tylko widoczne kolumny
+                {
+                    cmbKategorie.Items.Add(column.HeaderText); // lub column.DataPropertyName
+                }
+            }
+
+            if (cmbKategorie.Items.Count > 0)
+                cmbKategorie.SelectedIndex = 0;
+        }
+
+    
+
+        private void btnSzukaj_Click(object sender, EventArgs e)
+        {
+            DataSet ds = new DataSet();
+            ds.
+        }
     }
+
 }
+   
+
+
+
+
+
