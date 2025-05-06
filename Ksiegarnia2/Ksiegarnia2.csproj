@@ -164,6 +164,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="KsiegarniaDataSet.xsc">
       <DependentUpon>KsiegarniaDataSet.xsd</DependentUpon>
@@ -255,6 +256,33 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-left-circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\v904-nunny-010-l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\360_F_1266928711_rcpUhw1MTbxkoAykmAcwejREtPK29KWf.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\v807-mynt-03.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\generative-ai-pink-magenta-fantastic-clouds-sky-and-landscape-gentle-colors-and-with-bright-lights-photo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-left1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images %281%29.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -99,18 +99,22 @@
             // 
             // btnZasoby
             // 
+            this.btnZasoby.BackColor = System.Drawing.Color.Pink;
+            this.btnZasoby.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnZasoby.Location = new System.Drawing.Point(9, 12);
             this.btnZasoby.Name = "btnZasoby";
             this.btnZasoby.Size = new System.Drawing.Size(187, 47);
             this.btnZasoby.TabIndex = 14;
             this.btnZasoby.Text = "Zasoby";
-            this.btnZasoby.UseVisualStyleBackColor = true;
+            this.btnZasoby.UseVisualStyleBackColor = false;
             this.btnZasoby.Click += new System.EventHandler(this.btnZasoby_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Ksiegarnia2.Properties.Resources.v807_mynt_03;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1269, 571);
             this.Controls.Add(this.btnRaporty);
             this.Controls.Add(this.btnClose);

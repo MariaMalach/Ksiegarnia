@@ -17,12 +17,19 @@ namespace Ksiegarnia
     {
         SqlDataAdapter adapter;
         
+
+        
+
+        
         public Zasoby()
         {
             InitializeComponent();
             SchemaDataLoad();
             DataSet ds = ZaładujDane();
-            dgvZasoby.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvZasoby.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvZasoby.AutoResizeColumns();
+            dgvZasoby.AutoResizeRows();
+
 
 
 
@@ -57,55 +64,60 @@ namespace Ksiegarnia
 
         private void FiltrujDane()
         {
-            if (cmbKategorie.SelectedItem == null || string.IsNullOrWhiteSpace(txbWyszukiwarka.Text))
+            try
             {
-                vwZasobyPelneBindingSource1.RemoveFilter();
-                return;
-            }
-
-            string selectedColumn = cmbKategorie.SelectedItem.ToString();
-            string searchText = txbWyszukiwarka.Text.Trim().Replace("'", "''");
-
-            // Pobierz typ kolumny
-            var columnType = ((DataView)vwZasobyPelneBindingSource1.List).Table.Columns[selectedColumn].DataType;
-
-            string filtr = "";
-
-            if (columnType == typeof(string))
-            {
-                filtr = $"{selectedColumn} LIKE '%{searchText}%'";
-            }
-            else if (columnType == typeof(int) || columnType == typeof(long) || columnType == typeof(short))
-            {
-                if (int.TryParse(searchText, out int liczba))
+                if (cmbKategorie.SelectedItem == null || string.IsNullOrWhiteSpace(txbWyszukiwarka.Text))
                 {
-                    filtr = $"{selectedColumn} = {liczba}";
+                    vwZasobyPelneBindingSource1.RemoveFilter();
+                    return;
+                }
+
+                string selectedColumn = cmbKategorie.SelectedItem.ToString();
+                string searchText = txbWyszukiwarka.Text.Trim().Replace("'", "''");
+
+                var columnType = ((DataView)vwZasobyPelneBindingSource1.List).Table.Columns[selectedColumn].DataType;
+
+                string filtr = "";
+
+                if (columnType == typeof(string))
+                {
+                    filtr = $"{selectedColumn} LIKE '%{searchText}%'";
+                }
+                else if (columnType == typeof(int) || columnType == typeof(long) || columnType == typeof(short))
+                {
+                    if (int.TryParse(searchText, out int liczba))
+                        filtr = $"{selectedColumn} = {liczba}";
+                    else
+                        throw new FormatException("Wprowadź poprawną liczbę.");
+                }
+                else if (columnType == typeof(DateTime))
+                {
+                    if (DateTime.TryParse(searchText, out DateTime data))
+                        filtr = $"{selectedColumn} = '#{data:yyyy-MM-dd}#'";
+                    else
+                        throw new FormatException("Wprowadź poprawną datę.");
                 }
                 else
                 {
-                    MessageBox.Show("Wprowadź poprawną liczbę.", "Błąd");
-                    return;
+                    filtr = $"{selectedColumn} = '{searchText}'";
                 }
-            }
-            else if (columnType == typeof(DateTime))
-            {
-                if (DateTime.TryParse(searchText, out DateTime data))
-                {
-                    filtr = $"{selectedColumn} = '#{data:yyyy-MM-dd}#'";
-                }
-                else
-                {
-                    MessageBox.Show("Wprowadź poprawną datę.", "Błąd");
-                    return;
-                }
-            }
-            else
-            {
-                filtr = $"{selectedColumn} = '{searchText}'"; // fallback
-            }
 
-            vwZasobyPelneBindingSource1.Filter = filtr;
+                vwZasobyPelneBindingSource1.Filter = filtr;
+            }
+            catch (EvaluateException)
+            {
+                MessageBox.Show("Nie można filtrować tej kolumny.", "Błąd filtrowania");
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show(ex.Message, "Nieprawidłowy format danych");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Wystąpił błąd: {ex.Message}", "Błąd");
+            }
         }
+
 
 
 
@@ -116,23 +128,39 @@ namespace Ksiegarnia
 
         private DataSet ZaładujDane()
         {
-            using (SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=Ksiegarnia;Integrated Security=True"))
+            try
             {
-                // Używamy widoku vw_Zasoby_Rozszerzone
-                string sql = @"SELECT z.Tytul, z.RokWydania, z.Ilosc,
+                using (SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=Ksiegarnia;Integrated Security=True"))
+                {
+                    string sql = @"SELECT z.Tytul, z.RokWydania, z.Ilosc,
                               z.NazwaKategorii, z.NazwaWydawnictwa,
                               z.Autorzy,
                               z.DataUtworzenia
-                       FROM vw_Zasoby_Pelne z";
+                           FROM vw_Zasoby_Pelne z";
 
-                SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
-                DataSet ds = new DataSet();
-                adapter.Fill(ds, "Zasoby");
+                    SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds, "Zasoby");
 
-                return ds;
-                
+                    // Bind manually if not using TableAdapter
+                    vwZasobyPelneBindingSource1.DataSource = ds.Tables["Zasoby"];
+                    dgvZasoby.DataSource = vwZasobyPelneBindingSource1;
+
+                    return ds;
+                }
             }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"Błąd SQL: {ex.Message}", "Błąd połączenia z bazą danych");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Wystąpił błąd: {ex.Message}", "Błąd");
+            }
+
+            return null;
         }
+
 
 
 
