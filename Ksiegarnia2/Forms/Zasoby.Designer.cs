@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Zasoby));
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.ksiegarniaDataSet5 = new Ksiegarnia2.KsiegarniaDataSet5();
@@ -66,6 +66,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet)).BeginInit();
@@ -105,14 +106,14 @@
             // 
             this.dgvZasoby.AutoGenerateColumns = false;
             this.dgvZasoby.BackgroundColor = System.Drawing.Color.Pink;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightPink;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Modern No. 20", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkMagenta;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.RosyBrown;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvZasoby.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.LightPink;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Modern No. 20", 12F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkMagenta;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.RosyBrown;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvZasoby.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvZasoby.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvZasoby.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.tytulDataGridViewTextBoxColumn,
@@ -123,14 +124,14 @@
             this.autorzyDataGridViewTextBoxColumn,
             this.dataUtworzeniaDataGridViewTextBoxColumn});
             this.dgvZasoby.DataSource = this.vwZasobyPelneBindingSource1;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightPink;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Modern No. 20", 9.999999F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkMagenta;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvZasoby.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.LightPink;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Modern No. 20", 9.999999F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkMagenta;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvZasoby.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvZasoby.GridColor = System.Drawing.Color.Crimson;
             this.dgvZasoby.Location = new System.Drawing.Point(0, 141);
             this.dgvZasoby.Name = "dgvZasoby";
@@ -322,7 +323,7 @@
             // txbWyszukiwarka
             // 
             this.txbWyszukiwarka.BackColor = System.Drawing.Color.Pink;
-            this.txbWyszukiwarka.Location = new System.Drawing.Point(234, 35);
+            this.txbWyszukiwarka.Location = new System.Drawing.Point(230, 48);
             this.txbWyszukiwarka.Name = "txbWyszukiwarka";
             this.txbWyszukiwarka.Size = new System.Drawing.Size(291, 26);
             this.txbWyszukiwarka.TabIndex = 2;
@@ -332,7 +333,7 @@
             this.cmbKategorie.BackColor = System.Drawing.Color.Pink;
             this.cmbKategorie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbKategorie.FormattingEnabled = true;
-            this.cmbKategorie.Location = new System.Drawing.Point(234, 83);
+            this.cmbKategorie.Location = new System.Drawing.Point(230, 98);
             this.cmbKategorie.Name = "cmbKategorie";
             this.cmbKategorie.Size = new System.Drawing.Size(291, 28);
             this.cmbKategorie.TabIndex = 3;
@@ -342,7 +343,7 @@
             this.btnSzukaj.BackColor = System.Drawing.Color.Pink;
             this.btnSzukaj.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnSzukaj.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold);
-            this.btnSzukaj.Location = new System.Drawing.Point(559, 29);
+            this.btnSzukaj.Location = new System.Drawing.Point(556, 25);
             this.btnSzukaj.Name = "btnSzukaj";
             this.btnSzukaj.Size = new System.Drawing.Size(203, 38);
             this.btnSzukaj.TabIndex = 4;
@@ -382,7 +383,7 @@
             this.button2.BackColor = System.Drawing.Color.Pink;
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button2.Font = new System.Drawing.Font("Modern No. 20", 8.999998F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(559, 83);
+            this.button2.Location = new System.Drawing.Point(556, 79);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(203, 51);
             this.button2.TabIndex = 22;
@@ -395,7 +396,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Pink;
             this.label1.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(12, 83);
+            this.label1.Location = new System.Drawing.Point(8, 98);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(207, 25);
             this.label1.TabIndex = 23;
@@ -406,11 +407,22 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Pink;
             this.label2.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(41, 34);
+            this.label2.Location = new System.Drawing.Point(37, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(178, 25);
             this.label2.TabIndex = 24;
             this.label2.Text = "wyszukaj frazę:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Pink;
+            this.label3.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(298, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 25);
+            this.label3.TabIndex = 36;
+            this.label3.Text = "ZASOBY";
             // 
             // Zasoby
             // 
@@ -420,6 +432,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1278, 571);
             this.ControlBox = false;
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
@@ -482,5 +495,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

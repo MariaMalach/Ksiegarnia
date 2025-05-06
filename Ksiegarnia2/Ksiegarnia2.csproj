@@ -133,6 +133,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>KsiegarniaDataSet5.xsd</DependentUpon>
     </Compile>
+    <Compile Include="KsiegarniaDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KsiegarniaDataSet6.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Cennik.resx">
@@ -231,6 +236,17 @@
     </None>
     <None Include="KsiegarniaDataSet5.xss">
       <DependentUpon>KsiegarniaDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="KsiegarniaDataSet6.xsc">
+      <DependentUpon>KsiegarniaDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="KsiegarniaDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KsiegarniaDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KsiegarniaDataSet6.xss">
+      <DependentUpon>KsiegarniaDataSet6.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

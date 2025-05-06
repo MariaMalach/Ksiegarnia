@@ -27,12 +27,8 @@ namespace Ksiegarnia2
 
         }
 
-        private void btnPracownicy_Click(object sender, EventArgs e)
-        {
-            Pracownicy pracownicy = new Pracownicy();
-            pracownicy.Show();
-        }
-
+        
+        
         private void btnZakupy_Click(object sender, EventArgs e)
         {
             Zakupy zakupy = new Zakupy();
@@ -60,6 +56,12 @@ namespace Ksiegarnia2
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Pracownicy pracownicy = new Pracownicy();
+            pracownicy.Show();
         }
     }
 }

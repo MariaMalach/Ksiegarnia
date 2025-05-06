@@ -33,8 +33,8 @@
             this.btnHistoriaZakupow = new System.Windows.Forms.Button();
             this.btnCennik = new System.Windows.Forms.Button();
             this.btnZakupy = new System.Windows.Forms.Button();
-            this.btnPracownicy = new System.Windows.Forms.Button();
             this.btnZasoby = new System.Windows.Forms.Button();
+            this.btnPracownicy = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnRaporty
@@ -87,16 +87,6 @@
             this.btnZakupy.UseVisualStyleBackColor = true;
             this.btnZakupy.Click += new System.EventHandler(this.btnZakupy_Click);
             // 
-            // btnPracownicy
-            // 
-            this.btnPracownicy.Location = new System.Drawing.Point(202, 12);
-            this.btnPracownicy.Name = "btnPracownicy";
-            this.btnPracownicy.Size = new System.Drawing.Size(187, 47);
-            this.btnPracownicy.TabIndex = 15;
-            this.btnPracownicy.Text = "Pracownicy";
-            this.btnPracownicy.UseVisualStyleBackColor = true;
-            this.btnPracownicy.Click += new System.EventHandler(this.btnPracownicy_Click);
-            // 
             // btnZasoby
             // 
             this.btnZasoby.BackColor = System.Drawing.Color.Pink;
@@ -109,6 +99,18 @@
             this.btnZasoby.UseVisualStyleBackColor = false;
             this.btnZasoby.Click += new System.EventHandler(this.btnZasoby_Click);
             // 
+            // btnPracownicy
+            // 
+            this.btnPracownicy.BackColor = System.Drawing.Color.Pink;
+            this.btnPracownicy.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPracownicy.Location = new System.Drawing.Point(202, 12);
+            this.btnPracownicy.Name = "btnPracownicy";
+            this.btnPracownicy.Size = new System.Drawing.Size(187, 47);
+            this.btnPracownicy.TabIndex = 21;
+            this.btnPracownicy.Text = "Personel";
+            this.btnPracownicy.UseVisualStyleBackColor = false;
+            this.btnPracownicy.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -116,12 +118,13 @@
             this.BackgroundImage = global::Ksiegarnia2.Properties.Resources.v807_mynt_03;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1269, 571);
+            this.ControlBox = false;
+            this.Controls.Add(this.btnPracownicy);
             this.Controls.Add(this.btnRaporty);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnHistoriaZakupow);
             this.Controls.Add(this.btnCennik);
             this.Controls.Add(this.btnZakupy);
-            this.Controls.Add(this.btnPracownicy);
             this.Controls.Add(this.btnZasoby);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -136,8 +139,8 @@
         private System.Windows.Forms.Button btnHistoriaZakupow;
         private System.Windows.Forms.Button btnCennik;
         private System.Windows.Forms.Button btnZakupy;
-        private System.Windows.Forms.Button btnPracownicy;
         private System.Windows.Forms.Button btnZasoby;
+        private System.Windows.Forms.Button btnPracownicy;
     }
 }
 

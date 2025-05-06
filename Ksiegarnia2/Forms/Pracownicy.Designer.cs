@@ -29,45 +29,208 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pracownicy));
-            this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.ksiegarniaDataSet1 = new Ksiegarnia2.KsiegarniaDataSet1();
             this.pracownicyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pracownicyTableAdapter = new Ksiegarnia2.KsiegarniaDataSet1TableAdapters.PracownicyTableAdapter();
-            this.iDPracownikaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnSzukaj = new System.Windows.Forms.Button();
+            this.cmbKategorie = new System.Windows.Forms.ComboBox();
+            this.txbWyszukiwarka = new System.Windows.Forms.TextBox();
+            this.dgvPracownicy = new System.Windows.Forms.DataGridView();
+            this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
+            this.ksiegarniaDataSet6 = new Ksiegarnia2.KsiegarniaDataSet6();
+            this.vwPracownicyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vw_PracownicyTableAdapter = new Ksiegarnia2.KsiegarniaDataSet6TableAdapters.vw_PracownicyTableAdapter();
             this.imieDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nazwiskoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataZatrudnieniaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDStanowiskoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
-            this.bindingNavigator1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pracownicyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPracownicy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
+            this.bindingNavigator1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vwPracownicyBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataSource = this.ksiegarniaDataSet1;
+            this.bindingSource1.Position = 0;
+            // 
+            // ksiegarniaDataSet1
+            // 
+            this.ksiegarniaDataSet1.DataSetName = "KsiegarniaDataSet1";
+            this.ksiegarniaDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // pracownicyBindingSource
+            // 
+            this.pracownicyBindingSource.DataMember = "Pracownicy";
+            this.pracownicyBindingSource.DataSource = this.bindingSource1;
+            // 
+            // pracownicyTableAdapter
+            // 
+            this.pracownicyTableAdapter.ClearBeforeFill = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Pink;
+            this.label2.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(41, 52);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(178, 25);
+            this.label2.TabIndex = 33;
+            this.label2.Text = "wyszukaj frazę:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Pink;
+            this.label1.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(12, 101);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(207, 25);
+            this.label1.TabIndex = 32;
+            this.label1.Text = "wybierz kategorię:";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Pink;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.Font = new System.Drawing.Font("Modern No. 20", 8.999998F, System.Drawing.FontStyle.Bold);
+            this.button2.Location = new System.Drawing.Point(559, 101);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(235, 51);
+            this.button2.TabIndex = 31;
+            this.button2.Text = "wyszyść wyszukiwanie";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Pink;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button1.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold);
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(1089, 17);
+            this.button1.Name = "button1";
+            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.button1.Size = new System.Drawing.Size(107, 48);
+            this.button1.TabIndex = 30;
+            this.button1.Text = "Wróć";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.Pink;
+            this.btnClose.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold);
+            this.btnClose.Location = new System.Drawing.Point(1202, 17);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(67, 48);
+            this.btnClose.TabIndex = 29;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnSzukaj
+            // 
+            this.btnSzukaj.BackColor = System.Drawing.Color.Pink;
+            this.btnSzukaj.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnSzukaj.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold);
+            this.btnSzukaj.Location = new System.Drawing.Point(559, 47);
+            this.btnSzukaj.Name = "btnSzukaj";
+            this.btnSzukaj.Size = new System.Drawing.Size(235, 38);
+            this.btnSzukaj.TabIndex = 28;
+            this.btnSzukaj.Text = "Szukaj";
+            this.btnSzukaj.UseVisualStyleBackColor = false;
+            this.btnSzukaj.Click += new System.EventHandler(this.btnSzukaj_Click);
+            // 
+            // cmbKategorie
+            // 
+            this.cmbKategorie.BackColor = System.Drawing.Color.Pink;
+            this.cmbKategorie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbKategorie.FormattingEnabled = true;
+            this.cmbKategorie.Location = new System.Drawing.Point(234, 101);
+            this.cmbKategorie.Name = "cmbKategorie";
+            this.cmbKategorie.Size = new System.Drawing.Size(291, 28);
+            this.cmbKategorie.TabIndex = 27;
+            // 
+            // txbWyszukiwarka
+            // 
+            this.txbWyszukiwarka.BackColor = System.Drawing.Color.Pink;
+            this.txbWyszukiwarka.Location = new System.Drawing.Point(234, 53);
+            this.txbWyszukiwarka.Name = "txbWyszukiwarka";
+            this.txbWyszukiwarka.Size = new System.Drawing.Size(291, 26);
+            this.txbWyszukiwarka.TabIndex = 26;
+            // 
+            // dgvPracownicy
+            // 
+            this.dgvPracownicy.AutoGenerateColumns = false;
+            this.dgvPracownicy.BackgroundColor = System.Drawing.Color.Pink;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.LightPink;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Modern No. 20", 12F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkMagenta;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.RosyBrown;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPracownicy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvPracownicy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPracownicy.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.imieDataGridViewTextBoxColumn,
+            this.nazwiskoDataGridViewTextBoxColumn,
+            this.dataZatrudnieniaDataGridViewTextBoxColumn,
+            this.emailDataGridViewTextBoxColumn,
+            this.telefonDataGridViewTextBoxColumn});
+            this.dgvPracownicy.DataSource = this.vwPracownicyBindingSource;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.LightPink;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Modern No. 20", 9.999999F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkMagenta;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPracownicy.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvPracownicy.GridColor = System.Drawing.Color.Crimson;
+            this.dgvPracownicy.Location = new System.Drawing.Point(0, 159);
+            this.dgvPracownicy.Name = "dgvPracownicy";
+            this.dgvPracownicy.RowHeadersWidth = 62;
+            this.dgvPracownicy.RowTemplate.Height = 28;
+            this.dgvPracownicy.Size = new System.Drawing.Size(1269, 394);
+            this.dgvPracownicy.TabIndex = 25;
             // 
             // bindingNavigator1
             // 
             this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.bindingNavigator1.BindingSource = this.bindingSource1;
+            this.bindingNavigator1.BindingSource = this.vwPracownicyBindingSource;
             this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
             this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.bindingNavigator1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.bindingNavigator1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
@@ -81,7 +244,7 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem});
-            this.bindingNavigator1.Location = new System.Drawing.Point(0, 0);
+            this.bindingNavigator1.Location = new System.Drawing.Point(0, 538);
             this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -89,33 +252,8 @@
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
             this.bindingNavigator1.Size = new System.Drawing.Size(1269, 33);
-            this.bindingNavigator1.TabIndex = 3;
+            this.bindingNavigator1.TabIndex = 34;
             this.bindingNavigator1.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(34, 28);
-            this.bindingNavigatorAddNewItem.Text = "Dodaj nowy";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 28);
-            this.bindingNavigatorCountItem.Text = "z {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Suma elementów";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(34, 28);
-            this.bindingNavigatorDeleteItem.Text = "Usuń";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -144,14 +282,22 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Pozycja";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 31);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Bieżąca pozycja";
             // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 28);
+            this.bindingNavigatorCountItem.Text = "z {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Suma elementów";
+            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 33);
             // 
             // bindingNavigatorMoveNextItem
@@ -174,56 +320,40 @@
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 33);
             // 
-            // dataGridView1
+            // bindingNavigatorAddNewItem
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDPracownikaDataGridViewTextBoxColumn,
-            this.imieDataGridViewTextBoxColumn,
-            this.nazwiskoDataGridViewTextBoxColumn,
-            this.dataZatrudnieniaDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn,
-            this.telefonDataGridViewTextBoxColumn,
-            this.iDStanowiskoDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.pracownicyBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 42);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1245, 523);
-            this.dataGridView1.TabIndex = 2;
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(34, 28);
+            this.bindingNavigatorAddNewItem.Text = "Dodaj nowy";
             // 
-            // bindingSource1
+            // bindingNavigatorDeleteItem
             // 
-            this.bindingSource1.DataSource = this.ksiegarniaDataSet1;
-            this.bindingSource1.Position = 0;
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(34, 28);
+            this.bindingNavigatorDeleteItem.Text = "Usuń";
             // 
-            // ksiegarniaDataSet1
+            // ksiegarniaDataSet6
             // 
-            this.ksiegarniaDataSet1.DataSetName = "KsiegarniaDataSet1";
-            this.ksiegarniaDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.ksiegarniaDataSet6.DataSetName = "KsiegarniaDataSet6";
+            this.ksiegarniaDataSet6.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // pracownicyBindingSource
+            // vwPracownicyBindingSource
             // 
-            this.pracownicyBindingSource.DataMember = "Pracownicy";
-            this.pracownicyBindingSource.DataSource = this.bindingSource1;
+            this.vwPracownicyBindingSource.DataMember = "vw_Pracownicy";
+            this.vwPracownicyBindingSource.DataSource = this.ksiegarniaDataSet6;
             // 
-            // pracownicyTableAdapter
+            // vw_PracownicyTableAdapter
             // 
-            this.pracownicyTableAdapter.ClearBeforeFill = true;
-            // 
-            // iDPracownikaDataGridViewTextBoxColumn
-            // 
-            this.iDPracownikaDataGridViewTextBoxColumn.DataPropertyName = "IDPracownika";
-            this.iDPracownikaDataGridViewTextBoxColumn.HeaderText = "IDPracownika";
-            this.iDPracownikaDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.iDPracownikaDataGridViewTextBoxColumn.Name = "iDPracownikaDataGridViewTextBoxColumn";
-            this.iDPracownikaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDPracownikaDataGridViewTextBoxColumn.Width = 150;
+            this.vw_PracownicyTableAdapter.ClearBeforeFill = true;
             // 
             // imieDataGridViewTextBoxColumn
             // 
@@ -265,38 +395,67 @@
             this.telefonDataGridViewTextBoxColumn.Name = "telefonDataGridViewTextBoxColumn";
             this.telefonDataGridViewTextBoxColumn.Width = 150;
             // 
-            // iDStanowiskoDataGridViewTextBoxColumn
+            // label3
             // 
-            this.iDStanowiskoDataGridViewTextBoxColumn.DataPropertyName = "IDStanowisko";
-            this.iDStanowiskoDataGridViewTextBoxColumn.HeaderText = "IDStanowisko";
-            this.iDStanowiskoDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.iDStanowiskoDataGridViewTextBoxColumn.Name = "iDStanowiskoDataGridViewTextBoxColumn";
-            this.iDStanowiskoDataGridViewTextBoxColumn.Width = 150;
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Pink;
+            this.label3.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(297, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(148, 25);
+            this.label3.TabIndex = 35;
+            this.label3.Text = "PERSONEL";
             // 
             // Pracownicy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Ksiegarnia2.Properties.Resources.v807_mynt_03;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1269, 571);
+            this.ControlBox = false;
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.bindingNavigator1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnSzukaj);
+            this.Controls.Add(this.cmbKategorie);
+            this.Controls.Add(this.txbWyszukiwarka);
+            this.Controls.Add(this.dgvPracownicy);
             this.Name = "Pracownicy";
             this.Text = "Pracownicy";
             this.Load += new System.EventHandler(this.Pracownicy_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
-            this.bindingNavigator1.ResumeLayout(false);
-            this.bindingNavigator1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pracownicyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPracownicy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
+            this.bindingNavigator1.ResumeLayout(false);
+            this.bindingNavigator1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vwPracownicyBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private Ksiegarnia2.KsiegarniaDataSet1 ksiegarniaDataSet1;
+        private System.Windows.Forms.BindingSource pracownicyBindingSource;
+        private Ksiegarnia2.KsiegarniaDataSet1TableAdapters.PracownicyTableAdapter pracownicyTableAdapter;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnSzukaj;
+        private System.Windows.Forms.ComboBox cmbKategorie;
+        private System.Windows.Forms.TextBox txbWyszukiwarka;
+        private System.Windows.Forms.DataGridView dgvPracownicy;
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -309,17 +468,14 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.BindingSource bindingSource1;
-        private Ksiegarnia2.KsiegarniaDataSet1 ksiegarniaDataSet1;
-        private System.Windows.Forms.BindingSource pracownicyBindingSource;
-        private Ksiegarnia2.KsiegarniaDataSet1TableAdapters.PracownicyTableAdapter pracownicyTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDPracownikaDataGridViewTextBoxColumn;
+        private Ksiegarnia2.KsiegarniaDataSet6 ksiegarniaDataSet6;
+        private System.Windows.Forms.BindingSource vwPracownicyBindingSource;
+        private Ksiegarnia2.KsiegarniaDataSet6TableAdapters.vw_PracownicyTableAdapter vw_PracownicyTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn imieDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nazwiskoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataZatrudnieniaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefonDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDStanowiskoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label3;
     }
 }
