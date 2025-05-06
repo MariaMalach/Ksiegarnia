@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data.OleDb;
 using Ksiegarnia2;
+using Ksiegarnia2.Forms;
 
 namespace Ksiegarnia
 {
@@ -188,6 +189,12 @@ namespace Ksiegarnia
         {
             vwZasobyPelneBindingSource1.RemoveFilter();
             txbWyszukiwarka.Clear();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            EdycjaZasoby edycjaZasoby = new EdycjaZasoby();
+            edycjaZasoby.Show();
         }
     }
 }

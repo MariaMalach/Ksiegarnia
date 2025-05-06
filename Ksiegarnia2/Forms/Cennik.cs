@@ -15,12 +15,16 @@ namespace Ksiegarnia.Forms
         public Cennik()
         {
             InitializeComponent();
+            dgvCennik.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvCennik.AutoResizeColumns();
+            dgvCennik.AutoResizeRows();
         }
 
         private void Cennik_Load(object sender, EventArgs e)
         {
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet4.Ceny' . Możesz go przenieść lub usunąć.
-            this.cenyTableAdapter.Fill(this.ksiegarniaDataSet4.Ceny);
+            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet7.vw_Ceny_Rozszerzone' . Możesz go przenieść lub usunąć.
+            this.vw_Ceny_RozszerzoneTableAdapter.Fill(this.ksiegarniaDataSet7.vw_Ceny_Rozszerzone);
+           
 
         }
     }

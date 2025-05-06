@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\EdycjaZasoby.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EdycjaZasoby.Designer.cs">
+      <DependentUpon>EdycjaZasoby.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,10 +144,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>KsiegarniaDataSet6.xsd</DependentUpon>
     </Compile>
+    <Compile Include="KsiegarniaDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KsiegarniaDataSet7.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Cennik.resx">
       <DependentUpon>Cennik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EdycjaZasoby.resx">
+      <DependentUpon>EdycjaZasoby.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -247,6 +261,17 @@
     </None>
     <None Include="KsiegarniaDataSet6.xss">
       <DependentUpon>KsiegarniaDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="KsiegarniaDataSet7.xsc">
+      <DependentUpon>KsiegarniaDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="KsiegarniaDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KsiegarniaDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KsiegarniaDataSet7.xss">
+      <DependentUpon>KsiegarniaDataSet7.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
