@@ -74,7 +74,7 @@ namespace Ksiegarnia
                 }
 
                 string selectedColumn = cmbKategorie.SelectedItem.ToString();
-                string searchText = txbWyszukiwarka.Text.Trim().Replace("'", "''");
+                string searchText = txbWyszukiwarka.Text;
 
                 var columnType = ((DataView)vwZasobyPelneBindingSource1.List).Table.Columns[selectedColumn].DataType;
 
@@ -143,7 +143,7 @@ namespace Ksiegarnia
                     DataSet ds = new DataSet();
                     adapter.Fill(ds, "Zasoby");
 
-                    // Bind manually if not using TableAdapter
+                    
                     vwZasobyPelneBindingSource1.DataSource = ds.Tables["Zasoby"];
                     dgvZasoby.DataSource = vwZasobyPelneBindingSource1;
 

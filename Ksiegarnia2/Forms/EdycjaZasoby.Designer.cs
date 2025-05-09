@@ -71,7 +71,7 @@
             this.label1.Size = new System.Drawing.Size(153, 25);
             this.label1.TabIndex = 28;
             this.label1.Text = "Rok wydania";
-            t
+            
             // 
             // textBox1
             // 
