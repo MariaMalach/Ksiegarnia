@@ -25,7 +25,7 @@ namespace Ksiegarnia.Forms
         private void Cennik_Load(object sender, EventArgs e)
         {
             // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet7.vw_Ceny_Rozszerzone' . Możesz go przenieść lub usunąć.
-            this.vw_Ceny_RozszerzoneTableAdapter.Fill(this.ksiegarniaDataSet7.vw_Ceny_Rozszerzone);
+            //this.vw_Ceny_RozszerzoneTableAdapter.Fill(this.ksiegarniaDataSet7.vw_Ceny_Rozszerzone);
            
 
         }

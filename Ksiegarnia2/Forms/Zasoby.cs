@@ -42,7 +42,7 @@ namespace Ksiegarnia
 
 
             // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet5.vw_Zasoby_Pelne' . Możesz go przenieść lub usunąć.
-            this.vw_Zasoby_PelneTableAdapter.Fill(this.ksiegarniaDataSet5.vw_Zasoby_Pelne);
+            //this.vw_Zasoby_PelneTableAdapter.Fill(this.ksiegarniaDataSet5.vw_Zasoby_Pelne);
             
       
 
@@ -193,7 +193,7 @@ namespace Ksiegarnia
 
         private void button3_Click(object sender, EventArgs e)
         {
-            EdycjaZasoby edycjaZasoby = new EdycjaZasoby();
+            DodajZasoby edycjaZasoby = new DodajZasoby();
             edycjaZasoby.Show();
         }
     }

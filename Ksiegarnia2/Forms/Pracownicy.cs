@@ -38,9 +38,11 @@ namespace Ksiegarnia.Forms
         }
         private void Pracownicy_Load(object sender, EventArgs e)
         {
+            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet1.HistoriaZakupow' . Możesz go przenieść lub usunąć.
+            //this.historiaZakupowTableAdapter.Fill(this.ksiegarniaDataSet1.HistoriaZakupow);
             // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet6.vw_Pracownicy' . Możesz go przenieść lub usunąć.
-            this.vw_PracownicyTableAdapter.Fill(this.ksiegarniaDataSet6.vw_Pracownicy);
-            
+            //this.vw_PracownicyTableAdapter.Fill(this.ksiegarniaDataSet6.vw_Pracownicy);
+
 
         }
 
