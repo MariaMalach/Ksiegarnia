@@ -38,15 +38,12 @@ namespace Ksiegarnia
 
         private void Zasoby_Load(object sender, EventArgs e)
         {
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet9.vw_ZasobyAutorzyCeny' . Możesz go przenieść lub usunąć.
-            this.vw_ZasobyAutorzyCenyTableAdapter.Fill(this.ksiegarniaDataSet9.vw_ZasobyAutorzyCeny);
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet5.vw_Zasoby_Rozszerzone' . Możesz go przenieść lub usunąć.
-            //this.vw_Zasoby_RozszerzoneTableAdapter.Fill(this.ksiegarniaDataSet5.vw_Zasoby_Rozszerzone);
+            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet1.Zasoby' . Możesz go przenieść lub usunąć.
+            this.zasobyTableAdapter.Fill(this.ksiegarniaDataSet1.Zasoby);
+            
+           
+            
 
-
-
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet5.vw_Zasoby_Pelne' . Możesz go przenieść lub usunąć.
-            //this.vw_Zasoby_PelneTableAdapter.Fill(this.ksiegarniaDataSet5.vw_Zasoby_Pelne);
 
 
 
@@ -73,14 +70,14 @@ namespace Ksiegarnia
             {
                 if (cmbKategorie.SelectedItem == null || string.IsNullOrWhiteSpace(txbWyszukiwarka.Text))
                 {
-                    vwZasobyPelneBindingSource1.RemoveFilter();
+                    zasobyBindingSource.RemoveFilter();
                     return;
                 }
 
                 string selectedColumn = cmbKategorie.SelectedItem.ToString();
                 string searchText = txbWyszukiwarka.Text;
 
-                var columnType = ((DataView)vwZasobyAutorzyCenyBindingSource.List).Table.Columns[selectedColumn].DataType;
+                var columnType = ((DataView)zasobyBindingSource.List).Table.Columns[selectedColumn].DataType;
 
                 string filtr = "";
 
@@ -107,7 +104,7 @@ namespace Ksiegarnia
                     filtr = $"{selectedColumn} = '{searchText}'";
                 }
 
-                vwZasobyAutorzyCenyBindingSource.Filter = filtr;
+                zasobyBindingSource.Filter = filtr;
 
             }
             catch (EvaluateException)
@@ -161,8 +158,8 @@ GROUP BY
                     adapter.Fill(ds, "Zasoby");
 
 
-                    vwZasobyAutorzyCenyBindingSource.DataSource = ds.Tables["Zasoby"];
-                    dgvZasoby.DataSource = vwZasobyAutorzyCenyBindingSource.DataSource;
+                    zasobyBindingSource.DataSource = ds.Tables["Zasoby"];
+                    dgvZasoby.DataSource = zasobyBindingSource.DataSource;
 
                     return ds;
                 }
@@ -204,7 +201,7 @@ GROUP BY
 
         private void button2_Click(object sender, EventArgs e)
         {
-            vwZasobyAutorzyCenyBindingSource.RemoveFilter();
+            zasobyBindingSource.RemoveFilter();
             txbWyszukiwarka.Clear();
         }
 
@@ -213,6 +210,8 @@ GROUP BY
             DodajZasoby edycjaZasoby = new DodajZasoby();
             edycjaZasoby.Show();
         }
+
+    
     }
 }
 

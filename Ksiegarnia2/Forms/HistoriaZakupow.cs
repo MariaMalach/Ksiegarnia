@@ -19,8 +19,7 @@ namespace Ksiegarnia.Forms
 
         private void HistoriaZakupow_Load(object sender, EventArgs e)
         {
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet3.HistoriaZakupow' . Możesz go przenieść lub usunąć.
-            this.historiaZakupowTableAdapter.Fill(this.ksiegarniaDataSet3.HistoriaZakupow);
+            
 
         }
     }

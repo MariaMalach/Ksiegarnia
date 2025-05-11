@@ -35,11 +35,7 @@ namespace Ksiegarnia2
             zakupy.Show();
         }
 
-        private void btnCennik_Click(object sender, EventArgs e)
-        {
-            Cennik cennik = new Cennik();
-            cennik.Show();
-        }
+       
 
         private void btnHistoriaZakupow_Click(object sender, EventArgs e)
         {
