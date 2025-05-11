@@ -38,13 +38,17 @@ namespace Ksiegarnia
 
         private void Zasoby_Load(object sender, EventArgs e)
         {
+            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet9.vw_ZasobyAutorzyCeny' . Możesz go przenieść lub usunąć.
+            this.vw_ZasobyAutorzyCenyTableAdapter.Fill(this.ksiegarniaDataSet9.vw_ZasobyAutorzyCeny);
+            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet5.vw_Zasoby_Rozszerzone' . Możesz go przenieść lub usunąć.
+            //this.vw_Zasoby_RozszerzoneTableAdapter.Fill(this.ksiegarniaDataSet5.vw_Zasoby_Rozszerzone);
 
 
 
             // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet5.vw_Zasoby_Pelne' . Możesz go przenieść lub usunąć.
             //this.vw_Zasoby_PelneTableAdapter.Fill(this.ksiegarniaDataSet5.vw_Zasoby_Pelne);
-            
-      
+
+
 
         }
         private void SchemaDataLoad()
@@ -76,7 +80,7 @@ namespace Ksiegarnia
                 string selectedColumn = cmbKategorie.SelectedItem.ToString();
                 string searchText = txbWyszukiwarka.Text;
 
-                var columnType = ((DataView)vwZasobyPelneBindingSource1.List).Table.Columns[selectedColumn].DataType;
+                var columnType = ((DataView)vwZasobyAutorzyCenyBindingSource.List).Table.Columns[selectedColumn].DataType;
 
                 string filtr = "";
 
@@ -103,7 +107,8 @@ namespace Ksiegarnia
                     filtr = $"{selectedColumn} = '{searchText}'";
                 }
 
-                vwZasobyPelneBindingSource1.Filter = filtr;
+                vwZasobyAutorzyCenyBindingSource.Filter = filtr;
+
             }
             catch (EvaluateException)
             {
@@ -133,19 +138,31 @@ namespace Ksiegarnia
             {
                 using (SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=Ksiegarnia;Integrated Security=True"))
                 {
-                    string sql = @"SELECT z.Tytul, z.RokWydania, z.Ilosc,
-                              z.NazwaKategorii, z.NazwaWydawnictwa,
-                              z.Autorzy,
-                              z.DataUtworzenia
-                           FROM vw_Zasoby_Pelne z";
+                    string sql = @"SELECT 
+    z.Tytul,
+    STRING_AGG(a.Imie + ' ' + a.Nazwisko, ', ') AS Autorzy,
+    c.Cena,
+    z.RokWydania,
+    z.Kategoria,
+    z.Wydawnictwo
+FROM Zasoby z
+LEFT JOIN Zasoby_Autorzy za ON z.Id = za.IdZasobu
+LEFT JOIN Autorzy a ON za.IdAutora = a.Id
+LEFT JOIN Ceny c ON z.Id = c.IdZasobu
+GROUP BY 
+    z.Tytul,
+    c.Cena,
+    z.RokWydania,
+    z.Kategoria,
+    z.Wydawnictwo";
 
                     SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
                     DataSet ds = new DataSet();
                     adapter.Fill(ds, "Zasoby");
 
-                    
-                    vwZasobyPelneBindingSource1.DataSource = ds.Tables["Zasoby"];
-                    dgvZasoby.DataSource = vwZasobyPelneBindingSource1;
+
+                    vwZasobyAutorzyCenyBindingSource.DataSource = ds.Tables["Zasoby"];
+                    dgvZasoby.DataSource = vwZasobyAutorzyCenyBindingSource.DataSource;
 
                     return ds;
                 }
@@ -187,7 +204,7 @@ namespace Ksiegarnia
 
         private void button2_Click(object sender, EventArgs e)
         {
-            vwZasobyPelneBindingSource1.RemoveFilter();
+            vwZasobyAutorzyCenyBindingSource.RemoveFilter();
             txbWyszukiwarka.Clear();
         }
 

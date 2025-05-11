@@ -53,15 +53,15 @@ namespace Ksiegarnia2
             raporty.Show();
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             Pracownicy pracownicy = new Pracownicy();
             pracownicy.Show();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
