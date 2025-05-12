@@ -29,18 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button2 = new System.Windows.Forms.Button();
             this.txbNazwisko = new System.Windows.Forms.TextBox();
             this.dgvPracownicy = new System.Windows.Forms.DataGridView();
-            this.iDPracownikaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.imieDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nazwiskoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataZatrudnieniaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nazwaStanowiskaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vwPracownicyZeStanowiskiemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ksiegarniaDataSet3 = new Ksiegarnia2.KsiegarniaDataSet3();
             this.btnDodaj = new System.Windows.Forms.Button();
@@ -59,9 +52,22 @@
             this.label7 = new System.Windows.Forms.Label();
             this.cmbStanowisko = new System.Windows.Forms.ComboBox();
             this.dtpZatrudnienie = new System.Windows.Forms.DateTimePicker();
+            this.stanowiskaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.stanowiskaTableAdapter = new Ksiegarnia2.KsiegarniaDataSet3TableAdapters.StanowiskaTableAdapter();
+            this.pracownicyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pracownicyTableAdapter = new Ksiegarnia2.KsiegarniaDataSet3TableAdapters.PracownicyTableAdapter();
+            this.iDPracownikaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imieDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nazwiskoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataZatrudnieniaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nazwaStanowiskaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPracownicy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwPracownicyZeStanowiskiemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stanowiskaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pracownicyBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -91,14 +97,14 @@
             this.dgvPracownicy.AutoGenerateColumns = false;
             this.dgvPracownicy.BackgroundColor = System.Drawing.Color.Pink;
             this.dgvPracownicy.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightPink;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkMagenta;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.RosyBrown;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPracownicy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightPink;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkMagenta;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.RosyBrown;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPracownicy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPracownicy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPracownicy.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDPracownikaDataGridViewTextBoxColumn,
@@ -109,14 +115,14 @@
             this.telefonDataGridViewTextBoxColumn,
             this.nazwaStanowiskaDataGridViewTextBoxColumn});
             this.dgvPracownicy.DataSource = this.vwPracownicyZeStanowiskiemBindingSource;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightPink;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.999999F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkMagenta;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPracownicy.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightPink;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.999999F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkMagenta;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPracownicy.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPracownicy.GridColor = System.Drawing.Color.Crimson;
             this.dgvPracownicy.Location = new System.Drawing.Point(557, 114);
             this.dgvPracownicy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -125,62 +131,6 @@
             this.dgvPracownicy.RowTemplate.Height = 28;
             this.dgvPracownicy.Size = new System.Drawing.Size(1040, 552);
             this.dgvPracownicy.TabIndex = 57;
-            // 
-            // iDPracownikaDataGridViewTextBoxColumn
-            // 
-            this.iDPracownikaDataGridViewTextBoxColumn.DataPropertyName = "IDPracownika";
-            this.iDPracownikaDataGridViewTextBoxColumn.HeaderText = "IDPracownika";
-            this.iDPracownikaDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.iDPracownikaDataGridViewTextBoxColumn.Name = "iDPracownikaDataGridViewTextBoxColumn";
-            this.iDPracownikaDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // imieDataGridViewTextBoxColumn
-            // 
-            this.imieDataGridViewTextBoxColumn.DataPropertyName = "Imie";
-            this.imieDataGridViewTextBoxColumn.HeaderText = "Imie";
-            this.imieDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.imieDataGridViewTextBoxColumn.Name = "imieDataGridViewTextBoxColumn";
-            this.imieDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // nazwiskoDataGridViewTextBoxColumn
-            // 
-            this.nazwiskoDataGridViewTextBoxColumn.DataPropertyName = "Nazwisko";
-            this.nazwiskoDataGridViewTextBoxColumn.HeaderText = "Nazwisko";
-            this.nazwiskoDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.nazwiskoDataGridViewTextBoxColumn.Name = "nazwiskoDataGridViewTextBoxColumn";
-            this.nazwiskoDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // dataZatrudnieniaDataGridViewTextBoxColumn
-            // 
-            this.dataZatrudnieniaDataGridViewTextBoxColumn.DataPropertyName = "DataZatrudnienia";
-            this.dataZatrudnieniaDataGridViewTextBoxColumn.HeaderText = "DataZatrudnienia";
-            this.dataZatrudnieniaDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.dataZatrudnieniaDataGridViewTextBoxColumn.Name = "dataZatrudnieniaDataGridViewTextBoxColumn";
-            this.dataZatrudnieniaDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            this.emailDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // telefonDataGridViewTextBoxColumn
-            // 
-            this.telefonDataGridViewTextBoxColumn.DataPropertyName = "Telefon";
-            this.telefonDataGridViewTextBoxColumn.HeaderText = "Telefon";
-            this.telefonDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.telefonDataGridViewTextBoxColumn.Name = "telefonDataGridViewTextBoxColumn";
-            this.telefonDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // nazwaStanowiskaDataGridViewTextBoxColumn
-            // 
-            this.nazwaStanowiskaDataGridViewTextBoxColumn.DataPropertyName = "NazwaStanowiska";
-            this.nazwaStanowiskaDataGridViewTextBoxColumn.HeaderText = "NazwaStanowiska";
-            this.nazwaStanowiskaDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.nazwaStanowiskaDataGridViewTextBoxColumn.Name = "nazwaStanowiskaDataGridViewTextBoxColumn";
-            this.nazwaStanowiskaDataGridViewTextBoxColumn.Width = 150;
             // 
             // vwPracownicyZeStanowiskiemBindingSource
             // 
@@ -204,6 +154,7 @@
             this.btnDodaj.TabIndex = 56;
             this.btnDodaj.Text = "Dodaj";
             this.btnDodaj.UseVisualStyleBackColor = false;
+            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
             // 
             // label6
             // 
@@ -360,6 +311,80 @@
             this.dtpZatrudnienie.Size = new System.Drawing.Size(200, 26);
             this.dtpZatrudnienie.TabIndex = 70;
             // 
+            // stanowiskaBindingSource
+            // 
+            this.stanowiskaBindingSource.DataMember = "Stanowiska";
+            this.stanowiskaBindingSource.DataSource = this.ksiegarniaDataSet3;
+            // 
+            // stanowiskaTableAdapter
+            // 
+            this.stanowiskaTableAdapter.ClearBeforeFill = true;
+            // 
+            // pracownicyBindingSource
+            // 
+            this.pracownicyBindingSource.DataMember = "Pracownicy";
+            this.pracownicyBindingSource.DataSource = this.ksiegarniaDataSet3;
+            // 
+            // pracownicyTableAdapter
+            // 
+            this.pracownicyTableAdapter.ClearBeforeFill = true;
+            // 
+            // iDPracownikaDataGridViewTextBoxColumn
+            // 
+            this.iDPracownikaDataGridViewTextBoxColumn.DataPropertyName = "IDPracownika";
+            this.iDPracownikaDataGridViewTextBoxColumn.HeaderText = "IDPracownika";
+            this.iDPracownikaDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.iDPracownikaDataGridViewTextBoxColumn.Name = "iDPracownikaDataGridViewTextBoxColumn";
+            this.iDPracownikaDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // imieDataGridViewTextBoxColumn
+            // 
+            this.imieDataGridViewTextBoxColumn.DataPropertyName = "Imie";
+            this.imieDataGridViewTextBoxColumn.HeaderText = "Imie";
+            this.imieDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.imieDataGridViewTextBoxColumn.Name = "imieDataGridViewTextBoxColumn";
+            this.imieDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // nazwiskoDataGridViewTextBoxColumn
+            // 
+            this.nazwiskoDataGridViewTextBoxColumn.DataPropertyName = "Nazwisko";
+            this.nazwiskoDataGridViewTextBoxColumn.HeaderText = "Nazwisko";
+            this.nazwiskoDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.nazwiskoDataGridViewTextBoxColumn.Name = "nazwiskoDataGridViewTextBoxColumn";
+            this.nazwiskoDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // dataZatrudnieniaDataGridViewTextBoxColumn
+            // 
+            this.dataZatrudnieniaDataGridViewTextBoxColumn.DataPropertyName = "DataZatrudnienia";
+            this.dataZatrudnieniaDataGridViewTextBoxColumn.HeaderText = "DataZatrudnienia";
+            this.dataZatrudnieniaDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.dataZatrudnieniaDataGridViewTextBoxColumn.Name = "dataZatrudnieniaDataGridViewTextBoxColumn";
+            this.dataZatrudnieniaDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // telefonDataGridViewTextBoxColumn
+            // 
+            this.telefonDataGridViewTextBoxColumn.DataPropertyName = "Telefon";
+            this.telefonDataGridViewTextBoxColumn.HeaderText = "Telefon";
+            this.telefonDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.telefonDataGridViewTextBoxColumn.Name = "telefonDataGridViewTextBoxColumn";
+            this.telefonDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // nazwaStanowiskaDataGridViewTextBoxColumn
+            // 
+            this.nazwaStanowiskaDataGridViewTextBoxColumn.DataPropertyName = "NazwaStanowiska";
+            this.nazwaStanowiskaDataGridViewTextBoxColumn.HeaderText = "NazwaStanowiska";
+            this.nazwaStanowiskaDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.nazwaStanowiskaDataGridViewTextBoxColumn.Name = "nazwaStanowiskaDataGridViewTextBoxColumn";
+            this.nazwaStanowiskaDataGridViewTextBoxColumn.Width = 150;
+            // 
             // DodajPracownika
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -393,6 +418,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPracownicy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwPracownicyZeStanowiskiemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stanowiskaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pracownicyBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -416,6 +443,15 @@
         private KsiegarniaDataSet3 ksiegarniaDataSet3;
         private System.Windows.Forms.BindingSource vwPracownicyZeStanowiskiemBindingSource;
         private KsiegarniaDataSet3TableAdapters.vw_PracownicyZeStanowiskiemTableAdapter vw_PracownicyZeStanowiskiemTableAdapter;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cmbStanowisko;
+        private System.Windows.Forms.DateTimePicker dtpZatrudnienie;
+        private System.Windows.Forms.BindingSource stanowiskaBindingSource;
+        private KsiegarniaDataSet3TableAdapters.StanowiskaTableAdapter stanowiskaTableAdapter;
+        private System.Windows.Forms.BindingSource pracownicyBindingSource;
+        private KsiegarniaDataSet3TableAdapters.PracownicyTableAdapter pracownicyTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDPracownikaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn imieDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nazwiskoDataGridViewTextBoxColumn;
@@ -423,10 +459,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefonDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nazwaStanowiskaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cmbStanowisko;
-        private System.Windows.Forms.DateTimePicker dtpZatrudnienie;
     }
 }
