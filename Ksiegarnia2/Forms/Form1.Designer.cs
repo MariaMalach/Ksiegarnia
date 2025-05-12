@@ -38,35 +38,41 @@
             // 
             // btnRaporty
             // 
+            this.btnRaporty.BackColor = System.Drawing.Color.Pink;
+            this.btnRaporty.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnRaporty.Location = new System.Drawing.Point(464, 242);
             this.btnRaporty.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRaporty.Name = "btnRaporty";
             this.btnRaporty.Size = new System.Drawing.Size(238, 64);
             this.btnRaporty.TabIndex = 20;
             this.btnRaporty.Text = "Raporty";
-            this.btnRaporty.UseVisualStyleBackColor = true;
+            this.btnRaporty.UseVisualStyleBackColor = false;
             this.btnRaporty.Click += new System.EventHandler(this.btnRaporty_Click);
             // 
             // btnHistoriaZakupow
             // 
+            this.btnHistoriaZakupow.BackColor = System.Drawing.Color.Pink;
+            this.btnHistoriaZakupow.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnHistoriaZakupow.Location = new System.Drawing.Point(323, 349);
             this.btnHistoriaZakupow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHistoriaZakupow.Name = "btnHistoriaZakupow";
             this.btnHistoriaZakupow.Size = new System.Drawing.Size(238, 64);
             this.btnHistoriaZakupow.TabIndex = 18;
-            this.btnHistoriaZakupow.Text = "HistoriaZakupów";
-            this.btnHistoriaZakupow.UseVisualStyleBackColor = true;
+            this.btnHistoriaZakupow.Text = "Historia Transakcji";
+            this.btnHistoriaZakupow.UseVisualStyleBackColor = false;
             this.btnHistoriaZakupow.Click += new System.EventHandler(this.btnHistoriaZakupow_Click);
             // 
             // btnZakupy
             // 
+            this.btnZakupy.BackColor = System.Drawing.Color.Pink;
+            this.btnZakupy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnZakupy.Location = new System.Drawing.Point(180, 242);
             this.btnZakupy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnZakupy.Name = "btnZakupy";
             this.btnZakupy.Size = new System.Drawing.Size(238, 64);
             this.btnZakupy.TabIndex = 16;
-            this.btnZakupy.Text = "Zakupy";
-            this.btnZakupy.UseVisualStyleBackColor = true;
+            this.btnZakupy.Text = "Dodaj Transakcję";
+            this.btnZakupy.UseVisualStyleBackColor = false;
             this.btnZakupy.Click += new System.EventHandler(this.btnZakupy_Click);
             // 
             // btnZasoby
@@ -124,7 +130,7 @@
             this.Controls.Add(this.btnZasoby);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Strona Główna";
             this.ResumeLayout(false);
 
         }

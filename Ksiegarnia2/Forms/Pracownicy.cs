@@ -1,4 +1,5 @@
 ﻿using Ksiegarnia2;
+using Ksiegarnia2.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -51,7 +52,7 @@ namespace Ksiegarnia.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
+            Ksiegarnia2.Form1 form1 = new Ksiegarnia2.Form1();
             form1.Show();
             this.Close();
         }
@@ -156,6 +157,13 @@ namespace Ksiegarnia.Forms
         {
             vwPracownicyBindingSource.RemoveFilter();
             txbWyszukiwarka.Clear();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DodajPracownika dodajPracownika = new DodajPracownika();
+            dodajPracownika.Show();
+            this.Close();
         }
     }
 }

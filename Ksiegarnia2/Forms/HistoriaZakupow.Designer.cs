@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,18 +41,18 @@
             this.cmbKategorie = new System.Windows.Forms.ComboBox();
             this.txbWyszukiwarka = new System.Windows.Forms.TextBox();
             this.dgvTransakcje = new System.Windows.Forms.DataGridView();
-            this.ksiegarniaDataSet2 = new Ksiegarnia2.KsiegarniaDataSet2();
-            this.historiaZakupowBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.historiaZakupowTableAdapter = new Ksiegarnia2.KsiegarniaDataSet2TableAdapters.HistoriaZakupowTableAdapter();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailPracownikaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cenaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.historiaZakupowBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ksiegarniaDataSet2 = new Ksiegarnia2.KsiegarniaDataSet2();
+            this.historiaZakupowTableAdapter = new Ksiegarnia2.KsiegarniaDataSet2TableAdapters.HistoriaZakupowTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransakcje)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.historiaZakupowBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet2)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -169,14 +169,14 @@
             // 
             this.dgvTransakcje.AutoGenerateColumns = false;
             this.dgvTransakcje.BackgroundColor = System.Drawing.Color.Pink;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightPink;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkMagenta;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.RosyBrown;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTransakcje.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightPink;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkMagenta;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.RosyBrown;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTransakcje.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTransakcje.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTransakcje.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -186,14 +186,14 @@
             this.emailPracownikaDataGridViewTextBoxColumn,
             this.cenaDataGridViewTextBoxColumn});
             this.dgvTransakcje.DataSource = this.historiaZakupowBindingSource;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightPink;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.999999F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkMagenta;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTransakcje.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightPink;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.999999F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkMagenta;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTransakcje.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvTransakcje.GridColor = System.Drawing.Color.Crimson;
             this.dgvTransakcje.Location = new System.Drawing.Point(5, 212);
             this.dgvTransakcje.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -202,20 +202,6 @@
             this.dgvTransakcje.RowTemplate.Height = 28;
             this.dgvTransakcje.Size = new System.Drawing.Size(1303, 479);
             this.dgvTransakcje.TabIndex = 38;
-            // 
-            // ksiegarniaDataSet2
-            // 
-            this.ksiegarniaDataSet2.DataSetName = "KsiegarniaDataSet2";
-            this.ksiegarniaDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // historiaZakupowBindingSource
-            // 
-            this.historiaZakupowBindingSource.DataMember = "HistoriaZakupow";
-            this.historiaZakupowBindingSource.DataSource = this.ksiegarniaDataSet2;
-            // 
-            // historiaZakupowTableAdapter
-            // 
-            this.historiaZakupowTableAdapter.ClearBeforeFill = true;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -266,10 +252,25 @@
             this.cenaDataGridViewTextBoxColumn.Name = "cenaDataGridViewTextBoxColumn";
             this.cenaDataGridViewTextBoxColumn.Width = 150;
             // 
+            // historiaZakupowBindingSource
+            // 
+            this.historiaZakupowBindingSource.DataMember = "HistoriaZakupow";
+            this.historiaZakupowBindingSource.DataSource = this.ksiegarniaDataSet2;
+            // 
+            // ksiegarniaDataSet2
+            // 
+            this.ksiegarniaDataSet2.DataSetName = "KsiegarniaDataSet2";
+            this.ksiegarniaDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // historiaZakupowTableAdapter
+            // 
+            this.historiaZakupowTableAdapter.ClearBeforeFill = true;
+            // 
             // Transakcje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackgroundImage = global::Ksiegarnia2.Properties.Resources.v807_mynt_03;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1407, 702);
@@ -288,8 +289,8 @@
             this.Text = "HistoriaZakupow";
             this.Load += new System.EventHandler(this.HistoriaZakupow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransakcje)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.historiaZakupowBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

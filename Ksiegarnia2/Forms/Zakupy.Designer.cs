@@ -29,10 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dgvZasoby = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tytulDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rokWydaniaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iloscDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wydawnictwoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataUtworzeniaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cenaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zasobyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ksiegarniaDataSet2 = new Ksiegarnia2.KsiegarniaDataSet2();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -46,27 +56,17 @@
             this.cmbPracownik = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txbCena = new System.Windows.Forms.TextBox();
-            this.ksiegarniaDataSet2 = new Ksiegarnia2.KsiegarniaDataSet2();
-            this.zasobyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.zasobyTableAdapter = new Ksiegarnia2.KsiegarniaDataSet2TableAdapters.ZasobyTableAdapter();
             this.pracownicyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pracownicyTableAdapter = new Ksiegarnia2.KsiegarniaDataSet2TableAdapters.PracownicyTableAdapter();
             this.historiaZakupowBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.historiaZakupowTableAdapter = new Ksiegarnia2.KsiegarniaDataSet2TableAdapters.HistoriaZakupowTableAdapter();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tytulDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rokWydaniaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iloscDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wydawnictwoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataUtworzeniaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cenaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZasoby)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zasobyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pracownicyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.historiaZakupowBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -76,14 +76,14 @@
             this.dgvZasoby.AutoGenerateColumns = false;
             this.dgvZasoby.BackgroundColor = System.Drawing.Color.Pink;
             this.dgvZasoby.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightPink;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkMagenta;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.RosyBrown;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvZasoby.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightPink;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkMagenta;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.RosyBrown;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvZasoby.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvZasoby.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvZasoby.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -95,22 +95,97 @@
             this.dataUtworzeniaDataGridViewTextBoxColumn,
             this.cenaDataGridViewTextBoxColumn});
             this.dgvZasoby.DataSource = this.zasobyBindingSource;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightPink;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.999999F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkMagenta;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvZasoby.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightPink;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.999999F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkMagenta;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvZasoby.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvZasoby.GridColor = System.Drawing.Color.Crimson;
             this.dgvZasoby.Location = new System.Drawing.Point(692, 71);
             this.dgvZasoby.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvZasoby.Name = "dgvZasoby";
             this.dgvZasoby.RowHeadersWidth = 62;
             this.dgvZasoby.RowTemplate.Height = 28;
-            this.dgvZasoby.Size = new System.Drawing.Size(878, 596);
+            this.dgvZasoby.Size = new System.Drawing.Size(1109, 596);
             this.dgvZasoby.TabIndex = 41;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // tytulDataGridViewTextBoxColumn
+            // 
+            this.tytulDataGridViewTextBoxColumn.DataPropertyName = "Tytul";
+            this.tytulDataGridViewTextBoxColumn.HeaderText = "Tytul";
+            this.tytulDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.tytulDataGridViewTextBoxColumn.Name = "tytulDataGridViewTextBoxColumn";
+            this.tytulDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // rokWydaniaDataGridViewTextBoxColumn
+            // 
+            this.rokWydaniaDataGridViewTextBoxColumn.DataPropertyName = "RokWydania";
+            this.rokWydaniaDataGridViewTextBoxColumn.HeaderText = "RokWydania";
+            this.rokWydaniaDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.rokWydaniaDataGridViewTextBoxColumn.Name = "rokWydaniaDataGridViewTextBoxColumn";
+            this.rokWydaniaDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // iloscDataGridViewTextBoxColumn
+            // 
+            this.iloscDataGridViewTextBoxColumn.DataPropertyName = "Ilosc";
+            this.iloscDataGridViewTextBoxColumn.HeaderText = "Ilosc";
+            this.iloscDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.iloscDataGridViewTextBoxColumn.Name = "iloscDataGridViewTextBoxColumn";
+            this.iloscDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // kategoriaDataGridViewTextBoxColumn
+            // 
+            this.kategoriaDataGridViewTextBoxColumn.DataPropertyName = "Kategoria";
+            this.kategoriaDataGridViewTextBoxColumn.HeaderText = "Kategoria";
+            this.kategoriaDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.kategoriaDataGridViewTextBoxColumn.Name = "kategoriaDataGridViewTextBoxColumn";
+            this.kategoriaDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // wydawnictwoDataGridViewTextBoxColumn
+            // 
+            this.wydawnictwoDataGridViewTextBoxColumn.DataPropertyName = "Wydawnictwo";
+            this.wydawnictwoDataGridViewTextBoxColumn.HeaderText = "Wydawnictwo";
+            this.wydawnictwoDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.wydawnictwoDataGridViewTextBoxColumn.Name = "wydawnictwoDataGridViewTextBoxColumn";
+            this.wydawnictwoDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // dataUtworzeniaDataGridViewTextBoxColumn
+            // 
+            this.dataUtworzeniaDataGridViewTextBoxColumn.DataPropertyName = "DataUtworzenia";
+            this.dataUtworzeniaDataGridViewTextBoxColumn.HeaderText = "DataUtworzenia";
+            this.dataUtworzeniaDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.dataUtworzeniaDataGridViewTextBoxColumn.Name = "dataUtworzeniaDataGridViewTextBoxColumn";
+            this.dataUtworzeniaDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // cenaDataGridViewTextBoxColumn
+            // 
+            this.cenaDataGridViewTextBoxColumn.DataPropertyName = "Cena";
+            this.cenaDataGridViewTextBoxColumn.HeaderText = "Cena";
+            this.cenaDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.cenaDataGridViewTextBoxColumn.Name = "cenaDataGridViewTextBoxColumn";
+            this.cenaDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // zasobyBindingSource
+            // 
+            this.zasobyBindingSource.DataMember = "Zasoby";
+            this.zasobyBindingSource.DataSource = this.ksiegarniaDataSet2;
+            // 
+            // ksiegarniaDataSet2
+            // 
+            this.ksiegarniaDataSet2.DataSetName = "KsiegarniaDataSet2";
+            this.ksiegarniaDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label9
             // 
@@ -251,16 +326,6 @@
             this.txbCena.Size = new System.Drawing.Size(291, 26);
             this.txbCena.TabIndex = 64;
             // 
-            // ksiegarniaDataSet2
-            // 
-            this.ksiegarniaDataSet2.DataSetName = "KsiegarniaDataSet2";
-            this.ksiegarniaDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // zasobyBindingSource
-            // 
-            this.zasobyBindingSource.DataMember = "Zasoby";
-            this.zasobyBindingSource.DataSource = this.ksiegarniaDataSet2;
-            // 
             // zasobyTableAdapter
             // 
             this.zasobyTableAdapter.ClearBeforeFill = true;
@@ -283,78 +348,13 @@
             // 
             this.historiaZakupowTableAdapter.ClearBeforeFill = true;
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // tytulDataGridViewTextBoxColumn
-            // 
-            this.tytulDataGridViewTextBoxColumn.DataPropertyName = "Tytul";
-            this.tytulDataGridViewTextBoxColumn.HeaderText = "Tytul";
-            this.tytulDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.tytulDataGridViewTextBoxColumn.Name = "tytulDataGridViewTextBoxColumn";
-            this.tytulDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // rokWydaniaDataGridViewTextBoxColumn
-            // 
-            this.rokWydaniaDataGridViewTextBoxColumn.DataPropertyName = "RokWydania";
-            this.rokWydaniaDataGridViewTextBoxColumn.HeaderText = "RokWydania";
-            this.rokWydaniaDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.rokWydaniaDataGridViewTextBoxColumn.Name = "rokWydaniaDataGridViewTextBoxColumn";
-            this.rokWydaniaDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // iloscDataGridViewTextBoxColumn
-            // 
-            this.iloscDataGridViewTextBoxColumn.DataPropertyName = "Ilosc";
-            this.iloscDataGridViewTextBoxColumn.HeaderText = "Ilosc";
-            this.iloscDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.iloscDataGridViewTextBoxColumn.Name = "iloscDataGridViewTextBoxColumn";
-            this.iloscDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // kategoriaDataGridViewTextBoxColumn
-            // 
-            this.kategoriaDataGridViewTextBoxColumn.DataPropertyName = "Kategoria";
-            this.kategoriaDataGridViewTextBoxColumn.HeaderText = "Kategoria";
-            this.kategoriaDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.kategoriaDataGridViewTextBoxColumn.Name = "kategoriaDataGridViewTextBoxColumn";
-            this.kategoriaDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // wydawnictwoDataGridViewTextBoxColumn
-            // 
-            this.wydawnictwoDataGridViewTextBoxColumn.DataPropertyName = "Wydawnictwo";
-            this.wydawnictwoDataGridViewTextBoxColumn.HeaderText = "Wydawnictwo";
-            this.wydawnictwoDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.wydawnictwoDataGridViewTextBoxColumn.Name = "wydawnictwoDataGridViewTextBoxColumn";
-            this.wydawnictwoDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // dataUtworzeniaDataGridViewTextBoxColumn
-            // 
-            this.dataUtworzeniaDataGridViewTextBoxColumn.DataPropertyName = "DataUtworzenia";
-            this.dataUtworzeniaDataGridViewTextBoxColumn.HeaderText = "DataUtworzenia";
-            this.dataUtworzeniaDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.dataUtworzeniaDataGridViewTextBoxColumn.Name = "dataUtworzeniaDataGridViewTextBoxColumn";
-            this.dataUtworzeniaDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // cenaDataGridViewTextBoxColumn
-            // 
-            this.cenaDataGridViewTextBoxColumn.DataPropertyName = "Cena";
-            this.cenaDataGridViewTextBoxColumn.HeaderText = "Cena";
-            this.cenaDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.cenaDataGridViewTextBoxColumn.Name = "cenaDataGridViewTextBoxColumn";
-            this.cenaDataGridViewTextBoxColumn.Width = 150;
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Pink;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(1383, 11);
+            this.button1.Location = new System.Drawing.Point(1610, 11);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -368,7 +368,7 @@
             // 
             this.btnClose.BackColor = System.Drawing.Color.Pink;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnClose.Location = new System.Drawing.Point(1496, 11);
+            this.btnClose.Location = new System.Drawing.Point(1723, 11);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(68, 48);
@@ -381,9 +381,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackgroundImage = global::Ksiegarnia2.Properties.Resources.v807_mynt_03;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1924, 702);
+            this.ClientSize = new System.Drawing.Size(1803, 702);
             this.ControlBox = false;
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnClose);
@@ -406,8 +407,8 @@
             this.Load += new System.EventHandler(this.Zakupy_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZasoby)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zasobyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pracownicyBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.historiaZakupowBindingSource)).EndInit();
             this.ResumeLayout(false);

@@ -110,7 +110,7 @@ namespace Ksiegarnia.Forms
 
             try
             {
-                // Dodanie nowego rekordu do HistoriaZakupow
+                
                 DataRow newRow = ksiegarniaDataSet2.Tables["HistoriaZakupow"].NewRow();
                 newRow["IDZasobu"] = idZasobu;
                 newRow["emailPracownika"] = cmbPracownik.SelectedValue.ToString();
@@ -146,7 +146,7 @@ namespace Ksiegarnia.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
+            Ksiegarnia2.Form1 form1 = new Ksiegarnia2.Form1();
             form1.Show();
             this.Close();
         }

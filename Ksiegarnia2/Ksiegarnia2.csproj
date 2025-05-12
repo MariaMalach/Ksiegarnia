@@ -176,6 +176,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\DodajPracownika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DodajPracownika.Designer.cs">
+      <DependentUpon>DodajPracownika.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DodajZasoby.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,8 +239,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>KsiegarniaDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="KsiegarniaDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KsiegarniaDataSet3.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\DodajPracownika.resx">
+      <DependentUpon>DodajPracownika.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\DodajZasoby.resx">
       <DependentUpon>DodajZasoby.cs</DependentUpon>
     </EmbeddedResource>
@@ -298,6 +312,17 @@
     </None>
     <None Include="KsiegarniaDataSet2.xss">
       <DependentUpon>KsiegarniaDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="KsiegarniaDataSet3.xsc">
+      <DependentUpon>KsiegarniaDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="KsiegarniaDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KsiegarniaDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KsiegarniaDataSet3.xss">
+      <DependentUpon>KsiegarniaDataSet3.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
