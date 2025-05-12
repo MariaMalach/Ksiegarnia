@@ -63,6 +63,7 @@
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nazwaStanowiskaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPracownicy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwPracownicyZeStanowiskiemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet3)).BeginInit();
@@ -75,13 +76,14 @@
             this.button2.BackColor = System.Drawing.Color.Pink;
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(13, 614);
+            this.button2.Location = new System.Drawing.Point(13, 572);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(235, 52);
             this.button2.TabIndex = 63;
             this.button2.Text = "Edytuj";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // txbNazwisko
             // 
@@ -147,7 +149,7 @@
             this.btnDodaj.BackColor = System.Drawing.Color.Pink;
             this.btnDodaj.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnDodaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnDodaj.Location = new System.Drawing.Point(289, 614);
+            this.btnDodaj.Location = new System.Drawing.Point(289, 572);
             this.btnDodaj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(235, 52);
@@ -385,6 +387,19 @@
             this.nazwaStanowiskaDataGridViewTextBoxColumn.Name = "nazwaStanowiskaDataGridViewTextBoxColumn";
             this.nazwaStanowiskaDataGridViewTextBoxColumn.Width = 150;
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Pink;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.button3.Location = new System.Drawing.Point(146, 639);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(235, 52);
+            this.button3.TabIndex = 71;
+            this.button3.Text = "Usuń";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
             // DodajPracownika
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -394,6 +409,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1611, 702);
             this.ControlBox = false;
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.dtpZatrudnienie);
             this.Controls.Add(this.cmbStanowisko);
             this.Controls.Add(this.label7);
@@ -459,5 +475,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefonDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nazwaStanowiskaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button3;
     }
 }

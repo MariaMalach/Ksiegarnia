@@ -112,5 +112,10 @@ namespace Ksiegarnia2.Forms
             ksiegarniaDataSet3.Tables["vw_PracownicyZeStanowiskiem"].Clear();
             vw_PracownicyZeStanowiskiemTableAdapter.Fill(ksiegarniaDataSet3.vw_PracownicyZeStanowiskiem);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+           
+        }
     }
 }
