@@ -53,6 +53,7 @@ namespace Ksiegarnia.Forms
         {
             Form1 form1 = new Form1();
             form1.Show();
+            this.Close();
         }
 
         private void btnSzukaj_Click(object sender, EventArgs e)

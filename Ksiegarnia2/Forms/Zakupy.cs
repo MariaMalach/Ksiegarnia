@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ksiegarnia2;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -141,6 +142,18 @@ namespace Ksiegarnia.Forms
                 MessageBox.Show("Błąd podczas dodawania zasobu: " + ex.Message);
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Close();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

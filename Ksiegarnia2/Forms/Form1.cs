@@ -33,26 +33,34 @@ namespace Ksiegarnia2
         {
             Zakupy zakupy = new Zakupy();
             zakupy.Show();
+            this.Hide();
+
         }
 
-       
+
 
         private void btnHistoriaZakupow_Click(object sender, EventArgs e)
         {
-            HistoriaZakupow historiaZakupow = new HistoriaZakupow();
+            Transakcje historiaZakupow = new Transakcje();
             historiaZakupow.Show();
+            this.Hide();
+
         }
 
         private void btnRaporty_Click(object sender, EventArgs e)
         {
             Raporty raporty = new Raporty();
             raporty.Show();
+            this.Hide();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Pracownicy pracownicy = new Pracownicy();
             pracownicy.Show();
+            this.Hide();
+
         }
 
         private void button1_Click_1(object sender, EventArgs e)
