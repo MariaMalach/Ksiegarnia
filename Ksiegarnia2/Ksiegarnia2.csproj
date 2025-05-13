@@ -244,6 +244,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>KsiegarniaDataSet3.xsd</DependentUpon>
     </Compile>
+    <Compile Include="KsiegarniaDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KsiegarniaDataSet4.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\DodajPracownika.resx">
@@ -323,6 +328,17 @@
     </None>
     <None Include="KsiegarniaDataSet3.xss">
       <DependentUpon>KsiegarniaDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="KsiegarniaDataSet4.xsc">
+      <DependentUpon>KsiegarniaDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="KsiegarniaDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KsiegarniaDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KsiegarniaDataSet4.xss">
+      <DependentUpon>KsiegarniaDataSet4.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

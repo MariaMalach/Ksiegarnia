@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -9,45 +10,78 @@ namespace Ksiegarnia2.Forms
     public partial class DodajZasoby : Form
     {
         private SqlDataAdapter zasobyAdapter;
+        private SqlCommandBuilder zasobyCommandBuilder;
+
+        private SqlDataAdapter autorzyAdapter;
+        private SqlCommandBuilder autorzyCommandBuilder;
+
+        private SqlDataAdapter zasobyAutorzyAdapter;
+        private SqlCommandBuilder zasobyAutorzyCommandBuilder;
+
         private DataSet zasobyDataSet;
         private SqlConnection conn;
-        private SqlCommandBuilder zasobyCommandBuilder;
 
         public DodajZasoby()
         {
             InitializeComponent();
             InitAdapter();
-            dgvZasoby.CellClick += dgvZasoby_CellClick;
-
+            InitAutorzyAdapter();
+            InitZasobyAutorzyAdapter();
+            dgvZasoby.CellClick += dgvZasoby_CellContentClick;
         }
-
-        
 
         private void InitAdapter()
         {
             conn = new SqlConnection("Data Source=.;Initial Catalog=Ksiegarnia;Integrated Security=True");
 
-            string selectQuery = "SELECT * FROM Zasoby";
-            zasobyAdapter = new SqlDataAdapter(selectQuery, conn);
+            // Adapter dla Zasoby
+            string selectZasoby = "SELECT * FROM Zasoby";
+            zasobyAdapter = new SqlDataAdapter(selectZasoby, conn);
+            zasobyAdapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
             zasobyCommandBuilder = new SqlCommandBuilder(zasobyAdapter);
 
             zasobyDataSet = new DataSet();
             zasobyAdapter.Fill(zasobyDataSet, "Zasoby");
-
             dgvZasoby.DataSource = zasobyDataSet.Tables["Zasoby"];
+        }
+
+        private void InitAutorzyAdapter()
+        {
+            // Adapter dla Autorzy
+            string selectAutorzy = "SELECT * FROM Autorzy";
+            autorzyAdapter = new SqlDataAdapter(selectAutorzy, conn);
+            autorzyAdapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+            autorzyCommandBuilder = new SqlCommandBuilder(autorzyAdapter);
+
+            // Dodanie i wypełnienie tabeli Autorzy w DataSet
+            autorzyAdapter.Fill(zasobyDataSet, "Autorzy");
+        }
+
+        private void InitZasobyAutorzyAdapter()
+        {
+            // Adapter dla Zasoby_Autorzy
+            string selectZA = "SELECT * FROM Zasoby_Autorzy";
+            zasobyAutorzyAdapter = new SqlDataAdapter(selectZA, conn);
+            zasobyAutorzyAdapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+            zasobyAutorzyCommandBuilder = new SqlCommandBuilder(zasobyAutorzyAdapter);
+
+            // Dodanie i wypełnienie tabeli Zasoby_Autorzy
+            zasobyAutorzyAdapter.Fill(zasobyDataSet, "Zasoby_Autorzy");
         }
 
         private void btnDodaj_Click_1(object sender, EventArgs e)
         {
+            // Pobranie i walidacja danych z formularza
             string tytul = txbTytul.Text.Trim();
             string rokText = textRokWydania.Text.Trim();
             string iloscText = textIlosc.Text.Trim();
+            string cenaText = textBoxCena.Text.Trim();
             string kategoria = textBoxKategoria.Text.Trim();
             string wydawnictwo = textBoxWydawnictwo.Text.Trim();
+            string autorzyText = textBoxAutorzy.Text.Trim();
 
-            if (string.IsNullOrEmpty(tytul) || string.IsNullOrEmpty(rokText) ||
-                string.IsNullOrEmpty(kategoria) || string.IsNullOrEmpty(wydawnictwo) ||
-                string.IsNullOrEmpty(iloscText))
+            if (new[] { tytul, rokText, iloscText, cenaText, kategoria, wydawnictwo, autorzyText }
+                .Any(string.IsNullOrWhiteSpace))
             {
                 MessageBox.Show("Wszystkie pola muszą być wypełnione.");
                 return;
@@ -55,7 +89,7 @@ namespace Ksiegarnia2.Forms
 
             if (!int.TryParse(rokText, out int rok) || rok < 1800 || rok > DateTime.Now.Year)
             {
-                MessageBox.Show("Rok wydania musi być poprawną liczbą.");
+                MessageBox.Show("Rok wydania musi być liczbą z przedziału 1800-aktualny rok.");
                 return;
             }
 
@@ -65,25 +99,104 @@ namespace Ksiegarnia2.Forms
                 return;
             }
 
+            if (!decimal.TryParse(cenaText, out decimal cena) || cena < 0)
+            {
+                MessageBox.Show("Cena musi być prawidłową, nieujemną wartością liczbową.");
+                return;
+            }
+
+            // Parsowanie imion i nazwisk autorów
+            var autorzyLista = autorzyText.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(a => a.Trim())
+                                           .ToList();
+            if (!autorzyLista.Any())
+            {
+                MessageBox.Show("Proszę podać przynajmniej jednego autora.");
+                return;
+            }
+
+            List<int> autorIds = new List<int>();
+
+            // Przetworzenie każdego autora
+            foreach (var pelne in autorzyLista)
+            {
+                var czesci = pelne.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                if (czesci.Length < 2)
+                {
+                    MessageBox.Show($"Niepoprawny format autora: '{pelne}'. Użyj 'Imię Nazwisko'.");
+                    return;
+                }
+                string imie = czesci[0];
+                string nazwisko = string.Join(" ", czesci.Skip(1));
+
+                // Szukanie istniejącego autora
+                var existing = zasobyDataSet.Tables["Autorzy"].AsEnumerable()
+                    .FirstOrDefault(r => r.Field<string>("Imie") == imie && r.Field<string>("Nazwisko") == nazwisko);
+
+                int idAutora;
+                if (existing != null)
+                {
+                    idAutora = existing.Field<int>("Id");
+                }
+                else
+                {
+                    // Dodanie nowego autora
+                    DataRow newAutor = zasobyDataSet.Tables["Autorzy"].NewRow();
+                    newAutor["Imie"] = imie;
+                    newAutor["Nazwisko"] = nazwisko;
+                    zasobyDataSet.Tables["Autorzy"].Rows.Add(newAutor);
+                    autorzyAdapter.Update(zasobyDataSet, "Autorzy");
+
+                    // Odświeżenie i pobranie ID nowego autora
+                    zasobyDataSet.Tables["Autorzy"].Clear();
+                    autorzyAdapter.Fill(zasobyDataSet, "Autorzy");
+                    existing = zasobyDataSet.Tables["Autorzy"].AsEnumerable()
+                        .First(r => r.Field<string>("Imie") == imie && r.Field<string>("Nazwisko") == nazwisko);
+                    idAutora = existing.Field<int>("Id");
+                }
+
+                autorIds.Add(idAutora);
+            }
+
             try
             {
-                DataRow newRow = zasobyDataSet.Tables["Zasoby"].NewRow();
-                newRow["Tytul"] = tytul;
-                newRow["RokWydania"] = rok;
-                newRow["Ilosc"] = ilosc;
-                newRow["Kategoria"] = kategoria;
-                newRow["Wydawnictwo"] = wydawnictwo;
-                newRow["DataUtworzenia"] = DateTime.Now;
-
-                zasobyDataSet.Tables["Zasoby"].Rows.Add(newRow);
+                // Dodanie nowego zasobu
+                var tblZasoby = zasobyDataSet.Tables["Zasoby"];
+                DataRow newZasob = tblZasoby.NewRow();
+                newZasob["Tytul"] = tytul;
+                newZasob["RokWydania"] = rok;
+                newZasob["Ilosc"] = ilosc;
+                newZasob["Kategoria"] = kategoria;
+                newZasob["Wydawnictwo"] = wydawnictwo;
+                newZasob["DataUtworzenia"] = DateTime.Now;
+                newZasob["Cena"] = cena;
+                tblZasoby.Rows.Add(newZasob);
                 zasobyAdapter.Update(zasobyDataSet, "Zasoby");
 
-                MessageBox.Show("Zasób został dodany.");
+                // Wyciągnięcie ID nowego zasobu
+                tblZasoby.Clear();
+                zasobyAdapter.Fill(zasobyDataSet, "Zasoby");
+                int newIdZasobu = tblZasoby.AsEnumerable()
+                    .OrderByDescending(r => r.Field<int>("Id"))
+                    .First()
+                    .Field<int>("Id");
+
+                // Dodanie powiązań w Zasoby_Autorzy
+                var tblZA = zasobyDataSet.Tables["Zasoby_Autorzy"];
+                foreach (var aid in autorIds)
+                {
+                    DataRow newZA = tblZA.NewRow();
+                    newZA["IdZasobu"] = newIdZasobu;
+                    newZA["IdAutora"] = aid;
+                    tblZA.Rows.Add(newZA);
+                }
+                zasobyAutorzyAdapter.Update(zasobyDataSet, "Zasoby_Autorzy");
+
+                MessageBox.Show("Zasób oraz autorzy zostały dodani.");
                 OdswiezDane();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Błąd podczas dodawania zasobu: " + ex.Message);
+                MessageBox.Show("Błąd podczas dodawania: " + ex.Message);
             }
         }
 
@@ -95,33 +208,117 @@ namespace Ksiegarnia2.Forms
                 return;
             }
 
+            // Pobranie zaznaczonego wiersza
+            int idx = dgvZasoby.CurrentRow.Index;
+            DataRow row = zasobyDataSet.Tables["Zasoby"].Rows[idx];
+            int idZasobu = row.Field<int>("Id");
+
+            // Walidacja i wczytanie z TextBoxów
+            string tytul = txbTytul.Text.Trim();
+            string rokText = textRokWydania.Text.Trim();
+            string iloscText = textIlosc.Text.Trim();
+            string cenaText = textBoxCena.Text.Trim();
+            string kategoria = textBoxKategoria.Text.Trim();
+            string wydawnictwo = textBoxWydawnictwo.Text.Trim();
+            string autorzyText = textBoxAutorzy.Text.Trim();
+
+            if (new[] { tytul, rokText, iloscText, cenaText, kategoria, wydawnictwo, autorzyText }
+                .Any(string.IsNullOrWhiteSpace))
+            {
+                MessageBox.Show("Wszystkie pola muszą być wypełnione.");
+                return;
+            }
+            if (!int.TryParse(rokText, out int rok) || rok < 1800 || rok > DateTime.Now.Year)
+            {
+                MessageBox.Show("Rok wydania musi być liczbą z przedziału 1800-aktualny rok.");
+                return;
+            }
+            if (!int.TryParse(iloscText, out int ilosc) || ilosc < 1 || ilosc > 1000)
+            {
+                MessageBox.Show("Ilość musi być między 1 a 1000.");
+                return;
+            }
+            if (!decimal.TryParse(cenaText, out decimal cena) || cena < 0)
+            {
+                MessageBox.Show("Cena musi być prawidłową, nieujemną wartością.");
+                return;
+            }
+
+            // Aktualizacja pól zasobu
+            row["Tytul"] = tytul;
+            row["RokWydania"] = rok;
+            row["Ilosc"] = ilosc;
+            row["Kategoria"] = kategoria;
+            row["Wydawnictwo"] = wydawnictwo;
+            row["Cena"] = cena;
+
+            // Parsowanie autorów
+            var autorzyLista = autorzyText.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                                           .Select(a => a.Trim()).ToList();
+            List<int> autorIds = new List<int>();
+            foreach (var pelne in autorzyLista)
+            {
+                var parts = pelne.Split(' ');
+                if (parts.Length < 2)
+                {
+                    MessageBox.Show($"Niepoprawny format autora: {pelne}.");
+                    return;
+                }
+                string imie = parts[0];
+                string nazwisko = string.Join(" ", parts.Skip(1));
+                var existing = zasobyDataSet.Tables["Autorzy"].AsEnumerable()
+                    .FirstOrDefault(r => r.Field<string>("Imie") == imie && r.Field<string>("Nazwisko") == nazwisko);
+                int idAutora;
+                if (existing != null) idAutora = existing.Field<int>("Id");
+                else
+                {
+                    var newAutor = zasobyDataSet.Tables["Autorzy"].NewRow();
+                    newAutor["Imie"] = imie;
+                    newAutor["Nazwisko"] = nazwisko;
+                    zasobyDataSet.Tables["Autorzy"].Rows.Add(newAutor);
+                    autorzyAdapter.Update(zasobyDataSet, "Autorzy");
+                    zasobyDataSet.Tables["Autorzy"].Clear(); autorzyAdapter.Fill(zasobyDataSet, "Autorzy");
+                    existing = zasobyDataSet.Tables["Autorzy"].AsEnumerable()
+                        .First(r => r.Field<string>("Imie") == imie && r.Field<string>("Nazwisko") == nazwisko);
+                    idAutora = existing.Field<int>("Id");
+                }
+                autorIds.Add(idAutora);
+            }
+
             try
             {
-                int rowIndex = dgvZasoby.CurrentRow.Index;
-                DataRow row = zasobyDataSet.Tables["Zasoby"].Rows[rowIndex];
-
-                row["Tytul"] = txbTytul.Text.Trim();
-                row["RokWydania"] = int.Parse(textRokWydania.Text.Trim());
-                row["Ilosc"] = int.Parse(textIlosc.Text.Trim());
-                row["Kategoria"] = textBoxKategoria.Text.Trim();
-                row["Wydawnictwo"] = textBoxWydawnictwo.Text.Trim();
-
+                // Aktualizacja w bazie
                 zasobyAdapter.Update(zasobyDataSet, "Zasoby");
 
-                MessageBox.Show("Zasób zaktualizowany.");
+                // Usuń stare powiązania autorów
+                var tblZA = zasobyDataSet.Tables["Zasoby_Autorzy"];
+                var toDelete = tblZA.AsEnumerable().Where(r => r.Field<int>("IdZasobu") == idZasobu).ToList();
+                foreach (var d in toDelete) d.Delete();
+                zasobyAutorzyAdapter.Update(zasobyDataSet, "Zasoby_Autorzy");
+
+                // Dodaj nowe powiązania
+                foreach (var aid in autorIds)
+                {
+                    var newZA = tblZA.NewRow();
+                    newZA["IdZasobu"] = idZasobu;
+                    newZA["IdAutora"] = aid;
+                    tblZA.Rows.Add(newZA);
+                }
+                zasobyAutorzyAdapter.Update(zasobyDataSet, "Zasoby_Autorzy");
+
+                MessageBox.Show("Zasób i autorzy zostali zaktualizowani.");
                 OdswiezDane();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Błąd podczas edycji zasobu: " + ex.Message);
+                MessageBox.Show("Błąd przy aktualizacji: " + ex.Message);
             }
         }
 
-   
-
         private void OdswiezDane()
         {
-            zasobyDataSet.Tables["Zasoby"].Clear();
+            var tbl = zasobyDataSet.Tables["Zasoby"];
+            tbl.Clear();
             zasobyAdapter.Fill(zasobyDataSet, "Zasoby");
         }
 
@@ -135,28 +332,47 @@ namespace Ksiegarnia2.Forms
             this.Close();
         }
 
-        private void comboBoxKatergoria_SelectedIndexChanged(object sender, EventArgs e)
+        private void dgvZasoby_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Nieużywane
+            if (e.RowIndex < 0) return;
+
+            var row = zasobyDataSet.Tables["Zasoby"].Rows[e.RowIndex];
+            txbTytul.Text = row.Field<string>("Tytul");
+            textRokWydania.Text = row.Field<int>("RokWydania").ToString();
+            textIlosc.Text = row.Field<int>("Ilosc").ToString();
+            textBoxCena.Text = row.Field<decimal>("Cena").ToString();
+            textBoxKategoria.Text = row.Field<string>("Kategoria");
+            textBoxWydawnictwo.Text = row.Field<string>("Wydawnictwo");
+
+            // Pobranie autorów dla tego zasobu
+            int idZasobu = row.Field<int>("Id");
+            var powiazania = zasobyDataSet.Tables["Zasoby_Autorzy"].AsEnumerable()
+                .Where(r => r.Field<int>("IdZasobu") == idZasobu);
+
+            var imionaNazwiska = new List<string>();
+            foreach (var p in powiazania)
+            {
+                int idAutora = p.Field<int>("IdAutora");
+                var autorRow = zasobyDataSet.Tables["Autorzy"].AsEnumerable()
+                    .FirstOrDefault(a => a.Field<int>("Id") == idAutora);
+                if (autorRow != null)
+                {
+                    string imie = autorRow.Field<string>("Imie");
+                    string nazwisko = autorRow.Field<string>("Nazwisko");
+                    imionaNazwiska.Add($"{imie} {nazwisko}");
+                }
+            }
+            textBoxAutorzy.Text = string.Join(", ", imionaNazwiska);
+
+
         }
 
-     
-
-        private void dgvZasoby_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvZasoby_CellContentClick2(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.ColumnIndex >= 0)
             {
-                DataGridViewRow row = dgvZasoby.Rows[e.RowIndex];
-
-                var cellValue = row.Cells["Tytul"].Value;
-                if (cellValue != null && cellValue != DBNull.Value)
-                {
-                    txbTytul.Text = cellValue.ToString();
-                }
-                else
-                {
-                    txbTytul.Text = string.Empty;
-                }
+                string header = dgvZasoby.Columns[e.ColumnIndex].HeaderText;
+                MessageBox.Show("Kliknięto kolumnę: " + header);
             }
         }
     }

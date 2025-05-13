@@ -43,10 +43,6 @@ namespace Ksiegarnia
             
            
             
-
-
-
-
         }
         private void SchemaDataLoad()
         {
