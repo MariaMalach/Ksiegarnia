@@ -76,10 +76,10 @@
             this.button2.BackColor = System.Drawing.Color.Pink;
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(12, 458);
+            this.button2.Location = new System.Drawing.Point(14, 572);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(209, 42);
+            this.button2.Size = new System.Drawing.Size(235, 52);
             this.button2.TabIndex = 63;
             this.button2.Text = "Edytuj";
             this.button2.UseVisualStyleBackColor = false;
@@ -88,10 +88,10 @@
             // txbNazwisko
             // 
             this.txbNazwisko.BackColor = System.Drawing.Color.Pink;
-            this.txbNazwisko.Location = new System.Drawing.Point(207, 180);
+            this.txbNazwisko.Location = new System.Drawing.Point(233, 225);
             this.txbNazwisko.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txbNazwisko.Name = "txbNazwisko";
-            this.txbNazwisko.Size = new System.Drawing.Size(259, 22);
+            this.txbNazwisko.Size = new System.Drawing.Size(291, 26);
             this.txbNazwisko.TabIndex = 59;
             // 
             // dgvPracownicy
@@ -126,12 +126,12 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvPracownicy.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPracownicy.GridColor = System.Drawing.Color.Crimson;
-            this.dgvPracownicy.Location = new System.Drawing.Point(495, 91);
+            this.dgvPracownicy.Location = new System.Drawing.Point(557, 114);
             this.dgvPracownicy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvPracownicy.Name = "dgvPracownicy";
             this.dgvPracownicy.RowHeadersWidth = 62;
             this.dgvPracownicy.RowTemplate.Height = 28;
-            this.dgvPracownicy.Size = new System.Drawing.Size(924, 442);
+            this.dgvPracownicy.Size = new System.Drawing.Size(1040, 552);
             this.dgvPracownicy.TabIndex = 57;
             // 
             // iDPracownikaDataGridViewTextBoxColumn
@@ -205,10 +205,10 @@
             this.btnDodaj.BackColor = System.Drawing.Color.Pink;
             this.btnDodaj.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnDodaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnDodaj.Location = new System.Drawing.Point(257, 458);
+            this.btnDodaj.Location = new System.Drawing.Point(289, 572);
             this.btnDodaj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(209, 42);
+            this.btnDodaj.Size = new System.Drawing.Size(235, 52);
             this.btnDodaj.TabIndex = 56;
             this.btnDodaj.Text = "Dodaj";
             this.btnDodaj.UseVisualStyleBackColor = false;
@@ -219,9 +219,9 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Pink;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(291, 29);
+            this.label6.Location = new System.Drawing.Point(327, 36);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(324, 33);
+            this.label6.Size = new System.Drawing.Size(376, 39);
             this.label6.TabIndex = 55;
             this.label6.Text = "Dodaj/Edytuj Personel";
             // 
@@ -230,9 +230,9 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Pink;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(20, 336);
+            this.label5.Location = new System.Drawing.Point(22, 420);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(158, 25);
+            this.label5.Size = new System.Drawing.Size(192, 29);
             this.label5.TabIndex = 54;
             this.label5.Text = "Numer telefonu";
             // 
@@ -241,19 +241,19 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Pink;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(81, 285);
+            this.label4.Location = new System.Drawing.Point(91, 356);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 25);
+            this.label4.Size = new System.Drawing.Size(79, 29);
             this.label4.TabIndex = 53;
             this.label4.Text = "Email";
             // 
             // txbTelefon
             // 
             this.txbTelefon.BackColor = System.Drawing.Color.Pink;
-            this.txbTelefon.Location = new System.Drawing.Point(207, 336);
+            this.txbTelefon.Location = new System.Drawing.Point(233, 420);
             this.txbTelefon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txbTelefon.Name = "txbTelefon";
-            this.txbTelefon.Size = new System.Drawing.Size(259, 22);
+            this.txbTelefon.Size = new System.Drawing.Size(291, 26);
             this.txbTelefon.TabIndex = 52;
             // 
             // label1
@@ -261,28 +261,28 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Pink;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(7, 233);
+            this.label1.Location = new System.Drawing.Point(8, 291);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(187, 25);
+            this.label1.Size = new System.Drawing.Size(222, 29);
             this.label1.TabIndex = 51;
             this.label1.Text = "Data  zatrudnienia";
             // 
             // txbEmail
             // 
             this.txbEmail.BackColor = System.Drawing.Color.Pink;
-            this.txbEmail.Location = new System.Drawing.Point(207, 285);
+            this.txbEmail.Location = new System.Drawing.Point(233, 356);
             this.txbEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txbEmail.Name = "txbEmail";
-            this.txbEmail.Size = new System.Drawing.Size(259, 22);
+            this.txbEmail.Size = new System.Drawing.Size(291, 26);
             this.txbEmail.TabIndex = 50;
             // 
             // txbImie
             // 
             this.txbImie.BackColor = System.Drawing.Color.Pink;
-            this.txbImie.Location = new System.Drawing.Point(207, 91);
+            this.txbImie.Location = new System.Drawing.Point(233, 114);
             this.txbImie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txbImie.Name = "txbImie";
-            this.txbImie.Size = new System.Drawing.Size(259, 22);
+            this.txbImie.Size = new System.Drawing.Size(291, 26);
             this.txbImie.TabIndex = 49;
             // 
             // button1
@@ -291,11 +291,11 @@
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(1261, 9);
+            this.button1.Location = new System.Drawing.Point(1419, 11);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.button1.Size = new System.Drawing.Size(95, 38);
+            this.button1.Size = new System.Drawing.Size(107, 48);
             this.button1.TabIndex = 65;
             this.button1.Text = "Wróć";
             this.button1.UseVisualStyleBackColor = false;
@@ -305,10 +305,10 @@
             // 
             this.btnClose.BackColor = System.Drawing.Color.Pink;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnClose.Location = new System.Drawing.Point(1361, 9);
+            this.btnClose.Location = new System.Drawing.Point(1531, 11);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(60, 38);
+            this.btnClose.Size = new System.Drawing.Size(68, 48);
             this.btnClose.TabIndex = 64;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
@@ -323,9 +323,9 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Pink;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(50, 91);
+            this.label2.Location = new System.Drawing.Point(56, 114);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 25);
+            this.label2.Size = new System.Drawing.Size(63, 29);
             this.label2.TabIndex = 66;
             this.label2.Text = "Imię";
             // 
@@ -334,9 +334,9 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Pink;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(50, 180);
+            this.label3.Location = new System.Drawing.Point(56, 225);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 25);
+            this.label3.Size = new System.Drawing.Size(125, 29);
             this.label3.TabIndex = 67;
             this.label3.Text = "Nazwisko";
             // 
@@ -345,9 +345,9 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Pink;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(20, 385);
+            this.label7.Location = new System.Drawing.Point(22, 481);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(123, 25);
+            this.label7.Size = new System.Drawing.Size(147, 29);
             this.label7.TabIndex = 68;
             this.label7.Text = "Stanowisko";
             // 
@@ -356,18 +356,18 @@
             this.cmbStanowisko.BackColor = System.Drawing.Color.Pink;
             this.cmbStanowisko.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbStanowisko.FormattingEnabled = true;
-            this.cmbStanowisko.Location = new System.Drawing.Point(207, 388);
+            this.cmbStanowisko.Location = new System.Drawing.Point(233, 485);
             this.cmbStanowisko.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbStanowisko.Name = "cmbStanowisko";
-            this.cmbStanowisko.Size = new System.Drawing.Size(259, 24);
+            this.cmbStanowisko.Size = new System.Drawing.Size(291, 28);
             this.cmbStanowisko.TabIndex = 69;
             // 
             // dtpZatrudnienie
             // 
-            this.dtpZatrudnienie.Location = new System.Drawing.Point(238, 234);
+            this.dtpZatrudnienie.Location = new System.Drawing.Point(268, 292);
             this.dtpZatrudnienie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpZatrudnienie.Name = "dtpZatrudnienie";
-            this.dtpZatrudnienie.Size = new System.Drawing.Size(178, 22);
+            this.dtpZatrudnienie.Size = new System.Drawing.Size(200, 26);
             this.dtpZatrudnienie.TabIndex = 70;
             // 
             // stanowiskaBindingSource
@@ -393,10 +393,10 @@
             this.buttonUsun.BackColor = System.Drawing.Color.Pink;
             this.buttonUsun.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.buttonUsun.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonUsun.Location = new System.Drawing.Point(130, 511);
+            this.buttonUsun.Location = new System.Drawing.Point(146, 639);
             this.buttonUsun.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonUsun.Name = "buttonUsun";
-            this.buttonUsun.Size = new System.Drawing.Size(209, 42);
+            this.buttonUsun.Size = new System.Drawing.Size(235, 52);
             this.buttonUsun.TabIndex = 71;
             this.buttonUsun.Text = "Usuń";
             this.buttonUsun.UseVisualStyleBackColor = false;
@@ -404,12 +404,12 @@
             // 
             // DodajPracownika
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackgroundImage = global::Ksiegarnia2.Properties.Resources.v807_mynt_03;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1432, 562);
+            this.ClientSize = new System.Drawing.Size(1611, 702);
             this.ControlBox = false;
             this.Controls.Add(this.buttonUsun);
             this.Controls.Add(this.dtpZatrudnienie);

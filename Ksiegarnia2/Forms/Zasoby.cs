@@ -38,11 +38,15 @@ namespace Ksiegarnia
 
         private void Zasoby_Load(object sender, EventArgs e)
         {
+            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet5.Zasoby' . Możesz go przenieść lub usunąć.
+            this.zasobyTableAdapter1.Fill(this.ksiegarniaDataSet5.Zasoby);
             // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet1.Zasoby' . Możesz go przenieść lub usunąć.
             this.zasobyTableAdapter.Fill(this.ksiegarniaDataSet1.Zasoby);
-            
-           
-            
+
+
+
+
+
         }
         private void SchemaDataLoad()
         {

@@ -35,21 +35,83 @@ namespace Ksiegarnia2.Forms
         private void dgvPracownicy_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
+
             DataGridViewRow row = dgvPracownicy.Rows[e.RowIndex];
-            selectedPracownikId = Convert.ToInt32(row.Cells["IDPracownikaDataGridViewTextBoxColumn"].Value);
+
+            // Bezpieczne pobranie ID pracownika
+            object idValue = row.Cells["IDPracownikaDataGridViewTextBoxColumn"].Value;
+            selectedPracownikId = idValue != DBNull.Value ? Convert.ToInt32(idValue) : 0;
+
             txbImie.Text = row.Cells["ImieDataGridViewTextBoxColumn"].Value?.ToString() ?? string.Empty;
             txbNazwisko.Text = row.Cells["NazwiskoDataGridViewTextBoxColumn"].Value?.ToString() ?? string.Empty;
             txbEmail.Text = row.Cells["EmailDataGridViewTextBoxColumn"].Value?.ToString() ?? string.Empty;
             txbTelefon.Text = row.Cells["TelefonDataGridViewTextBoxColumn"].Value?.ToString() ?? string.Empty;
-            dtpZatrudnienie.Value = Convert.ToDateTime(row.Cells["DataZatrudnieniaDataGridViewTextBoxColumn"].Value);
-            cmbStanowisko.SelectedValue = row.Cells["IDStanowisko"].Value;
+
+            // Bezpieczna konwersja daty zatrudnienia
+            object dataZatrValue = row.Cells["DataZatrudnieniaDataGridViewTextBoxColumn"].Value;
+            if (dataZatrValue != DBNull.Value)
+            {
+                dtpZatrudnienie.Value = Convert.ToDateTime(dataZatrValue);
+            }
+            else
+            {
+                dtpZatrudnienie.Value = DateTime.Now; // lub inna domyślna wartość
+            }
+
+            cmbStanowisko.Text = row.Cells["NazwaStanowiskaDataGridViewTextBoxColumn"].Value?.ToString() ?? string.Empty;
         }
+
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            // istniejąca implementacja dodawania
-            // ...
+            string Imie = txbImie.Text.Trim();
+            string Nazwisko = txbNazwisko.Text.Trim();
+            string Email = txbEmail.Text.Trim();
+            string Telefon = txbTelefon.Text.Trim();
+            DateTime DataZatrudnienia = dtpZatrudnienie.Value;
+            object selectedStanowisko = cmbStanowisko.SelectedValue;
+
+            if (string.IsNullOrEmpty(Imie) ||
+                string.IsNullOrEmpty(Nazwisko) ||
+                string.IsNullOrEmpty(Email) ||
+                string.IsNullOrEmpty(Telefon) ||
+                selectedStanowisko == null)
+            {
+                MessageBox.Show("Wszystkie pola muszą być wypełnione.");
+                return;
+            }
+
+            DataRow[] existingRows = ksiegarniaDataSet3.Tables["Pracownicy"]
+                .Select($"Email = '{Email.Replace("'", "''")}'"); 
+
+            if (existingRows.Length > 0)
+            {
+                MessageBox.Show("Pracownik z podanym adresem e-mail już istnieje.");
+                return;
+            }
+
+            try
+            {
+                DataRow newRow = ksiegarniaDataSet3.Tables["Pracownicy"].NewRow();
+                newRow["Imie"] = Imie;
+                newRow["Nazwisko"] = Nazwisko;
+                newRow["Email"] = Email;
+                newRow["Telefon"] = Telefon;
+                newRow["DataZatrudnienia"] = DataZatrudnienia;
+                newRow["IDStanowisko"] = selectedStanowisko;
+
+                ksiegarniaDataSet3.Tables["Pracownicy"].Rows.Add(newRow);
+                pracownicyTableAdapter.Update(ksiegarniaDataSet3.Pracownicy);
+
+                MessageBox.Show("Pracownik został dodany.");
+                OdswiezDane();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Błąd podczas dodawania pracownika: " + ex.Message);
+            }
         }
+
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -58,7 +120,7 @@ namespace Ksiegarnia2.Forms
                 MessageBox.Show("Wybierz pracownika do edycji.");
                 return;
             }
-            // Walidacja
+            
             if (string.IsNullOrWhiteSpace(txbImie.Text) || string.IsNullOrWhiteSpace(txbNazwisko.Text)
                 || string.IsNullOrWhiteSpace(txbEmail.Text) || string.IsNullOrWhiteSpace(txbTelefon.Text)
                 || cmbStanowisko.SelectedValue == null)
@@ -134,6 +196,8 @@ namespace Ksiegarnia2.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Form1 form1 = new Form1();
+            form1.Show();
             this.Close();
         }
     }
