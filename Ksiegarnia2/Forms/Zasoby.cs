@@ -138,17 +138,14 @@ namespace Ksiegarnia
                     string sql = @"SELECT 
     z.Tytul,
     STRING_AGG(a.Imie + ' ' + a.Nazwisko, ', ') AS Autorzy,
-    c.Cena,
     z.RokWydania,
     z.Kategoria,
     z.Wydawnictwo
 FROM Zasoby z
 LEFT JOIN Zasoby_Autorzy za ON z.Id = za.IdZasobu
 LEFT JOIN Autorzy a ON za.IdAutora = a.Id
-LEFT JOIN Ceny c ON z.Id = c.IdZasobu
 GROUP BY 
     z.Tytul,
-    c.Cena,
     z.RokWydania,
     z.Kategoria,
     z.Wydawnictwo";
