@@ -50,6 +50,8 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataUtworzeniaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zasobyBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.ksiegarniaDataSet11 = new Ksiegarnia2.KsiegarniaDataSet1();
             this.ZasobyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ksiegarniaDataSet = new Ksiegarnia2.KsiegarniaDataSet();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -64,15 +66,14 @@
             this.zasobyTableAdapter = new Ksiegarnia2.KsiegarniaDataSetTableAdapters.ZasobyTableAdapter();
             this.zasoby_AutorzyTableAdapter1 = new Ksiegarnia2.KsiegarniaDataSet2TableAdapters.Zasoby_AutorzyTableAdapter();
             this.ksiegarniaDataSet1 = new Ksiegarnia2.KsiegarniaDataSet();
-            this.ksiegarniaDataSet11 = new Ksiegarnia2.KsiegarniaDataSet1();
-            this.zasobyBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.Cena = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZasoby)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zasobyBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ZasobyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zasobyBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -231,7 +232,8 @@
             this.iloscDataGridViewTextBoxColumn,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
-            this.dataUtworzeniaDataGridViewTextBoxColumn});
+            this.dataUtworzeniaDataGridViewTextBoxColumn,
+            this.Cena});
             this.dgvZasoby.DataSource = this.zasobyBindingSource1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightPink;
@@ -298,6 +300,16 @@
             this.dataUtworzeniaDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.dataUtworzeniaDataGridViewTextBoxColumn.Name = "dataUtworzeniaDataGridViewTextBoxColumn";
             this.dataUtworzeniaDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // zasobyBindingSource1
+            // 
+            this.zasobyBindingSource1.DataMember = "Zasoby";
+            this.zasobyBindingSource1.DataSource = this.ksiegarniaDataSet11;
+            // 
+            // ksiegarniaDataSet11
+            // 
+            this.ksiegarniaDataSet11.DataSetName = "KsiegarniaDataSet1";
+            this.ksiegarniaDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // ZasobyBindingSource
             // 
@@ -405,15 +417,13 @@
             this.ksiegarniaDataSet1.DataSetName = "KsiegarniaDataSet";
             this.ksiegarniaDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // ksiegarniaDataSet11
+            // Cena
             // 
-            this.ksiegarniaDataSet11.DataSetName = "KsiegarniaDataSet1";
-            this.ksiegarniaDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // zasobyBindingSource1
-            // 
-            this.zasobyBindingSource1.DataMember = "Zasoby";
-            this.zasobyBindingSource1.DataSource = this.ksiegarniaDataSet11;
+            this.Cena.DataPropertyName = "Cena";
+            this.Cena.HeaderText = "Cena";
+            this.Cena.MinimumWidth = 8;
+            this.Cena.Name = "Cena";
+            this.Cena.Width = 150;
             // 
             // DodajZasoby
             // 
@@ -449,12 +459,12 @@
             this.Name = "DodajZasoby";
             this.Text = "DodajZasoby";
             ((System.ComponentModel.ISupportInitialize)(this.dgvZasoby)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zasobyBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ZasobyBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zasobyBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -504,5 +514,6 @@
         private KsiegarniaDataSet ksiegarniaDataSet1;
         private System.Windows.Forms.BindingSource zasobyBindingSource1;
         private KsiegarniaDataSet1 ksiegarniaDataSet11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cena;
     }
 }
