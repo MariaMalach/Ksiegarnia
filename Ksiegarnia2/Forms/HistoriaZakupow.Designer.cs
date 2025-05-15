@@ -41,18 +41,18 @@
             this.cmbKategorie = new System.Windows.Forms.ComboBox();
             this.txbWyszukiwarka = new System.Windows.Forms.TextBox();
             this.dgvTransakcje = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailPracownikaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cenaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ksiegarniaDataSet5 = new Ksiegarnia2.KsiegarniaDataSet5();
             this.historiaZakupowBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ksiegarniaDataSet2 = new Ksiegarnia2.KsiegarniaDataSet2();
-            this.historiaZakupowTableAdapter = new Ksiegarnia2.KsiegarniaDataSet2TableAdapters.HistoriaZakupowTableAdapter();
+            this.historiaZakupowTableAdapter = new Ksiegarnia2.KsiegarniaDataSet5TableAdapters.HistoriaZakupowTableAdapter();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransakcje)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.historiaZakupowBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet2)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -179,12 +179,12 @@
             this.dgvTransakcje.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTransakcje.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTransakcje.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.emailPracownikaDataGridViewTextBoxColumn,
-            this.cenaDataGridViewTextBoxColumn});
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10});
             this.dgvTransakcje.DataSource = this.historiaZakupowBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightPink;
@@ -203,68 +203,68 @@
             this.dgvTransakcje.Size = new System.Drawing.Size(1303, 479);
             this.dgvTransakcje.TabIndex = 38;
             // 
-            // dataGridViewTextBoxColumn1
+            // ksiegarniaDataSet5
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "IDZakupu";
-            this.dataGridViewTextBoxColumn1.HeaderText = "IDZakupu";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "IDZasobu";
-            this.dataGridViewTextBoxColumn2.HeaderText = "IDZasobu";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "DataZakupu";
-            this.dataGridViewTextBoxColumn3.HeaderText = "DataZakupu";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Ilosc";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Ilosc";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 150;
-            // 
-            // emailPracownikaDataGridViewTextBoxColumn
-            // 
-            this.emailPracownikaDataGridViewTextBoxColumn.DataPropertyName = "emailPracownika";
-            this.emailPracownikaDataGridViewTextBoxColumn.HeaderText = "emailPracownika";
-            this.emailPracownikaDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.emailPracownikaDataGridViewTextBoxColumn.Name = "emailPracownikaDataGridViewTextBoxColumn";
-            this.emailPracownikaDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // cenaDataGridViewTextBoxColumn
-            // 
-            this.cenaDataGridViewTextBoxColumn.DataPropertyName = "Cena";
-            this.cenaDataGridViewTextBoxColumn.HeaderText = "Cena";
-            this.cenaDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.cenaDataGridViewTextBoxColumn.Name = "cenaDataGridViewTextBoxColumn";
-            this.cenaDataGridViewTextBoxColumn.Width = 150;
+            this.ksiegarniaDataSet5.DataSetName = "KsiegarniaDataSet5";
+            this.ksiegarniaDataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // historiaZakupowBindingSource
             // 
             this.historiaZakupowBindingSource.DataMember = "HistoriaZakupow";
-            this.historiaZakupowBindingSource.DataSource = this.ksiegarniaDataSet2;
-            // 
-            // ksiegarniaDataSet2
-            // 
-            this.ksiegarniaDataSet2.DataSetName = "KsiegarniaDataSet2";
-            this.ksiegarniaDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.historiaZakupowBindingSource.DataSource = this.ksiegarniaDataSet5;
             // 
             // historiaZakupowTableAdapter
             // 
             this.historiaZakupowTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "IDZakupu";
+            this.dataGridViewTextBoxColumn5.HeaderText = "IDZakupu";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "IDZasobu";
+            this.dataGridViewTextBoxColumn6.HeaderText = "IDZasobu";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "DataZakupu";
+            this.dataGridViewTextBoxColumn7.HeaderText = "DataZakupu";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Ilosc";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Ilosc";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "emailPracownika";
+            this.dataGridViewTextBoxColumn9.HeaderText = "emailPracownika";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Cena";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Cena";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.Width = 150;
             // 
             // Transakcje
             // 
@@ -289,8 +289,8 @@
             this.Text = "HistoriaZakupow";
             this.Load += new System.EventHandler(this.HistoriaZakupow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransakcje)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.historiaZakupowBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -314,14 +314,20 @@
         private System.Windows.Forms.ComboBox cmbKategorie;
         private System.Windows.Forms.TextBox txbWyszukiwarka;
         private System.Windows.Forms.DataGridView dgvTransakcje;
-        private Ksiegarnia2.KsiegarniaDataSet2 ksiegarniaDataSet2;
-        private System.Windows.Forms.BindingSource historiaZakupowBindingSource;
-        private Ksiegarnia2.KsiegarniaDataSet2TableAdapters.HistoriaZakupowTableAdapter historiaZakupowTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailPracownikaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cenaDataGridViewTextBoxColumn;
+        private Ksiegarnia2.KsiegarniaDataSet5 ksiegarniaDataSet5;
+        private System.Windows.Forms.BindingSource historiaZakupowBindingSource;
+        private Ksiegarnia2.KsiegarniaDataSet5TableAdapters.HistoriaZakupowTableAdapter historiaZakupowTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
     }
 }

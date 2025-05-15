@@ -22,12 +22,18 @@ namespace Ksiegarnia2.Forms
 
         private void DodajPracownika_Load(object sender, EventArgs e)
         {
+            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet5.Pracownicy' . Możesz go przenieść lub usunąć.
+            this.pracownicyTableAdapter.Fill(this.ksiegarniaDataSet5.Pracownicy);
+            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet5.vw_Pracownicy' . Możesz go przenieść lub usunąć.
+            this.vw_PracownicyTableAdapter.Fill(this.ksiegarniaDataSet5.vw_Pracownicy);
+            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet5.Stanowiska' . Możesz go przenieść lub usunąć.
+            this.stanowiskaTableAdapter1.Fill(this.ksiegarniaDataSet5.Stanowiska);
             // Wczytanie danych
-            this.stanowiskaTableAdapter.Fill(this.ksiegarniaDataSet3.Stanowiska);
-            this.pracownicyTableAdapter.Fill(this.ksiegarniaDataSet3.Pracownicy);
-            this.vw_PracownicyZeStanowiskiemTableAdapter.Fill(this.ksiegarniaDataSet3.vw_PracownicyZeStanowiskiem);
+          
+            
+            
 
-            cmbStanowisko.DataSource = ksiegarniaDataSet3.Stanowiska;
+            cmbStanowisko.DataSource = ksiegarniaDataSet5.Stanowiska;
             cmbStanowisko.DisplayMember = "NazwaStanowiska";
             cmbStanowisko.ValueMember = "IDStanowisko";
         }
@@ -38,27 +44,28 @@ namespace Ksiegarnia2.Forms
 
             DataGridViewRow row = dgvPracownicy.Rows[e.RowIndex];
 
-            // Bezpieczne pobranie ID pracownika
-            object idValue = row.Cells["IDPracownikaDataGridViewTextBoxColumn"].Value;
+           
+
+            object idValue = row.Cells["IDPracownika"].Value;
             selectedPracownikId = idValue != DBNull.Value ? Convert.ToInt32(idValue) : 0;
 
-            txbImie.Text = row.Cells["ImieDataGridViewTextBoxColumn"].Value?.ToString() ?? string.Empty;
-            txbNazwisko.Text = row.Cells["NazwiskoDataGridViewTextBoxColumn"].Value?.ToString() ?? string.Empty;
-            txbEmail.Text = row.Cells["EmailDataGridViewTextBoxColumn"].Value?.ToString() ?? string.Empty;
-            txbTelefon.Text = row.Cells["TelefonDataGridViewTextBoxColumn"].Value?.ToString() ?? string.Empty;
+            txbImie.Text = row.Cells["dataGridViewTextBoxColumn2"].Value?.ToString() ?? string.Empty;
+            txbNazwisko.Text = row.Cells["dataGridViewTextBoxColumn3"].Value?.ToString() ?? string.Empty;
+            txbEmail.Text = row.Cells["dataGridViewTextBoxColumn5"].Value?.ToString() ?? string.Empty;
+            txbTelefon.Text = row.Cells["dataGridViewTextBoxColumn6"].Value?.ToString() ?? string.Empty;
 
-            // Bezpieczna konwersja daty zatrudnienia
-            object dataZatrValue = row.Cells["DataZatrudnieniaDataGridViewTextBoxColumn"].Value;
+            
+            object dataZatrValue = row.Cells["dataGridViewTextBoxColumn4"].Value;
             if (dataZatrValue != DBNull.Value)
             {
                 dtpZatrudnienie.Value = Convert.ToDateTime(dataZatrValue);
             }
             else
             {
-                dtpZatrudnienie.Value = DateTime.Now; // lub inna domyślna wartość
+                dtpZatrudnienie.Value = DateTime.Now; 
             }
 
-            cmbStanowisko.Text = row.Cells["NazwaStanowiskaDataGridViewTextBoxColumn"].Value?.ToString() ?? string.Empty;
+            cmbStanowisko.Text = row.Cells["dataGridViewTextBoxColumn4"].Value?.ToString() ?? string.Empty;
         }
 
 
@@ -81,7 +88,7 @@ namespace Ksiegarnia2.Forms
                 return;
             }
 
-            DataRow[] existingRows = ksiegarniaDataSet3.Tables["Pracownicy"]
+            DataRow[] existingRows = ksiegarniaDataSet5.Tables["Pracownicy"]
                 .Select($"Email = '{Email.Replace("'", "''")}'"); 
 
             if (existingRows.Length > 0)
@@ -92,7 +99,7 @@ namespace Ksiegarnia2.Forms
 
             try
             {
-                DataRow newRow = ksiegarniaDataSet3.Tables["Pracownicy"].NewRow();
+                DataRow newRow = ksiegarniaDataSet5.Tables["Pracownicy"].NewRow();
                 newRow["Imie"] = Imie;
                 newRow["Nazwisko"] = Nazwisko;
                 newRow["Email"] = Email;
@@ -100,8 +107,8 @@ namespace Ksiegarnia2.Forms
                 newRow["DataZatrudnienia"] = DataZatrudnienia;
                 newRow["IDStanowisko"] = selectedStanowisko;
 
-                ksiegarniaDataSet3.Tables["Pracownicy"].Rows.Add(newRow);
-                pracownicyTableAdapter.Update(ksiegarniaDataSet3.Pracownicy);
+                ksiegarniaDataSet5.Tables["Pracownicy"].Rows.Add(newRow);
+                pracownicyTableAdapter.Update(ksiegarniaDataSet5.Pracownicy);
 
                 MessageBox.Show("Pracownik został dodany.");
                 OdswiezDane();
@@ -130,7 +137,7 @@ namespace Ksiegarnia2.Forms
             }
             try
             {
-                var row = ksiegarniaDataSet3.Pracownicy.FindByIDPracownika(selectedPracownikId.Value);
+                var row = ksiegarniaDataSet5.Pracownicy.FindByIDPracownika(selectedPracownikId.Value);
                 row.Imie = txbImie.Text.Trim();
                 row.Nazwisko = txbNazwisko.Text.Trim();
                 row.Email = txbEmail.Text.Trim();
@@ -138,7 +145,7 @@ namespace Ksiegarnia2.Forms
                 row.DataZatrudnienia = dtpZatrudnienie.Value;
                 row.IDStanowisko = (int)cmbStanowisko.SelectedValue;
 
-                pracownicyTableAdapter.Update(ksiegarniaDataSet3.Pracownicy);
+                pracownicyTableAdapter.Update(ksiegarniaDataSet5.Pracownicy);
                 MessageBox.Show("Dane pracownika zostały zaktualizowane.");
                 OdswiezDane();
             }
@@ -159,9 +166,9 @@ namespace Ksiegarnia2.Forms
             if (confirm != DialogResult.Yes) return;
             try
             {
-                var row = ksiegarniaDataSet3.Pracownicy.FindByIDPracownika(selectedPracownikId.Value);
+                var row = ksiegarniaDataSet5.Pracownicy.FindByIDPracownika(selectedPracownikId.Value);
                 row.Delete();
-                pracownicyTableAdapter.Update(ksiegarniaDataSet3.Pracownicy);
+                pracownicyTableAdapter.Update(ksiegarniaDataSet5.Pracownicy);
                 MessageBox.Show("Pracownik został usunięty.");
                 ClearForm();
                 OdswiezDane();
@@ -185,8 +192,8 @@ namespace Ksiegarnia2.Forms
 
         private void OdswiezDane()
         {
-            ksiegarniaDataSet3.vw_PracownicyZeStanowiskiem.Clear();
-            vw_PracownicyZeStanowiskiemTableAdapter.Fill(ksiegarniaDataSet3.vw_PracownicyZeStanowiskiem);
+            ksiegarniaDataSet5.vw_Pracownicy.Clear();
+            vw_PracownicyTableAdapter.Fill(ksiegarniaDataSet5.vw_Pracownicy);
         }
 
         private void btnClose_Click(object sender, EventArgs e)

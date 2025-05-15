@@ -40,8 +40,7 @@ namespace Ksiegarnia
         {
             // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet5.Zasoby' . Możesz go przenieść lub usunąć.
             this.zasobyTableAdapter1.Fill(this.ksiegarniaDataSet5.Zasoby);
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet1.Zasoby' . Możesz go przenieść lub usunąć.
-            this.zasobyTableAdapter.Fill(this.ksiegarniaDataSet1.Zasoby);
+
 
 
 
@@ -55,9 +54,9 @@ namespace Ksiegarnia
 
             foreach (DataGridViewColumn column in dgvZasoby.Columns)
             {
-                if (column.Visible) // tylko widoczne kolumny
+                if (column.Visible) 
                 {
-                    cmbKategorie.Items.Add(column.HeaderText); // Uzupełnianie nazwami kolumn ComboBoxa
+                    cmbKategorie.Items.Add(column.HeaderText); 
                 }
             }
         }
@@ -70,14 +69,14 @@ namespace Ksiegarnia
             {
                 if (cmbKategorie.SelectedItem == null || string.IsNullOrWhiteSpace(txbWyszukiwarka.Text))
                 {
-                    zasobyBindingSource.RemoveFilter();
+                    zasobyBindingSource1.RemoveFilter();
                     return;
                 }
 
                 string selectedColumn = cmbKategorie.SelectedItem.ToString();
                 string searchText = txbWyszukiwarka.Text;
 
-                var columnType = ((DataView)zasobyBindingSource.List).Table.Columns[selectedColumn].DataType;
+                var columnType = ((DataView)zasobyBindingSource1.List).Table.Columns[selectedColumn].DataType;
 
                 string filtr = "";
 
@@ -104,7 +103,7 @@ namespace Ksiegarnia
                     filtr = $"{selectedColumn} = '{searchText}'";
                 }
 
-                zasobyBindingSource.Filter = filtr;
+                zasobyBindingSource1.Filter = filtr;
 
             }
             catch (EvaluateException)
@@ -136,27 +135,27 @@ namespace Ksiegarnia
                 using (SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=Ksiegarnia;Integrated Security=True"))
                 {
                     string sql = @"SELECT 
-    z.Tytul,
-    STRING_AGG(a.Imie + ' ' + a.Nazwisko, ', ') AS Autorzy,
-    z.RokWydania,
-    z.Kategoria,
-    z.Wydawnictwo
-FROM Zasoby z
-LEFT JOIN Zasoby_Autorzy za ON z.Id = za.IdZasobu
-LEFT JOIN Autorzy a ON za.IdAutora = a.Id
-GROUP BY 
-    z.Tytul,
-    z.RokWydania,
-    z.Kategoria,
-    z.Wydawnictwo";
+                            z.Tytul,
+                            STRING_AGG(a.Imie + ' ' + a.Nazwisko, ', ') AS Autorzy,
+                            z.RokWydania,
+                            z.Kategoria,
+                            z.Wydawnictwo
+                        FROM Zasoby z
+                        LEFT JOIN Zasoby_Autorzy za ON z.Id = za.IdZasobu
+                        LEFT JOIN Autorzy a ON za.IdAutora = a.Id
+                        GROUP BY 
+                            z.Tytul,
+                            z.RokWydania,
+                            z.Kategoria,
+                            z.Wydawnictwo";
 
                     SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
                     DataSet ds = new DataSet();
                     adapter.Fill(ds, "Zasoby");
 
 
-                    zasobyBindingSource.DataSource = ds.Tables["Zasoby"];
-                    dgvZasoby.DataSource = zasobyBindingSource.DataSource;
+                    zasobyBindingSource1.DataSource = ds.Tables["Zasoby"];
+                    dgvZasoby.DataSource = zasobyBindingSource1.DataSource;
 
                     return ds;
                 }
@@ -198,7 +197,7 @@ GROUP BY
 
         private void button2_Click(object sender, EventArgs e)
         {
-            zasobyBindingSource.RemoveFilter();
+            zasobyBindingSource1.RemoveFilter();
             txbWyszukiwarka.Clear();
         }
 

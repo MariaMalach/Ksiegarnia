@@ -29,20 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvZasoby = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tytulDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rokWydaniaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iloscDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wydawnictwoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataUtworzeniaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cenaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zasobyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ksiegarniaDataSet2 = new Ksiegarnia2.KsiegarniaDataSet2();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -56,19 +45,24 @@
             this.cmbPracownik = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txbCena = new System.Windows.Forms.TextBox();
-            this.zasobyTableAdapter = new Ksiegarnia2.KsiegarniaDataSet2TableAdapters.ZasobyTableAdapter();
-            this.pracownicyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pracownicyTableAdapter = new Ksiegarnia2.KsiegarniaDataSet2TableAdapters.PracownicyTableAdapter();
-            this.historiaZakupowBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.historiaZakupowTableAdapter = new Ksiegarnia2.KsiegarniaDataSet2TableAdapters.HistoriaZakupowTableAdapter();
             this.button1 = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            this.ksiegarniaDataSet5 = new Ksiegarnia2.KsiegarniaDataSet5();
+            this.zasobyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.zasobyTableAdapter = new Ksiegarnia2.KsiegarniaDataSet5TableAdapters.ZasobyTableAdapter();
+            this.historiaZakupowTableAdapter = new Ksiegarnia2.KsiegarniaDataSet5TableAdapters.HistoriaZakupowTableAdapter();
+            this.pracownicyTableAdapter = new Ksiegarnia2.KsiegarniaDataSet5TableAdapters.PracownicyTableAdapter();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZasoby)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zasobyBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pracownicyBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.historiaZakupowBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvZasoby
@@ -76,33 +70,33 @@
             this.dgvZasoby.AutoGenerateColumns = false;
             this.dgvZasoby.BackgroundColor = System.Drawing.Color.Pink;
             this.dgvZasoby.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightPink;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkMagenta;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.RosyBrown;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvZasoby.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightPink;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkMagenta;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.RosyBrown;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvZasoby.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvZasoby.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvZasoby.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.tytulDataGridViewTextBoxColumn,
-            this.rokWydaniaDataGridViewTextBoxColumn,
-            this.iloscDataGridViewTextBoxColumn,
-            this.kategoriaDataGridViewTextBoxColumn,
-            this.wydawnictwoDataGridViewTextBoxColumn,
-            this.dataUtworzeniaDataGridViewTextBoxColumn,
-            this.cenaDataGridViewTextBoxColumn});
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8});
             this.dgvZasoby.DataSource = this.zasobyBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightPink;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.999999F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkMagenta;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvZasoby.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightPink;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.999999F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkMagenta;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvZasoby.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvZasoby.GridColor = System.Drawing.Color.Crimson;
             this.dgvZasoby.Location = new System.Drawing.Point(692, 71);
             this.dgvZasoby.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -111,81 +105,6 @@
             this.dgvZasoby.RowTemplate.Height = 28;
             this.dgvZasoby.Size = new System.Drawing.Size(1109, 596);
             this.dgvZasoby.TabIndex = 41;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // tytulDataGridViewTextBoxColumn
-            // 
-            this.tytulDataGridViewTextBoxColumn.DataPropertyName = "Tytul";
-            this.tytulDataGridViewTextBoxColumn.HeaderText = "Tytul";
-            this.tytulDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.tytulDataGridViewTextBoxColumn.Name = "tytulDataGridViewTextBoxColumn";
-            this.tytulDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // rokWydaniaDataGridViewTextBoxColumn
-            // 
-            this.rokWydaniaDataGridViewTextBoxColumn.DataPropertyName = "RokWydania";
-            this.rokWydaniaDataGridViewTextBoxColumn.HeaderText = "RokWydania";
-            this.rokWydaniaDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.rokWydaniaDataGridViewTextBoxColumn.Name = "rokWydaniaDataGridViewTextBoxColumn";
-            this.rokWydaniaDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // iloscDataGridViewTextBoxColumn
-            // 
-            this.iloscDataGridViewTextBoxColumn.DataPropertyName = "Ilosc";
-            this.iloscDataGridViewTextBoxColumn.HeaderText = "Ilosc";
-            this.iloscDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.iloscDataGridViewTextBoxColumn.Name = "iloscDataGridViewTextBoxColumn";
-            this.iloscDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // kategoriaDataGridViewTextBoxColumn
-            // 
-            this.kategoriaDataGridViewTextBoxColumn.DataPropertyName = "Kategoria";
-            this.kategoriaDataGridViewTextBoxColumn.HeaderText = "Kategoria";
-            this.kategoriaDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.kategoriaDataGridViewTextBoxColumn.Name = "kategoriaDataGridViewTextBoxColumn";
-            this.kategoriaDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // wydawnictwoDataGridViewTextBoxColumn
-            // 
-            this.wydawnictwoDataGridViewTextBoxColumn.DataPropertyName = "Wydawnictwo";
-            this.wydawnictwoDataGridViewTextBoxColumn.HeaderText = "Wydawnictwo";
-            this.wydawnictwoDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.wydawnictwoDataGridViewTextBoxColumn.Name = "wydawnictwoDataGridViewTextBoxColumn";
-            this.wydawnictwoDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // dataUtworzeniaDataGridViewTextBoxColumn
-            // 
-            this.dataUtworzeniaDataGridViewTextBoxColumn.DataPropertyName = "DataUtworzenia";
-            this.dataUtworzeniaDataGridViewTextBoxColumn.HeaderText = "DataUtworzenia";
-            this.dataUtworzeniaDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.dataUtworzeniaDataGridViewTextBoxColumn.Name = "dataUtworzeniaDataGridViewTextBoxColumn";
-            this.dataUtworzeniaDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // cenaDataGridViewTextBoxColumn
-            // 
-            this.cenaDataGridViewTextBoxColumn.DataPropertyName = "Cena";
-            this.cenaDataGridViewTextBoxColumn.HeaderText = "Cena";
-            this.cenaDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.cenaDataGridViewTextBoxColumn.Name = "cenaDataGridViewTextBoxColumn";
-            this.cenaDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // zasobyBindingSource
-            // 
-            this.zasobyBindingSource.DataMember = "Zasoby";
-            this.zasobyBindingSource.DataSource = this.ksiegarniaDataSet2;
-            // 
-            // ksiegarniaDataSet2
-            // 
-            this.ksiegarniaDataSet2.DataSetName = "KsiegarniaDataSet2";
-            this.ksiegarniaDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label9
             // 
@@ -326,28 +245,6 @@
             this.txbCena.Size = new System.Drawing.Size(291, 26);
             this.txbCena.TabIndex = 64;
             // 
-            // zasobyTableAdapter
-            // 
-            this.zasobyTableAdapter.ClearBeforeFill = true;
-            // 
-            // pracownicyBindingSource
-            // 
-            this.pracownicyBindingSource.DataMember = "Pracownicy";
-            this.pracownicyBindingSource.DataSource = this.ksiegarniaDataSet2;
-            // 
-            // pracownicyTableAdapter
-            // 
-            this.pracownicyTableAdapter.ClearBeforeFill = true;
-            // 
-            // historiaZakupowBindingSource
-            // 
-            this.historiaZakupowBindingSource.DataMember = "HistoriaZakupow";
-            this.historiaZakupowBindingSource.DataSource = this.ksiegarniaDataSet2;
-            // 
-            // historiaZakupowTableAdapter
-            // 
-            this.historiaZakupowTableAdapter.ClearBeforeFill = true;
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Pink;
@@ -377,6 +274,93 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // ksiegarniaDataSet5
+            // 
+            this.ksiegarniaDataSet5.DataSetName = "KsiegarniaDataSet5";
+            this.ksiegarniaDataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // zasobyBindingSource
+            // 
+            this.zasobyBindingSource.DataMember = "Zasoby";
+            this.zasobyBindingSource.DataSource = this.ksiegarniaDataSet5;
+            // 
+            // zasobyTableAdapter
+            // 
+            this.zasobyTableAdapter.ClearBeforeFill = true;
+            // 
+            // historiaZakupowTableAdapter
+            // 
+            this.historiaZakupowTableAdapter.ClearBeforeFill = true;
+            // 
+            // pracownicyTableAdapter
+            // 
+            this.pracownicyTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Tytul";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Tytul";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "RokWydania";
+            this.dataGridViewTextBoxColumn3.HeaderText = "RokWydania";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Ilosc";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Ilosc";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Kategoria";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Kategoria";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Wydawnictwo";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Wydawnictwo";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "DataUtworzenia";
+            this.dataGridViewTextBoxColumn7.HeaderText = "DataUtworzenia";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Cena";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Cena";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Width = 150;
+            // 
             // Zakupy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -405,19 +389,15 @@
             this.Name = "Zakupy";
             this.Text = "Zakupy";
             this.Load += new System.EventHandler(this.Zakupy_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZasoby)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zasobyBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pracownicyBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.historiaZakupowBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.DataGridView dgvZasoby;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -432,13 +412,6 @@
         private System.Windows.Forms.ComboBox cmbPracownik;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txbCena;
-        private Ksiegarnia2.KsiegarniaDataSet2 ksiegarniaDataSet2;
-        private System.Windows.Forms.BindingSource zasobyBindingSource;
-        private Ksiegarnia2.KsiegarniaDataSet2TableAdapters.ZasobyTableAdapter zasobyTableAdapter;
-        private System.Windows.Forms.BindingSource pracownicyBindingSource;
-        private Ksiegarnia2.KsiegarniaDataSet2TableAdapters.PracownicyTableAdapter pracownicyTableAdapter;
-        private System.Windows.Forms.BindingSource historiaZakupowBindingSource;
-        private Ksiegarnia2.KsiegarniaDataSet2TableAdapters.HistoriaZakupowTableAdapter historiaZakupowTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tytulDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn rokWydaniaDataGridViewTextBoxColumn;
@@ -449,5 +422,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cenaDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnClose;
+        private Ksiegarnia2.KsiegarniaDataSet5 ksiegarniaDataSet5;
+        private System.Windows.Forms.BindingSource zasobyBindingSource;
+        private Ksiegarnia2.KsiegarniaDataSet5TableAdapters.ZasobyTableAdapter zasobyTableAdapter;
+        private Ksiegarnia2.KsiegarniaDataSet5TableAdapters.HistoriaZakupowTableAdapter historiaZakupowTableAdapter;
+        private Ksiegarnia2.KsiegarniaDataSet5TableAdapters.PracownicyTableAdapter pracownicyTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
     }
 }

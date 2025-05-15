@@ -375,5 +375,7 @@ namespace Ksiegarnia2.Forms
                 MessageBox.Show("Kliknięto kolumnę: " + header);
             }
         }
+
+    
     }
 }
