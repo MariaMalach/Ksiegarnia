@@ -34,7 +34,6 @@ namespace Ksiegarnia2.Forms
         {
             conn = new SqlConnection("Data Source=.;Initial Catalog=Ksiegarnia;Integrated Security=True");
 
-            // Adapter dla Zasoby
             string selectZasoby = "SELECT * FROM Zasoby";
             zasobyAdapter = new SqlDataAdapter(selectZasoby, conn);
             zasobyAdapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
@@ -47,31 +46,26 @@ namespace Ksiegarnia2.Forms
 
         private void InitAutorzyAdapter()
         {
-            // Adapter dla Autorzy
             string selectAutorzy = "SELECT * FROM Autorzy";
             autorzyAdapter = new SqlDataAdapter(selectAutorzy, conn);
             autorzyAdapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
             autorzyCommandBuilder = new SqlCommandBuilder(autorzyAdapter);
 
-            // Dodanie i wypełnienie tabeli Autorzy w DataSet
             autorzyAdapter.Fill(zasobyDataSet, "Autorzy");
         }
 
         private void InitZasobyAutorzyAdapter()
         {
-            // Adapter dla Zasoby_Autorzy
             string selectZA = "SELECT * FROM Zasoby_Autorzy";
             zasobyAutorzyAdapter = new SqlDataAdapter(selectZA, conn);
             zasobyAutorzyAdapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
             zasobyAutorzyCommandBuilder = new SqlCommandBuilder(zasobyAutorzyAdapter);
 
-            // Dodanie i wypełnienie tabeli Zasoby_Autorzy
             zasobyAutorzyAdapter.Fill(zasobyDataSet, "Zasoby_Autorzy");
         }
 
         private void btnDodaj_Click_1(object sender, EventArgs e)
         {
-            // Pobranie i walidacja danych z formularza
             string tytul = txbTytul.Text.Trim();
             string rokText = textRokWydania.Text.Trim();
             string iloscText = textIlosc.Text.Trim();
@@ -105,7 +99,6 @@ namespace Ksiegarnia2.Forms
                 return;
             }
 
-            // Parsowanie imion i nazwisk autorów
             var autorzyLista = autorzyText.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(a => a.Trim())
                                            .ToList();
             if (!autorzyLista.Any())
@@ -116,7 +109,6 @@ namespace Ksiegarnia2.Forms
 
             List<int> autorIds = new List<int>();
 
-            // Przetworzenie każdego autora
             foreach (var pelne in autorzyLista)
             {
                 var czesci = pelne.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
@@ -128,7 +120,6 @@ namespace Ksiegarnia2.Forms
                 string imie = czesci[0];
                 string nazwisko = string.Join(" ", czesci.Skip(1));
 
-                // Szukanie istniejącego autora
                 var existing = zasobyDataSet.Tables["Autorzy"].AsEnumerable()
                     .FirstOrDefault(r => r.Field<string>("Imie") == imie && r.Field<string>("Nazwisko") == nazwisko);
 
@@ -139,14 +130,12 @@ namespace Ksiegarnia2.Forms
                 }
                 else
                 {
-                    // Dodanie nowego autora
                     DataRow newAutor = zasobyDataSet.Tables["Autorzy"].NewRow();
                     newAutor["Imie"] = imie;
                     newAutor["Nazwisko"] = nazwisko;
                     zasobyDataSet.Tables["Autorzy"].Rows.Add(newAutor);
                     autorzyAdapter.Update(zasobyDataSet, "Autorzy");
 
-                    // Odświeżenie i pobranie ID nowego autora
                     zasobyDataSet.Tables["Autorzy"].Clear();
                     autorzyAdapter.Fill(zasobyDataSet, "Autorzy");
                     existing = zasobyDataSet.Tables["Autorzy"].AsEnumerable()
@@ -159,7 +148,6 @@ namespace Ksiegarnia2.Forms
 
             try
             {
-                // Dodanie nowego zasobu
                 var tblZasoby = zasobyDataSet.Tables["Zasoby"];
                 DataRow newZasob = tblZasoby.NewRow();
                 newZasob["Tytul"] = tytul;
@@ -172,7 +160,6 @@ namespace Ksiegarnia2.Forms
                 tblZasoby.Rows.Add(newZasob);
                 zasobyAdapter.Update(zasobyDataSet, "Zasoby");
 
-                // Wyciągnięcie ID nowego zasobu
                 tblZasoby.Clear();
                 zasobyAdapter.Fill(zasobyDataSet, "Zasoby");
                 int newIdZasobu = tblZasoby.AsEnumerable()
@@ -180,7 +167,6 @@ namespace Ksiegarnia2.Forms
                     .First()
                     .Field<int>("Id");
 
-                // Dodanie powiązań w Zasoby_Autorzy
                 var tblZA = zasobyDataSet.Tables["Zasoby_Autorzy"];
                 foreach (var aid in autorIds)
                 {
@@ -208,12 +194,10 @@ namespace Ksiegarnia2.Forms
                 return;
             }
 
-            // Pobranie zaznaczonego wiersza
             int idx = dgvZasoby.CurrentRow.Index;
             DataRow row = zasobyDataSet.Tables["Zasoby"].Rows[idx];
             int idZasobu = row.Field<int>("Id");
 
-            // Walidacja i wczytanie z TextBoxów
             string tytul = txbTytul.Text.Trim();
             string rokText = textRokWydania.Text.Trim();
             string iloscText = textIlosc.Text.Trim();
@@ -244,7 +228,7 @@ namespace Ksiegarnia2.Forms
                 return;
             }
 
-            // Aktualizacja pól zasobu
+            
             row["Tytul"] = tytul;
             row["RokWydania"] = rok;
             row["Ilosc"] = ilosc;
@@ -252,7 +236,6 @@ namespace Ksiegarnia2.Forms
             row["Wydawnictwo"] = wydawnictwo;
             row["Cena"] = cena;
 
-            // Parsowanie autorów
             var autorzyLista = autorzyText.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
                                            .Select(a => a.Trim()).ToList();
             List<int> autorIds = new List<int>();
@@ -287,16 +270,14 @@ namespace Ksiegarnia2.Forms
 
             try
             {
-                // Aktualizacja w bazie
+                
                 zasobyAdapter.Update(zasobyDataSet, "Zasoby");
 
-                // Usuń stare powiązania autorów
                 var tblZA = zasobyDataSet.Tables["Zasoby_Autorzy"];
                 var toDelete = tblZA.AsEnumerable().Where(r => r.Field<int>("IdZasobu") == idZasobu).ToList();
                 foreach (var d in toDelete) d.Delete();
                 zasobyAutorzyAdapter.Update(zasobyDataSet, "Zasoby_Autorzy");
 
-                // Dodaj nowe powiązania
                 foreach (var aid in autorIds)
                 {
                     var newZA = tblZA.NewRow();
@@ -344,7 +325,6 @@ namespace Ksiegarnia2.Forms
             textBoxKategoria.Text = row.Field<string>("Kategoria");
             textBoxWydawnictwo.Text = row.Field<string>("Wydawnictwo");
 
-            // Pobranie autorów dla tego zasobu
             int idZasobu = row.Field<int>("Id");
             var powiazania = zasobyDataSet.Tables["Zasoby_Autorzy"].AsEnumerable()
                 .Where(r => r.Field<int>("IdZasobu") == idZasobu);

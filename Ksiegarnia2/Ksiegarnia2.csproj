@@ -224,6 +224,9 @@
     <Compile Include="Forms\Zasoby.Designer.cs">
       <DependentUpon>Zasoby.cs</DependentUpon>
     </Compile>
+    <Compile Include="KsiegarniaDataSet5.cs">
+      <DependentUpon>KsiegarniaDataSet5.xsd</DependentUpon>
+    </Compile>
     <Compile Include="KsiegarniaDataSet5.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

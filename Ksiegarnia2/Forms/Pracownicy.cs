@@ -31,10 +31,10 @@ namespace Ksiegarnia.Forms
 
             foreach (DataGridViewColumn column in dgvPracownicy.Columns)
             {
-                if (column.Visible) // tylko widoczne kolumny
-                {
+                
+                
                     cmbKategorie.Items.Add(column.HeaderText); // Uzupełnianie nazwami kolumn ComboBoxa
-                }
+                
             }
         }
         private void Pracownicy_Load(object sender, EventArgs e)
