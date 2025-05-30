@@ -224,6 +224,11 @@
     <Compile Include="Forms\Zasoby.Designer.cs">
       <DependentUpon>Zasoby.cs</DependentUpon>
     </Compile>
+    <Compile Include="KsiegarniaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KsiegarniaDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="KsiegarniaDataSet5.cs">
       <DependentUpon>KsiegarniaDataSet5.xsd</DependentUpon>
     </Compile>
@@ -268,6 +273,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="KsiegarniaDataSet.xsc">
+      <DependentUpon>KsiegarniaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="KsiegarniaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KsiegarniaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KsiegarniaDataSet.xss">
+      <DependentUpon>KsiegarniaDataSet.xsd</DependentUpon>
+    </None>
     <None Include="KsiegarniaDataSet5.xsc">
       <DependentUpon>KsiegarniaDataSet5.xsd</DependentUpon>
     </None>
