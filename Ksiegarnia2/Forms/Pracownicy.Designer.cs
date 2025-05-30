@@ -42,9 +42,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.dgvPracownicy = new System.Windows.Forms.DataGridView();
-            this.ksiegarniaDataSet5 = new Ksiegarnia2.KsiegarniaDataSet5();
-            this.vwPracownicyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vw_PracownicyTableAdapter = new Ksiegarnia2.KsiegarniaDataSet5TableAdapters.vw_PracownicyTableAdapter();
+            this.ksiegarniaDataSet = new Ksiegarnia2.KsiegarniaDataSet();
+            this.vwPracownicyZeStanowiskiemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vw_PracownicyZeStanowiskiemTableAdapter = new Ksiegarnia2.KsiegarniaDataSetTableAdapters.vw_PracownicyZeStanowiskiemTableAdapter();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,8 +53,8 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPracownicy)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vwPracownicyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vwPracownicyZeStanowiskiemBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -202,7 +202,7 @@
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13});
-            this.dgvPracownicy.DataSource = this.vwPracownicyBindingSource;
+            this.dgvPracownicy.DataSource = this.vwPracownicyZeStanowiskiemBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightPink;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.999999F);
@@ -220,19 +220,19 @@
             this.dgvPracownicy.Size = new System.Drawing.Size(1269, 394);
             this.dgvPracownicy.TabIndex = 25;
             // 
-            // ksiegarniaDataSet5
+            // ksiegarniaDataSet
             // 
-            this.ksiegarniaDataSet5.DataSetName = "KsiegarniaDataSet5";
-            this.ksiegarniaDataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.ksiegarniaDataSet.DataSetName = "KsiegarniaDataSet";
+            this.ksiegarniaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // vwPracownicyBindingSource
+            // vwPracownicyZeStanowiskiemBindingSource
             // 
-            this.vwPracownicyBindingSource.DataMember = "vw_Pracownicy";
-            this.vwPracownicyBindingSource.DataSource = this.ksiegarniaDataSet5;
+            this.vwPracownicyZeStanowiskiemBindingSource.DataMember = "vw_PracownicyZeStanowiskiem";
+            this.vwPracownicyZeStanowiskiemBindingSource.DataSource = this.ksiegarniaDataSet;
             // 
-            // vw_PracownicyTableAdapter
+            // vw_PracownicyZeStanowiskiemTableAdapter
             // 
-            this.vw_PracownicyTableAdapter.ClearBeforeFill = true;
+            this.vw_PracownicyZeStanowiskiemTableAdapter.ClearBeforeFill = true;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -314,8 +314,8 @@
             this.Text = "Pracownicy";
             this.Load += new System.EventHandler(this.Pracownicy_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPracownicy)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vwPracownicyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vwPracownicyZeStanowiskiemBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -347,9 +347,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridView dgvPracownicy;
-        private Ksiegarnia2.KsiegarniaDataSet5 ksiegarniaDataSet5;
-        private System.Windows.Forms.BindingSource vwPracownicyBindingSource;
-        private Ksiegarnia2.KsiegarniaDataSet5TableAdapters.vw_PracownicyTableAdapter vw_PracownicyTableAdapter;
+        private Ksiegarnia2.KsiegarniaDataSet ksiegarniaDataSet;
+        private System.Windows.Forms.BindingSource vwPracownicyZeStanowiskiemBindingSource;
+        private Ksiegarnia2.KsiegarniaDataSetTableAdapters.vw_PracownicyZeStanowiskiemTableAdapter vw_PracownicyZeStanowiskiemTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;

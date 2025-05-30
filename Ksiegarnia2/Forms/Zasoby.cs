@@ -26,7 +26,7 @@ namespace Ksiegarnia
         {
             InitializeComponent();
             SchemaDataLoad();
-            DataSet ds = ZaładujDane();
+            //DataSet ds = ZaładujDane();
             dgvZasoby.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvZasoby.AutoResizeColumns();
             dgvZasoby.AutoResizeRows();
@@ -38,10 +38,11 @@ namespace Ksiegarnia
 
         private void Zasoby_Load(object sender, EventArgs e)
         {
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet.Zasoby' . Możesz go przenieść lub usunąć.
+
             this.zasobyTableAdapter.Fill(this.ksiegarniaDataSet.Zasoby);
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet5.Zasoby' . Możesz go przenieść lub usunąć.
-            this.zasobyTableAdapter1.Fill(this.ksiegarniaDataSet5.Zasoby);
+            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet.Zasoby' . Możesz go przenieść lub usunąć.
+
+
 
 
 
@@ -71,14 +72,14 @@ namespace Ksiegarnia
             {
                 if (cmbKategorie.SelectedItem == null || string.IsNullOrWhiteSpace(txbWyszukiwarka.Text))
                 {
-                    zasobyBindingSource1.RemoveFilter();
+                    zasobyBindingSource.RemoveFilter();
                     return;
                 }
 
                 string selectedColumn = cmbKategorie.SelectedItem.ToString();
                 string searchText = txbWyszukiwarka.Text;
 
-                var columnType = ((DataView)zasobyBindingSource1.List).Table.Columns[selectedColumn].DataType;
+                var columnType = ((DataView)zasobyBindingSource.List).Table.Columns[selectedColumn].DataType;
 
                 string filtr = "";
 
@@ -105,7 +106,7 @@ namespace Ksiegarnia
                     filtr = $"{selectedColumn} = '{searchText}'";
                 }
 
-                zasobyBindingSource1.Filter = filtr;
+                zasobyBindingSource.Filter = filtr;
 
             }
             catch (EvaluateException)
@@ -156,8 +157,8 @@ namespace Ksiegarnia
                     adapter.Fill(ds, "Zasoby");
 
 
-                    zasobyBindingSource1.DataSource = ds.Tables["Zasoby"];
-                    dgvZasoby.DataSource = zasobyBindingSource1.DataSource;
+                    zasobyBindingSource.DataSource = ds.Tables["Zasoby"];
+                    dgvZasoby.DataSource = zasobyBindingSource.DataSource;
 
                     return ds;
                 }
@@ -199,7 +200,7 @@ namespace Ksiegarnia
 
         private void button2_Click(object sender, EventArgs e)
         {
-            zasobyBindingSource1.RemoveFilter();
+            zasobyBindingSource.RemoveFilter();
             txbWyszukiwarka.Clear();
         }
 

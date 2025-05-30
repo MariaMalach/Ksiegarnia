@@ -34,14 +34,14 @@ namespace Ksiegarnia2.Forms
         {
             conn = new SqlConnection("Data Source=.;Initial Catalog=Ksiegarnia;Integrated Security=True");
 
-            string selectZasoby = "SELECT * FROM Zasoby";
+            string selectZasoby = "SELECT * FROM vw_Zasoby_Autorzy_Szcegoly";
             zasobyAdapter = new SqlDataAdapter(selectZasoby, conn);
             zasobyAdapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
             zasobyCommandBuilder = new SqlCommandBuilder(zasobyAdapter);
 
             zasobyDataSet = new DataSet();
-            zasobyAdapter.Fill(zasobyDataSet, "Zasoby");
-            dgvZasoby.DataSource = zasobyDataSet.Tables["Zasoby"];
+            zasobyAdapter.Fill(zasobyDataSet, "vw_Zasoby_Autorzy_Szcegoly");
+            dgvZasoby.DataSource = zasobyDataSet.Tables["vw_Zasoby_Autorzy_Szcegoly"];
         }
 
         private void InitAutorzyAdapter()
@@ -356,6 +356,11 @@ namespace Ksiegarnia2.Forms
             }
         }
 
-    
+        private void DodajZasoby_Load(object sender, EventArgs e)
+        {
+            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet.vw_Zasoby_Autorzy_Szcegoly' . Możesz go przenieść lub usunąć.
+            this.vw_Zasoby_Autorzy_SzcegolyTableAdapter.Fill(this.ksiegarniaDataSet.vw_Zasoby_Autorzy_Szcegoly);
+
+        }
     }
 }

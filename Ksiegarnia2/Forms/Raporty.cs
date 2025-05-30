@@ -26,8 +26,9 @@ namespace Ksiegarnia.Forms
      
         private void Raporty_Load(object sender, EventArgs e)
         {
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet5.Widok_SprzedazNaMiesiac' . Możesz go przenieść lub usunąć.
-            this.widok_SprzedazNaMiesiacTableAdapter.Fill(this.ksiegarniaDataSet5.Widok_SprzedazNaMiesiac);
+            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet.Widok_SprzedazNaMiesiac' . Możesz go przenieść lub usunąć.
+            this.widok_SprzedazNaMiesiacTableAdapter.Fill(this.ksiegarniaDataSet.Widok_SprzedazNaMiesiac);
+            
       
             dgvRaport.AutoResizeColumns();
             dgvRaport.AutoResizeRows();

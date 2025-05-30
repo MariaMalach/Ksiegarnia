@@ -39,8 +39,11 @@ namespace Ksiegarnia.Forms
         }
         private void Pracownicy_Load(object sender, EventArgs e)
         {
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet5.vw_Pracownicy' . Możesz go przenieść lub usunąć.
-            this.vw_PracownicyTableAdapter.Fill(this.ksiegarniaDataSet5.vw_Pracownicy);
+            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet.vw_PracownicyZeStanowiskiem' . Możesz go przenieść lub usunąć.
+            this.vw_PracownicyZeStanowiskiemTableAdapter.Fill(this.ksiegarniaDataSet.vw_PracownicyZeStanowiskiem);
+            
+
+         
           
 
 
@@ -79,9 +82,9 @@ namespace Ksiegarnia.Forms
                     DataSet ds = new DataSet();
                     adapter.Fill(ds, "vwPracownicy");
 
-                   
-                    vwPracownicyBindingSource.DataSource = ds.Tables["vwPracownicy"];
-                    dgvPracownicy.DataSource = vwPracownicyBindingSource;
+
+                    vwPracownicyZeStanowiskiemBindingSource.DataSource = ds.Tables["vwPracownicy"];
+                    dgvPracownicy.DataSource = vwPracownicyZeStanowiskiemBindingSource;
 
                     return ds;
                 }
@@ -104,14 +107,14 @@ namespace Ksiegarnia.Forms
             {
                 if (cmbKategorie.SelectedItem == null || string.IsNullOrWhiteSpace(txbWyszukiwarka.Text))
                 {
-                    vwPracownicyBindingSource.RemoveFilter();
+                    vwPracownicyZeStanowiskiemBindingSource.RemoveFilter();
                     return;
                 }
 
                 string selectedColumn = cmbKategorie.SelectedItem.ToString();
                 string searchText = txbWyszukiwarka.Text.Trim().Replace("'", "''");
 
-                var columnType = ((DataView)vwPracownicyBindingSource.List).Table.Columns[selectedColumn].DataType;
+                var columnType = ((DataView)vwPracownicyZeStanowiskiemBindingSource.List).Table.Columns[selectedColumn].DataType;
 
                 string filtr = "";
 
@@ -138,7 +141,7 @@ namespace Ksiegarnia.Forms
                     filtr = $"{selectedColumn} = '{searchText}'";
                 }
 
-                vwPracownicyBindingSource.Filter = filtr;
+                vwPracownicyZeStanowiskiemBindingSource.Filter = filtr;
             }
             catch (EvaluateException)
             {
@@ -156,7 +159,7 @@ namespace Ksiegarnia.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            vwPracownicyBindingSource.RemoveFilter();
+            vwPracownicyZeStanowiskiemBindingSource.RemoveFilter();
             txbWyszukiwarka.Clear();
         }
 

@@ -21,9 +21,10 @@ namespace Ksiegarnia.Forms
 
         private void HistoriaZakupow_Load(object sender, EventArgs e)
         {
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet5.HistoriaZakupow' . Możesz go przenieść lub usunąć.
-            this.historiaZakupowTableAdapter.Fill(this.ksiegarniaDataSet5.HistoriaZakupow);
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet2.HistoriaZakupow' . Możesz go przenieść lub usunąć.
+            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet.HistoriaZakupow' . Możesz go przenieść lub usunąć.
+            this.historiaZakupowTableAdapter.Fill(this.ksiegarniaDataSet.HistoriaZakupow);
+            
+        
 
 
         }

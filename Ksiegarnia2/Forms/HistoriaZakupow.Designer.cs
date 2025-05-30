@@ -41,9 +41,9 @@
             this.cmbKategorie = new System.Windows.Forms.ComboBox();
             this.txbWyszukiwarka = new System.Windows.Forms.TextBox();
             this.dgvTransakcje = new System.Windows.Forms.DataGridView();
-            this.ksiegarniaDataSet5 = new Ksiegarnia2.KsiegarniaDataSet5();
+            this.ksiegarniaDataSet = new Ksiegarnia2.KsiegarniaDataSet();
             this.historiaZakupowBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.historiaZakupowTableAdapter = new Ksiegarnia2.KsiegarniaDataSet5TableAdapters.HistoriaZakupowTableAdapter();
+            this.historiaZakupowTableAdapter = new Ksiegarnia2.KsiegarniaDataSetTableAdapters.HistoriaZakupowTableAdapter();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,7 +51,7 @@
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransakcje)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.historiaZakupowBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -203,15 +203,15 @@
             this.dgvTransakcje.Size = new System.Drawing.Size(1303, 479);
             this.dgvTransakcje.TabIndex = 38;
             // 
-            // ksiegarniaDataSet5
+            // ksiegarniaDataSet
             // 
-            this.ksiegarniaDataSet5.DataSetName = "KsiegarniaDataSet5";
-            this.ksiegarniaDataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.ksiegarniaDataSet.DataSetName = "KsiegarniaDataSet";
+            this.ksiegarniaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // historiaZakupowBindingSource
             // 
             this.historiaZakupowBindingSource.DataMember = "HistoriaZakupow";
-            this.historiaZakupowBindingSource.DataSource = this.ksiegarniaDataSet5;
+            this.historiaZakupowBindingSource.DataSource = this.ksiegarniaDataSet;
             // 
             // historiaZakupowTableAdapter
             // 
@@ -289,7 +289,7 @@
             this.Text = "HistoriaZakupow";
             this.Load += new System.EventHandler(this.HistoriaZakupow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransakcje)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.historiaZakupowBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -320,9 +320,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailPracownikaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cenaDataGridViewTextBoxColumn;
-        private Ksiegarnia2.KsiegarniaDataSet5 ksiegarniaDataSet5;
+        private Ksiegarnia2.KsiegarniaDataSet ksiegarniaDataSet;
         private System.Windows.Forms.BindingSource historiaZakupowBindingSource;
-        private Ksiegarnia2.KsiegarniaDataSet5TableAdapters.HistoriaZakupowTableAdapter historiaZakupowTableAdapter;
+        private Ksiegarnia2.KsiegarniaDataSetTableAdapters.HistoriaZakupowTableAdapter historiaZakupowTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;

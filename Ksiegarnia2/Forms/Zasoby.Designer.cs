@@ -42,7 +42,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.dgvZasoby = new System.Windows.Forms.DataGridView();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.ksiegarniaDataSet = new Ksiegarnia2.KsiegarniaDataSet();
             this.zasobyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.zasobyTableAdapter = new Ksiegarnia2.KsiegarniaDataSetTableAdapters.ZasobyTableAdapter();
@@ -55,7 +54,6 @@
             this.dataUtworzeniaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZasoby)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zasobyBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -225,11 +223,6 @@
             this.dgvZasoby.Size = new System.Drawing.Size(1225, 474);
             this.dgvZasoby.TabIndex = 41;
             // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataSource = this.ksiegarniaDataSet;
-            this.bindingSource1.Position = 0;
-            // 
             // ksiegarniaDataSet
             // 
             this.ksiegarniaDataSet.DataSetName = "KsiegarniaDataSet";
@@ -238,7 +231,7 @@
             // zasobyBindingSource
             // 
             this.zasobyBindingSource.DataMember = "Zasoby";
-            this.zasobyBindingSource.DataSource = this.bindingSource1;
+            this.zasobyBindingSource.DataSource = this.ksiegarniaDataSet;
             // 
             // zasobyTableAdapter
             // 
@@ -333,7 +326,6 @@
             this.Text = "Zasoby";
             this.Load += new System.EventHandler(this.Zasoby_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvZasoby)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zasobyBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -360,7 +352,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn kategoriaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn wydawnictwoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridView dgvZasoby;
-        private System.Windows.Forms.BindingSource bindingSource1;
         private Ksiegarnia2.KsiegarniaDataSet ksiegarniaDataSet;
         private System.Windows.Forms.BindingSource zasobyBindingSource;
         private Ksiegarnia2.KsiegarniaDataSetTableAdapters.ZasobyTableAdapter zasobyTableAdapter;

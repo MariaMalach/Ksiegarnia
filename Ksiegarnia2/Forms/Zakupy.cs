@@ -19,29 +19,25 @@ namespace Ksiegarnia.Forms
 
         private void OdswiezDane()
         {
-            ksiegarniaDataSet5.Tables["Zasoby"].Clear();
-            zasobyTableAdapter.Fill(ksiegarniaDataSet5.Zasoby);
+            ksiegarniaDataSet.Tables["Zasoby"].Clear();
+            zasobyTableAdapter.Fill(ksiegarniaDataSet.Zasoby);
         }
 
         private void Zakupy_Load(object sender, EventArgs e)
         {
+            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet.HistoriaZakupow' . Możesz go przenieść lub usunąć.
+            this.historiaZakupowTableAdapter.Fill(this.ksiegarniaDataSet.HistoriaZakupow);
+            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet.Pracownicy' . Możesz go przenieść lub usunąć.
+            this.pracownicyTableAdapter.Fill(this.ksiegarniaDataSet.Pracownicy);
+            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet.Zasoby' . Możesz go przenieść lub usunąć.
+            this.zasobyTableAdapter.Fill(this.ksiegarniaDataSet.Zasoby);
             // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet5.Pracownicy' . Możesz go przenieść lub usunąć.
-            this.pracownicyTableAdapter.Fill(this.ksiegarniaDataSet5.Pracownicy);
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet5.HistoriaZakupow' . Możesz go przenieść lub usunąć.
-            this.historiaZakupowTableAdapter.Fill(this.ksiegarniaDataSet5.HistoriaZakupow);
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet5.Zasoby' . Możesz go przenieść lub usunąć.
-            this.zasobyTableAdapter.Fill(this.ksiegarniaDataSet5.Zasoby);
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet5.Pracownicy' . Możesz go przenieść lub usunąć.
-            this.pracownicyTableAdapter.Fill(this.ksiegarniaDataSet5.Pracownicy);
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet5.HistoriaZakupow' . Możesz go przenieść lub usunąć.
-            this.historiaZakupowTableAdapter.Fill(this.ksiegarniaDataSet5.HistoriaZakupow);
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet5.Zasoby' . Możesz go przenieść lub usunąć.
-            this.zasobyTableAdapter.Fill(this.ksiegarniaDataSet5.Zasoby);
+           
             
             
             
 
-            cmbPracownik.DataSource = ksiegarniaDataSet5.Pracownicy;
+            cmbPracownik.DataSource = ksiegarniaDataSet.Pracownicy;
             cmbPracownik.DisplayMember = "Email";
             cmbPracownik.ValueMember = "Email";
         }
@@ -124,18 +120,18 @@ namespace Ksiegarnia.Forms
             try
             {
                 
-                DataRow newRow = ksiegarniaDataSet5.Tables["HistoriaZakupow"].NewRow();
+                DataRow newRow = ksiegarniaDataSet.Tables["HistoriaZakupow"].NewRow();
                 newRow["IDZasobu"] = idZasobu;
                 newRow["emailPracownika"] = cmbPracownik.SelectedValue.ToString();
                 newRow["DataZakupu"] = DateTime.Now;
                 newRow["Ilosc"] = iloscZamawiana;
                 newRow["Cena"] = decimal.Parse(txbCenaKoncowa.Text);
 
-                ksiegarniaDataSet5.Tables["HistoriaZakupow"].Rows.Add(newRow);
-                historiaZakupowTableAdapter.Update(ksiegarniaDataSet5.HistoriaZakupow);
+                ksiegarniaDataSet.Tables["HistoriaZakupow"].Rows.Add(newRow);
+                historiaZakupowTableAdapter.Update(ksiegarniaDataSet.HistoriaZakupow);
 
                 // Odjęcie ilości z tabeli Zasoby
-                foreach (DataRow zasobRow in ksiegarniaDataSet5.Zasoby.Rows)
+                foreach (DataRow zasobRow in ksiegarniaDataSet.Zasoby.Rows)
                 {
                     if ((int)zasobRow["Id"] == idZasobu)
                     {
@@ -145,7 +141,7 @@ namespace Ksiegarnia.Forms
                     }
                 }
 
-                zasobyTableAdapter.Update(ksiegarniaDataSet5.Zasoby);
+                zasobyTableAdapter.Update(ksiegarniaDataSet.Zasoby);
 
                 MessageBox.Show("Zasób został dodany i ilość została zaktualizowana.");
                 OdswiezDane();
