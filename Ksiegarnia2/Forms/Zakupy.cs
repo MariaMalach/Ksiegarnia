@@ -119,18 +119,35 @@ namespace Ksiegarnia.Forms
 
             try
             {
-                
+                // Obliczanie ceny z rabatem
+                decimal cenaJednostkowa = decimal.Parse(txbCena.Text);
+                decimal cenaCalkowita = cenaJednostkowa * iloscZamawiana;
+
+                decimal rabat = 0;
+
+                if (cenaCalkowita >= 100 && cenaCalkowita < 200)
+                {
+                    rabat = 0.05m;
+                }
+                else if (cenaCalkowita >= 200)
+                {
+                    rabat = 0.10m;
+                }
+
+                decimal cenaPoRabacie = cenaCalkowita * (1 - rabat);
+
+                // Dodanie nowego wiersza do HistoriaZakupow
                 DataRow newRow = ksiegarniaDataSet.Tables["HistoriaZakupow"].NewRow();
                 newRow["IDZasobu"] = idZasobu;
                 newRow["emailPracownika"] = cmbPracownik.SelectedValue.ToString();
                 newRow["DataZakupu"] = DateTime.Now;
                 newRow["Ilosc"] = iloscZamawiana;
-                newRow["Cena"] = decimal.Parse(txbCenaKoncowa.Text);
+                newRow["Cena"] = cenaPoRabacie;
 
                 ksiegarniaDataSet.Tables["HistoriaZakupow"].Rows.Add(newRow);
                 historiaZakupowTableAdapter.Update(ksiegarniaDataSet.HistoriaZakupow);
 
-                // Odjęcie ilości z tabeli Zasoby
+                // Aktualizacja ilości w zasobach
                 foreach (DataRow zasobRow in ksiegarniaDataSet.Zasoby.Rows)
                 {
                     if ((int)zasobRow["Id"] == idZasobu)
@@ -143,15 +160,16 @@ namespace Ksiegarnia.Forms
 
                 zasobyTableAdapter.Update(ksiegarniaDataSet.Zasoby);
 
-                MessageBox.Show("Zasób został dodany i ilość została zaktualizowana.");
+                MessageBox.Show($"Zasób został dodany i ilość została zaktualizowana.\nCena końcowa zakupu wyniosła: {cenaPoRabacie:F2} zł");
+
                 OdswiezDane();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Błąd podczas dodawania zasobu: " + ex.Message);
             }
-
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
