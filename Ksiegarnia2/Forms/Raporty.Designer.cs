@@ -37,19 +37,19 @@
             this.label6 = new System.Windows.Forms.Label();
             this.chartSprzedaz = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dgvRaport = new System.Windows.Forms.DataGridView();
-            this.btnGeneruj2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.ksiegarniaDataSet = new Ksiegarnia2.KsiegarniaDataSet();
-            this.widok_SprzedazNaMiesiacTableAdapter = new Ksiegarnia2.KsiegarniaDataSetTableAdapters.Widok_SprzedazNaMiesiacTableAdapter();
-            this.widokSprzedazNaMiesiacBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tytulDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.miesiacDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sumaSprzedanychDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.widokSprzedazNaMiesiacBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.ksiegarniaDataSet = new Ksiegarnia2.KsiegarniaDataSet();
+            this.btnGeneruj2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.widok_SprzedazNaMiesiacTableAdapter = new Ksiegarnia2.KsiegarniaDataSetTableAdapters.Widok_SprzedazNaMiesiacTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.chartSprzedaz)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRaport)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.widokSprzedazNaMiesiacBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
@@ -121,6 +121,40 @@
             this.dgvRaport.TabIndex = 65;
             this.dgvRaport.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvZasoby_CellContentClick);
             // 
+            // tytulDataGridViewTextBoxColumn
+            // 
+            this.tytulDataGridViewTextBoxColumn.DataPropertyName = "Tytul";
+            this.tytulDataGridViewTextBoxColumn.HeaderText = "Tytul";
+            this.tytulDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.tytulDataGridViewTextBoxColumn.Name = "tytulDataGridViewTextBoxColumn";
+            this.tytulDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // miesiacDataGridViewTextBoxColumn
+            // 
+            this.miesiacDataGridViewTextBoxColumn.DataPropertyName = "Miesiac";
+            this.miesiacDataGridViewTextBoxColumn.HeaderText = "Miesiac";
+            this.miesiacDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.miesiacDataGridViewTextBoxColumn.Name = "miesiacDataGridViewTextBoxColumn";
+            this.miesiacDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // sumaSprzedanychDataGridViewTextBoxColumn
+            // 
+            this.sumaSprzedanychDataGridViewTextBoxColumn.DataPropertyName = "SumaSprzedanych";
+            this.sumaSprzedanychDataGridViewTextBoxColumn.HeaderText = "SumaSprzedanych";
+            this.sumaSprzedanychDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.sumaSprzedanychDataGridViewTextBoxColumn.Name = "sumaSprzedanychDataGridViewTextBoxColumn";
+            this.sumaSprzedanychDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // widokSprzedazNaMiesiacBindingSource1
+            // 
+            this.widokSprzedazNaMiesiacBindingSource1.DataMember = "Widok_SprzedazNaMiesiac";
+            this.widokSprzedazNaMiesiacBindingSource1.DataSource = this.ksiegarniaDataSet;
+            // 
+            // ksiegarniaDataSet
+            // 
+            this.ksiegarniaDataSet.DataSetName = "KsiegarniaDataSet";
+            this.ksiegarniaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // btnGeneruj2
             // 
             this.btnGeneruj2.BackColor = System.Drawing.Color.Pink;
@@ -164,43 +198,9 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // ksiegarniaDataSet
-            // 
-            this.ksiegarniaDataSet.DataSetName = "KsiegarniaDataSet";
-            this.ksiegarniaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // widok_SprzedazNaMiesiacTableAdapter
             // 
             this.widok_SprzedazNaMiesiacTableAdapter.ClearBeforeFill = true;
-            // 
-            // widokSprzedazNaMiesiacBindingSource1
-            // 
-            this.widokSprzedazNaMiesiacBindingSource1.DataMember = "Widok_SprzedazNaMiesiac";
-            this.widokSprzedazNaMiesiacBindingSource1.DataSource = this.ksiegarniaDataSet;
-            // 
-            // tytulDataGridViewTextBoxColumn
-            // 
-            this.tytulDataGridViewTextBoxColumn.DataPropertyName = "Tytul";
-            this.tytulDataGridViewTextBoxColumn.HeaderText = "Tytul";
-            this.tytulDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.tytulDataGridViewTextBoxColumn.Name = "tytulDataGridViewTextBoxColumn";
-            this.tytulDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // miesiacDataGridViewTextBoxColumn
-            // 
-            this.miesiacDataGridViewTextBoxColumn.DataPropertyName = "Miesiac";
-            this.miesiacDataGridViewTextBoxColumn.HeaderText = "Miesiac";
-            this.miesiacDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.miesiacDataGridViewTextBoxColumn.Name = "miesiacDataGridViewTextBoxColumn";
-            this.miesiacDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // sumaSprzedanychDataGridViewTextBoxColumn
-            // 
-            this.sumaSprzedanychDataGridViewTextBoxColumn.DataPropertyName = "SumaSprzedanych";
-            this.sumaSprzedanychDataGridViewTextBoxColumn.HeaderText = "SumaSprzedanych";
-            this.sumaSprzedanychDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.sumaSprzedanychDataGridViewTextBoxColumn.Name = "sumaSprzedanychDataGridViewTextBoxColumn";
-            this.sumaSprzedanychDataGridViewTextBoxColumn.Width = 150;
             // 
             // Raporty
             // 
@@ -209,6 +209,7 @@
             this.AutoSize = true;
             this.BackgroundImage = global::Ksiegarnia2.Properties.Resources.v807_mynt_03;
             this.ClientSize = new System.Drawing.Size(1457, 959);
+            this.ControlBox = false;
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnGeneruj2);
@@ -221,8 +222,8 @@
             this.Load += new System.EventHandler(this.Raporty_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chartSprzedaz)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRaport)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.widokSprzedazNaMiesiacBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

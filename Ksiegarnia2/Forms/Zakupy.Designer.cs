@@ -33,13 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Zakupy));
             this.dgvZasoby = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zasobyBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.ksiegarniaDataSet = new Ksiegarnia2.KsiegarniaDataSet();
             this.label9 = new System.Windows.Forms.Label();
@@ -72,6 +65,14 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZasoby)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zasobyBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet)).BeginInit();
@@ -94,6 +95,7 @@
             this.dgvZasoby.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvZasoby.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvZasoby.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
@@ -111,13 +113,329 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvZasoby.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvZasoby.GridColor = System.Drawing.Color.Crimson;
-            this.dgvZasoby.Location = new System.Drawing.Point(615, 57);
+            this.dgvZasoby.Location = new System.Drawing.Point(692, 71);
             this.dgvZasoby.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvZasoby.Name = "dgvZasoby";
             this.dgvZasoby.RowHeadersWidth = 62;
             this.dgvZasoby.RowTemplate.Height = 28;
-            this.dgvZasoby.Size = new System.Drawing.Size(986, 477);
+            this.dgvZasoby.Size = new System.Drawing.Size(1109, 596);
             this.dgvZasoby.TabIndex = 41;
+            // 
+            // zasobyBindingSource1
+            // 
+            this.zasobyBindingSource1.DataMember = "Zasoby";
+            this.zasobyBindingSource1.DataSource = this.ksiegarniaDataSet;
+            // 
+            // ksiegarniaDataSet
+            // 
+            this.ksiegarniaDataSet.DataSetName = "ksiegarniaDataSet";
+            this.ksiegarniaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Pink;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label9.Location = new System.Drawing.Point(98, 246);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(482, 22);
+            this.label9.TabIndex = 58;
+            this.label9.Text = "Jeśli pozycja ma wiecej niż jednego autora wypiisz ich z \" , \"";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Pink;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label8.Location = new System.Drawing.Point(96, 292);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(134, 29);
+            this.label8.TabIndex = 57;
+            this.label8.Text = "Pracownik";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Pink;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold);
+            this.label6.Location = new System.Drawing.Point(273, 22);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(314, 39);
+            this.label6.TabIndex = 54;
+            this.label6.Text = "Dokonaj transakcji";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Pink;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(101, 461);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 29);
+            this.label4.TabIndex = 52;
+            this.label4.Text = "Cena";
+            // 
+            // txbCenaKoncowa
+            // 
+            this.txbCenaKoncowa.BackColor = System.Drawing.Color.Pink;
+            this.txbCenaKoncowa.Location = new System.Drawing.Point(300, 464);
+            this.txbCenaKoncowa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txbCenaKoncowa.Name = "txbCenaKoncowa";
+            this.txbCenaKoncowa.Size = new System.Drawing.Size(291, 26);
+            this.txbCenaKoncowa.TabIndex = 51;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Pink;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(110, 364);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 29);
+            this.label1.TabIndex = 50;
+            this.label1.Text = "Ilość";
+            // 
+            // txbIlosc
+            // 
+            this.txbIlosc.BackColor = System.Drawing.Color.Pink;
+            this.txbIlosc.Location = new System.Drawing.Point(296, 368);
+            this.txbIlosc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txbIlosc.Name = "txbIlosc";
+            this.txbIlosc.Size = new System.Drawing.Size(291, 26);
+            this.txbIlosc.TabIndex = 49;
+            this.txbIlosc.TextChanged += new System.EventHandler(this.txbIlosc_TextChanged_1);
+            // 
+            // txbIDZasobu
+            // 
+            this.txbIDZasobu.BackColor = System.Drawing.Color.Pink;
+            this.txbIDZasobu.Location = new System.Drawing.Point(296, 188);
+            this.txbIDZasobu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txbIDZasobu.Name = "txbIDZasobu";
+            this.txbIDZasobu.Size = new System.Drawing.Size(291, 26);
+            this.txbIDZasobu.TabIndex = 48;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Pink;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(97, 182);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(128, 29);
+            this.label2.TabIndex = 61;
+            this.label2.Text = "ID zasobu";
+            // 
+            // btnDodaj
+            // 
+            this.btnDodaj.BackColor = System.Drawing.Color.Pink;
+            this.btnDodaj.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnDodaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnDodaj.Location = new System.Drawing.Point(328, 549);
+            this.btnDodaj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDodaj.Name = "btnDodaj";
+            this.btnDodaj.Size = new System.Drawing.Size(235, 52);
+            this.btnDodaj.TabIndex = 62;
+            this.btnDodaj.Text = "Dodaj";
+            this.btnDodaj.UseVisualStyleBackColor = false;
+            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
+            // 
+            // cmbPracownik
+            // 
+            this.cmbPracownik.BackColor = System.Drawing.Color.Pink;
+            this.cmbPracownik.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbPracownik.FormattingEnabled = true;
+            this.cmbPracownik.Location = new System.Drawing.Point(296, 298);
+            this.cmbPracownik.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbPracownik.Name = "cmbPracownik";
+            this.cmbPracownik.Size = new System.Drawing.Size(291, 28);
+            this.cmbPracownik.TabIndex = 63;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Pink;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(101, 419);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(188, 29);
+            this.label3.TabIndex = 65;
+            this.label3.Text = "Cena za sztukę";
+            // 
+            // txbCena
+            // 
+            this.txbCena.BackColor = System.Drawing.Color.Pink;
+            this.txbCena.Location = new System.Drawing.Point(300, 422);
+            this.txbCena.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txbCena.Name = "txbCena";
+            this.txbCena.Size = new System.Drawing.Size(291, 26);
+            this.txbCena.TabIndex = 64;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Pink;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(1610, 11);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.button1.Size = new System.Drawing.Size(107, 48);
+            this.button1.TabIndex = 67;
+            this.button1.Text = "Wróć";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.Pink;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnClose.Location = new System.Drawing.Point(1724, 11);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(68, 48);
+            this.btnClose.TabIndex = 66;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // zasobyTableAdapter
+            // 
+            this.zasobyTableAdapter.ClearBeforeFill = true;
+            // 
+            // pracownicyTableAdapter
+            // 
+            this.pracownicyTableAdapter.ClearBeforeFill = true;
+            // 
+            // historiaZakupowTableAdapter
+            // 
+            this.historiaZakupowTableAdapter.ClearBeforeFill = true;
+            // 
+            // bindingNavigator1
+            // 
+            this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.bindingNavigator1.BindingSource = this.zasobyBindingSource1;
+            this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
+            this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.bindingNavigator1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.bindingNavigator1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bindingNavigatorMoveFirstItem,
+            this.bindingNavigatorMovePreviousItem,
+            this.bindingNavigatorSeparator,
+            this.bindingNavigatorPositionItem,
+            this.bindingNavigatorCountItem,
+            this.bindingNavigatorSeparator1,
+            this.bindingNavigatorMoveNextItem,
+            this.bindingNavigatorMoveLastItem,
+            this.bindingNavigatorSeparator2,
+            this.bindingNavigatorAddNewItem,
+            this.bindingNavigatorDeleteItem});
+            this.bindingNavigator1.Location = new System.Drawing.Point(0, 669);
+            this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.bindingNavigator1.Name = "bindingNavigator1";
+            this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
+            this.bindingNavigator1.Size = new System.Drawing.Size(1803, 33);
+            this.bindingNavigator1.TabIndex = 68;
+            this.bindingNavigator1.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(34, 28);
+            this.bindingNavigatorAddNewItem.Text = "Dodaj nowy";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 28);
+            this.bindingNavigatorCountItem.Text = "z {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Suma elementów";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(34, 28);
+            this.bindingNavigatorDeleteItem.Text = "Usuń";
+            // 
+            // bindingNavigatorMoveFirstItem
+            // 
+            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(34, 28);
+            this.bindingNavigatorMoveFirstItem.Text = "Przenieś pierwszy";
+            // 
+            // bindingNavigatorMovePreviousItem
+            // 
+            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(34, 28);
+            this.bindingNavigatorMovePreviousItem.Text = "Przenieś poprzedni";
+            // 
+            // bindingNavigatorSeparator
+            // 
+            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 33);
+            // 
+            // bindingNavigatorPositionItem
+            // 
+            this.bindingNavigatorPositionItem.AccessibleName = "Pozycja";
+            this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 31);
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.ToolTipText = "Bieżąca pozycja";
+            // 
+            // bindingNavigatorSeparator1
+            // 
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 33);
+            // 
+            // bindingNavigatorMoveNextItem
+            // 
+            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(34, 28);
+            this.bindingNavigatorMoveNextItem.Text = "Przenieś następny";
+            // 
+            // bindingNavigatorMoveLastItem
+            // 
+            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(34, 28);
+            this.bindingNavigatorMoveLastItem.Text = "Przenieś ostatni";
+            // 
+            // bindingNavigatorSeparator2
+            // 
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 33);
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 8;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 150;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -175,321 +493,14 @@
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.Width = 150;
             // 
-            // zasobyBindingSource1
-            // 
-            this.zasobyBindingSource1.DataMember = "Zasoby";
-            this.zasobyBindingSource1.DataSource = this.ksiegarniaDataSet;
-            // 
-            // ksiegarniaDataSet
-            // 
-            this.ksiegarniaDataSet.DataSetName = "ksiegarniaDataSet";
-            this.ksiegarniaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Pink;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.Location = new System.Drawing.Point(87, 197);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(401, 18);
-            this.label9.TabIndex = 58;
-            this.label9.Text = "Jeśli pozycja ma wiecej niż jednego autora wypiisz ich z \" , \"";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Pink;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(85, 234);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(111, 25);
-            this.label8.TabIndex = 57;
-            this.label8.Text = "Pracownik";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Pink;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(243, 18);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(273, 33);
-            this.label6.TabIndex = 54;
-            this.label6.Text = "Dokonaj transakcji";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Pink;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(90, 369);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 25);
-            this.label4.TabIndex = 52;
-            this.label4.Text = "Cena";
-            // 
-            // txbCenaKoncowa
-            // 
-            this.txbCenaKoncowa.BackColor = System.Drawing.Color.Pink;
-            this.txbCenaKoncowa.Location = new System.Drawing.Point(267, 371);
-            this.txbCenaKoncowa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txbCenaKoncowa.Name = "txbCenaKoncowa";
-            this.txbCenaKoncowa.Size = new System.Drawing.Size(259, 22);
-            this.txbCenaKoncowa.TabIndex = 51;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Pink;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(98, 291);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 25);
-            this.label1.TabIndex = 50;
-            this.label1.Text = "Ilość";
-            // 
-            // txbIlosc
-            // 
-            this.txbIlosc.BackColor = System.Drawing.Color.Pink;
-            this.txbIlosc.Location = new System.Drawing.Point(263, 294);
-            this.txbIlosc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txbIlosc.Name = "txbIlosc";
-            this.txbIlosc.Size = new System.Drawing.Size(259, 22);
-            this.txbIlosc.TabIndex = 49;
-            this.txbIlosc.TextChanged += new System.EventHandler(this.txbIlosc_TextChanged_1);
-            // 
-            // txbIDZasobu
-            // 
-            this.txbIDZasobu.BackColor = System.Drawing.Color.Pink;
-            this.txbIDZasobu.Location = new System.Drawing.Point(263, 150);
-            this.txbIDZasobu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txbIDZasobu.Name = "txbIDZasobu";
-            this.txbIDZasobu.Size = new System.Drawing.Size(259, 22);
-            this.txbIDZasobu.TabIndex = 48;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Pink;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(86, 146);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 25);
-            this.label2.TabIndex = 61;
-            this.label2.Text = "ID zasobu";
-            // 
-            // btnDodaj
-            // 
-            this.btnDodaj.BackColor = System.Drawing.Color.Pink;
-            this.btnDodaj.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnDodaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnDodaj.Location = new System.Drawing.Point(292, 439);
-            this.btnDodaj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(209, 42);
-            this.btnDodaj.TabIndex = 62;
-            this.btnDodaj.Text = "Dodaj";
-            this.btnDodaj.UseVisualStyleBackColor = false;
-            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
-            // 
-            // cmbPracownik
-            // 
-            this.cmbPracownik.BackColor = System.Drawing.Color.Pink;
-            this.cmbPracownik.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbPracownik.FormattingEnabled = true;
-            this.cmbPracownik.Location = new System.Drawing.Point(263, 238);
-            this.cmbPracownik.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cmbPracownik.Name = "cmbPracownik";
-            this.cmbPracownik.Size = new System.Drawing.Size(259, 24);
-            this.cmbPracownik.TabIndex = 63;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Pink;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(90, 335);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(162, 25);
-            this.label3.TabIndex = 65;
-            this.label3.Text = "Cena za sztukę";
-            // 
-            // txbCena
-            // 
-            this.txbCena.BackColor = System.Drawing.Color.Pink;
-            this.txbCena.Location = new System.Drawing.Point(267, 338);
-            this.txbCena.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txbCena.Name = "txbCena";
-            this.txbCena.Size = new System.Drawing.Size(259, 22);
-            this.txbCena.TabIndex = 64;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Pink;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(1431, 9);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.button1.Size = new System.Drawing.Size(95, 38);
-            this.button1.TabIndex = 67;
-            this.button1.Text = "Wróć";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.Pink;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnClose.Location = new System.Drawing.Point(1532, 9);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(60, 38);
-            this.btnClose.TabIndex = 66;
-            this.btnClose.Text = "X";
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // zasobyTableAdapter
-            // 
-            this.zasobyTableAdapter.ClearBeforeFill = true;
-            // 
-            // pracownicyTableAdapter
-            // 
-            this.pracownicyTableAdapter.ClearBeforeFill = true;
-            // 
-            // historiaZakupowTableAdapter
-            // 
-            this.historiaZakupowTableAdapter.ClearBeforeFill = true;
-            // 
-            // bindingNavigator1
-            // 
-            this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.bindingNavigator1.BindingSource = this.zasobyBindingSource1;
-            this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
-            this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.bindingNavigator1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bindingNavigator1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem});
-            this.bindingNavigator1.Location = new System.Drawing.Point(0, 531);
-            this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.bindingNavigator1.Name = "bindingNavigator1";
-            this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(1603, 31);
-            this.bindingNavigator1.TabIndex = 68;
-            this.bindingNavigator1.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
-            this.bindingNavigatorAddNewItem.Text = "Dodaj nowy";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(38, 28);
-            this.bindingNavigatorCountItem.Text = "z {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Suma elementów";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 28);
-            this.bindingNavigatorDeleteItem.Text = "Usuń";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
-            this.bindingNavigatorMoveFirstItem.Text = "Przenieś pierwszy";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
-            this.bindingNavigatorMovePreviousItem.Text = "Przenieś poprzedni";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Pozycja";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(45, 27);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Bieżąca pozycja";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
-            this.bindingNavigatorMoveNextItem.Text = "Przenieś następny";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
-            this.bindingNavigatorMoveLastItem.Text = "Przenieś ostatni";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
-            // 
             // Zakupy
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackgroundImage = global::Ksiegarnia2.Properties.Resources.v807_mynt_03;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1603, 562);
+            this.ClientSize = new System.Drawing.Size(1803, 702);
             this.ControlBox = false;
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.button1);
@@ -565,6 +576,7 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.BindingSource zasobyBindingSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;

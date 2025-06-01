@@ -32,15 +32,28 @@ namespace Ksiegarnia.Forms
             // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet.Zasoby' . Możesz go przenieść lub usunąć.
             this.zasobyTableAdapter.Fill(this.ksiegarniaDataSet.Zasoby);
             // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet5.Pracownicy' . Możesz go przenieść lub usunąć.
-           
             
-            
-            
+
+
+
+
 
             cmbPracownik.DataSource = ksiegarniaDataSet.Pracownicy;
             cmbPracownik.DisplayMember = "Email";
             cmbPracownik.ValueMember = "Email";
         }
+        private void WyswietlNazwyKolumn()
+        {
+            string kolumny = "Nazwy kolumn:\n";
+
+            foreach (DataGridViewColumn kolumna in dgvZasoby.Columns)
+            {
+                kolumny += kolumna.HeaderText + " (" + kolumna.Name + ")\n";
+            }
+
+            MessageBox.Show(kolumny, "Kolumny w DataGridView");
+        }
+
 
         private void dgvZasoby_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -48,7 +61,7 @@ namespace Ksiegarnia.Forms
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvZasoby.Rows[e.RowIndex];
-                txbIDZasobu.Text = row.Cells["dataGridViewTextBoxColumn1"].Value?.ToString() ?? string.Empty;
+                txbIDZasobu.Text = row.Cells["Id"].Value?.ToString() ?? string.Empty;
                 txbCena.Text = row.Cells["dataGridViewTextBoxColumn8"].Value?.ToString() ?? string.Empty;
             }
         }
@@ -160,7 +173,7 @@ namespace Ksiegarnia.Forms
 
                 zasobyTableAdapter.Update(ksiegarniaDataSet.Zasoby);
 
-                MessageBox.Show($"Zasób został dodany i ilość została zaktualizowana.\nCena końcowa zakupu wyniosła: {cenaPoRabacie:F2} zł");
+                MessageBox.Show($"Transakcja udana! Zostały naliczone rabaty!. \nCena końcowa zakupu wyniosła: {cenaPoRabacie:F2} zł");
 
                 OdswiezDane();
             }
