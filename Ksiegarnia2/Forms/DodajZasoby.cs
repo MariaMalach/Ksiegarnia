@@ -20,6 +20,7 @@ namespace Ksiegarnia2.Forms
 
         private DataSet zasobyDataSet;
         private SqlConnection conn;
+       
 
         public DodajZasoby()
         {
@@ -28,20 +29,31 @@ namespace Ksiegarnia2.Forms
             InitAutorzyAdapter();
             InitZasobyAutorzyAdapter();
             dgvZasoby.CellClick += dgvZasoby_CellContentClick;
+          
         }
+        private void WyswietlNazwyKolumn()
+        {
+            string kolumny = "Nazwy kolumn:\n";
 
+            foreach (DataGridViewColumn kolumna in dgvZasoby.Columns)
+            {
+                kolumny += kolumna.HeaderText + " (" + kolumna.Name + ")\n";
+            }
+
+            MessageBox.Show(kolumny, "Kolumny w DataGridView");
+        }
         private void InitAdapter()
         {
             conn = new SqlConnection("Data Source=.;Initial Catalog=Ksiegarnia;Integrated Security=True");
 
-            string selectZasoby = "SELECT * FROM vw_Zasoby_Autorzy_Szcegoly";
+            string selectZasoby = "SELECT * FROM Zasoby";
             zasobyAdapter = new SqlDataAdapter(selectZasoby, conn);
             zasobyAdapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
             zasobyCommandBuilder = new SqlCommandBuilder(zasobyAdapter);
 
             zasobyDataSet = new DataSet();
-            zasobyAdapter.Fill(zasobyDataSet, "vw_Zasoby_Autorzy_Szcegoly");
-            dgvZasoby.DataSource = zasobyDataSet.Tables["vw_Zasoby_Autorzy_Szcegoly"];
+            zasobyAdapter.Fill(zasobyDataSet, "Zasoby");
+            dgvZasoby.DataSource = zasobyDataSet.Tables["Zasoby"];
         }
 
         private void InitAutorzyAdapter()
@@ -317,15 +329,18 @@ namespace Ksiegarnia2.Forms
         {
             if (e.RowIndex < 0) return;
 
-            var row = zasobyDataSet.Tables["Zasoby"].Rows[e.RowIndex];
-            txbTytul.Text = row.Field<string>("Tytul");
-            textRokWydania.Text = row.Field<int>("RokWydania").ToString();
-            textIlosc.Text = row.Field<int>("Ilosc").ToString();
-            textBoxCena.Text = row.Field<decimal>("Cena").ToString();
-            textBoxKategoria.Text = row.Field<string>("Kategoria");
-            textBoxWydawnictwo.Text = row.Field<string>("Wydawnictwo");
+            DataGridViewRow selectedRow = dgvZasoby.Rows[e.RowIndex];
 
-            int idZasobu = row.Field<int>("Id");
+            txbTytul.Text = selectedRow.Cells["DataGridViewTextBoxColumn5"].Value?.ToString() ?? string.Empty;
+            textRokWydania.Text = selectedRow.Cells["DataGridViewTextBoxColumn7"].Value?.ToString() ?? string.Empty;
+            textIlosc.Text = selectedRow.Cells["Ilosc"].Value?.ToString() ?? string.Empty;
+            textBoxCena.Text = selectedRow.Cells["Cena"].Value?.ToString() ?? string.Empty;
+            textBoxKategoria.Text = selectedRow.Cells["DataGridViewTextBoxColumn8"].Value?.ToString() ?? string.Empty;
+            textBoxWydawnictwo.Text = selectedRow.Cells["DataGridViewTextBoxColumn9"].Value?.ToString() ?? string.Empty;
+
+            if (selectedRow.Cells["Id"].Value == null) return;
+            int idZasobu = Convert.ToInt32(selectedRow.Cells["Id"].Value);
+
             var powiazania = zasobyDataSet.Tables["Zasoby_Autorzy"].AsEnumerable()
                 .Where(r => r.Field<int>("IdZasobu") == idZasobu);
 
@@ -333,8 +348,10 @@ namespace Ksiegarnia2.Forms
             foreach (var p in powiazania)
             {
                 int idAutora = p.Field<int>("IdAutora");
+
                 var autorRow = zasobyDataSet.Tables["Autorzy"].AsEnumerable()
                     .FirstOrDefault(a => a.Field<int>("Id") == idAutora);
+
                 if (autorRow != null)
                 {
                     string imie = autorRow.Field<string>("Imie");
@@ -342,10 +359,10 @@ namespace Ksiegarnia2.Forms
                     imionaNazwiska.Add($"{imie} {nazwisko}");
                 }
             }
+
             textBoxAutorzy.Text = string.Join(", ", imionaNazwiska);
-
-
         }
+
 
         private void dgvZasoby_CellContentClick2(object sender, DataGridViewCellEventArgs e)
         {
@@ -360,6 +377,9 @@ namespace Ksiegarnia2.Forms
         {
             // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet.vw_Zasoby_Autorzy_Szcegoly' . Możesz go przenieść lub usunąć.
             this.vw_Zasoby_Autorzy_SzcegolyTableAdapter.Fill(this.ksiegarniaDataSet.vw_Zasoby_Autorzy_Szcegoly);
+            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'ksiegarniaDataSet.Zasoby' . Możesz go przenieść lub usunąć.
+            this.zasobyTableAdapter.Fill(this.ksiegarniaDataSet.Zasoby);
+          
 
         }
     }

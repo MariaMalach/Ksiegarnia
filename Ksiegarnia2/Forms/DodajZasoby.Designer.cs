@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.txbTytul = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,6 +46,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.dgvZasoby = new System.Windows.Forms.DataGridView();
+            this.ksiegarniaDataSet = new Ksiegarnia2.KsiegarniaDataSet();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxCena = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -52,16 +55,24 @@
             this.textBoxWydawnictwo = new System.Windows.Forms.TextBox();
             this.textBoxKategoria = new System.Windows.Forms.TextBox();
             this.buttonEdycja = new System.Windows.Forms.Button();
-            this.ksiegarniaDataSet = new Ksiegarnia2.KsiegarniaDataSet();
-            this.vwZasobyAutorzySzcegolyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vw_Zasoby_Autorzy_SzcegolyTableAdapter = new Ksiegarnia2.KsiegarniaDataSetTableAdapters.vw_Zasoby_Autorzy_SzcegolyTableAdapter();
+            this.zasobyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.zasobyTableAdapter = new Ksiegarnia2.KsiegarniaDataSetTableAdapters.ZasobyTableAdapter();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ilosc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cena = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.vwZasobyAutorzySzcegolyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vw_Zasoby_Autorzy_SzcegolyTableAdapter = new Ksiegarnia2.KsiegarniaDataSetTableAdapters.vw_Zasoby_Autorzy_SzcegolyTableAdapter();
+            this.Tytul = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Autorzy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZasoby)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zasobyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwZasobyAutorzySzcegolyBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -178,7 +189,7 @@
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(1418, 14);
+            this.button1.Location = new System.Drawing.Point(1624, 11);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -192,7 +203,7 @@
             // 
             this.btnClose.BackColor = System.Drawing.Color.Pink;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnClose.Location = new System.Drawing.Point(1530, 14);
+            this.btnClose.Location = new System.Drawing.Point(1736, 11);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(68, 48);
@@ -216,12 +227,14 @@
             this.dgvZasoby.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvZasoby.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvZasoby.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
             this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
+            this.Ilosc,
+            this.Cena,
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9});
-            this.dgvZasoby.DataSource = this.vwZasobyAutorzySzcegolyBindingSource;
+            this.dgvZasoby.DataSource = this.zasobyBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightPink;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.999999F);
@@ -236,9 +249,14 @@
             this.dgvZasoby.Name = "dgvZasoby";
             this.dgvZasoby.RowHeadersWidth = 62;
             this.dgvZasoby.RowTemplate.Height = 28;
-            this.dgvZasoby.Size = new System.Drawing.Size(1040, 552);
+            this.dgvZasoby.Size = new System.Drawing.Size(613, 528);
             this.dgvZasoby.TabIndex = 40;
             this.dgvZasoby.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvZasoby_CellContentClick);
+            // 
+            // ksiegarniaDataSet
+            // 
+            this.ksiegarniaDataSet.DataSetName = "KsiegarniaDataSet";
+            this.ksiegarniaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label7
             // 
@@ -323,19 +341,23 @@
             this.buttonEdycja.UseVisualStyleBackColor = false;
             this.buttonEdycja.Click += new System.EventHandler(this.button2_Click);
             // 
-            // ksiegarniaDataSet
+            // zasobyBindingSource
             // 
-            this.ksiegarniaDataSet.DataSetName = "KsiegarniaDataSet";
-            this.ksiegarniaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.zasobyBindingSource.DataMember = "Zasoby";
+            this.zasobyBindingSource.DataSource = this.ksiegarniaDataSet;
             // 
-            // vwZasobyAutorzySzcegolyBindingSource
+            // zasobyTableAdapter
             // 
-            this.vwZasobyAutorzySzcegolyBindingSource.DataMember = "vw_Zasoby_Autorzy_Szcegoly";
-            this.vwZasobyAutorzySzcegolyBindingSource.DataSource = this.ksiegarniaDataSet;
+            this.zasobyTableAdapter.ClearBeforeFill = true;
             // 
-            // vw_Zasoby_Autorzy_SzcegolyTableAdapter
+            // Id
             // 
-            this.vw_Zasoby_Autorzy_SzcegolyTableAdapter.ClearBeforeFill = true;
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 8;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 150;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -345,13 +367,21 @@
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.Width = 150;
             // 
-            // dataGridViewTextBoxColumn6
+            // Ilosc
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Autorzy";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Autorzy";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 150;
+            this.Ilosc.DataPropertyName = "Ilosc";
+            this.Ilosc.HeaderText = "Ilosc";
+            this.Ilosc.MinimumWidth = 8;
+            this.Ilosc.Name = "Ilosc";
+            this.Ilosc.Width = 150;
+            // 
+            // Cena
+            // 
+            this.Cena.DataPropertyName = "Cena";
+            this.Cena.HeaderText = "Cena";
+            this.Cena.MinimumWidth = 8;
+            this.Cena.Name = "Cena";
+            this.Cena.Width = 150;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -377,6 +407,66 @@
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.Width = 150;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.Pink;
+            this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightPink;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkMagenta;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.RosyBrown;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Tytul,
+            this.Autorzy});
+            this.dataGridView1.DataSource = this.vwZasobyAutorzySzcegolyBindingSource;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightPink;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.999999F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkMagenta;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridView1.GridColor = System.Drawing.Color.Crimson;
+            this.dataGridView1.Location = new System.Drawing.Point(1191, 109);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 62;
+            this.dataGridView1.RowTemplate.Height = 28;
+            this.dataGridView1.Size = new System.Drawing.Size(613, 528);
+            this.dataGridView1.TabIndex = 49;
+            // 
+            // vwZasobyAutorzySzcegolyBindingSource
+            // 
+            this.vwZasobyAutorzySzcegolyBindingSource.DataMember = "vw_Zasoby_Autorzy_Szcegoly";
+            this.vwZasobyAutorzySzcegolyBindingSource.DataSource = this.ksiegarniaDataSet;
+            // 
+            // vw_Zasoby_Autorzy_SzcegolyTableAdapter
+            // 
+            this.vw_Zasoby_Autorzy_SzcegolyTableAdapter.ClearBeforeFill = true;
+            // 
+            // Tytul
+            // 
+            this.Tytul.DataPropertyName = "Tytul";
+            this.Tytul.HeaderText = "Tytul";
+            this.Tytul.MinimumWidth = 8;
+            this.Tytul.Name = "Tytul";
+            this.Tytul.Width = 150;
+            // 
+            // Autorzy
+            // 
+            this.Autorzy.DataPropertyName = "Autorzy";
+            this.Autorzy.HeaderText = "Autorzy";
+            this.Autorzy.MinimumWidth = 8;
+            this.Autorzy.Name = "Autorzy";
+            this.Autorzy.Width = 150;
+            // 
             // DodajZasoby
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -384,8 +474,9 @@
             this.AutoSize = true;
             this.BackgroundImage = global::Ksiegarnia2.Properties.Resources.v807_mynt_03;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1611, 702);
+            this.ClientSize = new System.Drawing.Size(1833, 702);
             this.ControlBox = false;
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonEdycja);
             this.Controls.Add(this.textBoxWydawnictwo);
             this.Controls.Add(this.textBoxKategoria);
@@ -413,6 +504,8 @@
             this.Load += new System.EventHandler(this.DodajZasoby_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvZasoby)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ksiegarniaDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zasobyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwZasobyAutorzySzcegolyBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -457,12 +550,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataUtworzeniaDataGridViewTextBoxColumn;
         private KsiegarniaDataSet ksiegarniaDataSet;
-        private System.Windows.Forms.BindingSource vwZasobyAutorzySzcegolyBindingSource;
-        private KsiegarniaDataSetTableAdapters.vw_Zasoby_Autorzy_SzcegolyTableAdapter vw_Zasoby_Autorzy_SzcegolyTableAdapter;
+        private System.Windows.Forms.BindingSource zasobyBindingSource;
+        private KsiegarniaDataSetTableAdapters.ZasobyTableAdapter zasobyTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ilosc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cena;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource vwZasobyAutorzySzcegolyBindingSource;
+        private KsiegarniaDataSetTableAdapters.vw_Zasoby_Autorzy_SzcegolyTableAdapter vw_Zasoby_Autorzy_SzcegolyTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tytul;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Autorzy;
     }
 }
